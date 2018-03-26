@@ -7,7 +7,7 @@
     <php>
         <const name="API_LOGIN" value="login"/>
         <const name="API_PASSWORD" value="password"/>
-        <const name="API_TOKEN" value="token"/>
+        <const name="API_TOKEN" value="integration_access_token"/>
         <const name="API_TENANT_DOMAIN" value="google"/>
         <const name="API_URI" value="http://google.dooglys.local:8225/api/"/>
     </php>

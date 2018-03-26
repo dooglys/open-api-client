@@ -2,7 +2,6 @@
 
 namespace Dooglys\Api;
 
-
 use Dooglys\Api\Exception\BadResponseException;
 use Dooglys\Api\Response\JsonResponseFactory;
 use GuzzleHttp\Psr7\Response;
@@ -276,7 +275,7 @@ class Client implements ClientInterface {
      * @return mixed
      */
     public function loyaltySettingsView () {
-        return $this->callMethod ('v1/loyalty/settings/view/');
+        return $this->callMethod ('v1/loyalty/settings/view');
     }
 
     /**
