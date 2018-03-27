@@ -317,4 +317,45 @@ class Client implements ClientInterface {
     public function terminalMenuMenuModifier ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/modifier/' . $id);
     }
+
+    /**
+     * API метод /v1/sales/order/view
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function salesOrderView ($id) {
+        return $this->callMethod ('v1/sales/order/view/' . $id);
+    }
+
+    /**
+     * API метод /v1/sales/order/create
+     * @param array $options
+     *
+     * @return mixed
+     */
+    public function salesOrderCreate (array $options = []) {
+        return $this->callMethod ('v1/sales/order/create/', 'POST', $options);
+    }
+
+    /**
+     * API метод /v1/sales/order/update
+     * @param $id
+     * @param array $options
+     *
+     * @return mixed
+     */
+    public function salelOrderUpdate ($id, array $options = []) {
+        return $this->callMethod ('v1/sales/order/view/' . $id, 'POST', $options);
+    }
+
+    /**
+     * API метод /v1/sales/order/list
+     * @param array $options
+     *
+     * @return mixed
+     */
+    public function salesOrderList (array $options = []) {
+        return $this->callMethod ('v1/sales/order/list', 'GET', $options);
+    }
 }
