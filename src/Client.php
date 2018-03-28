@@ -17,7 +17,7 @@ class Client implements ClientInterface {
     protected $httpClient;
 
     /** @var string */
-    protected $baseUri = 'api.dooglys.com';
+    protected $baseUri = '.dooglys.com/api/';
 
     /** @var  integer */
     protected $timeout = 300;
