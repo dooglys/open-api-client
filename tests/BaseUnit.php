@@ -18,17 +18,7 @@ class BaseUnit extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->client = new Client(['base_uri' => API_URI]);
-        $this->client->setTenantDomain(API_TENANT_DOMAIN);
+        $this->client = new Client(API_TENANT_DOMAIN, API_TOKEN, ['base_uri' => API_URI]);
         parent::setUp();
     }
-
-    /**
-     * Set token for client requests
-     */
-    protected function setClientToken()
-    {
-        $this->client->setAccessToken(API_TOKEN);
-    }
-
 }

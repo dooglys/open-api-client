@@ -44,11 +44,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -56,9 +56,9 @@
 							"raw": "{\n    \"name\" : \"Tenant Test1\",\n    \"domain\" : \"tenant3434\",\n    \"users\" : [\n        {\n            \"login\": \"test_user5\",\n            \"role\": \"director\",\n            \"password\": \"password\",\n            \"first_name\": \"Петр\",\n            \"last_name\": \"Марочкин\",\n            \"email\": \"test_email@test.ru\",\n            \"phone\": \"+79781231212\"\n        }\n    ]\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/structure/tenant/settings",
+							"raw": "https://google.api.dooglys.com/structure/tenant/settings",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"structure",
@@ -66,7 +66,7 @@
 								"settings"
 							]
 						},
-						"description": "Чтобы настройки предприятия, вам необходимо выполнить запрос к\n`{{base_uri}}/structure/tenant/settings` с помощью метода `POST`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа"
+						"description": "Чтобы настройки предприятия, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/structure/tenant/settings` с помощью метода `POST`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа"
 					},
 					"response": []
 				}
@@ -87,11 +87,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -99,9 +99,9 @@
 							"raw": "{\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"transaction_id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/loyalty/transaction/buy-return",
+							"raw": "https://google.api.dooglys.com/loyalty/transaction/buy-return",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"loyalty",
@@ -109,7 +109,7 @@
 								"buy-return"
 							]
 						},
-						"description": "Чтобы вернуть транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}/loyalty/transaction/buy-return` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nuser_id       |   body          |      Нет       | string       | ID пользователя терминала\nsale_point_id |   body          |      Нет       | string       | ID торговой точки"
+						"description": "Чтобы вернуть транзакцию по карте, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/loyalty/transaction/buy-return` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nuser_id       |   body          |      Нет       | string       | ID пользователя терминала\nsale_point_id |   body          |      Нет       | string       | ID торговой точки"
 					},
 					"response": [
 						{
@@ -124,11 +124,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -136,9 +136,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}/loyalty/transaction/buy-return",
+									"raw": "https://google.api.dooglys.com/loyalty/transaction/buy-return",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"loyalty",
@@ -229,11 +229,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -241,9 +241,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}/loyalty/settings/view",
+							"raw": "https://google.api.dooglys.com/loyalty/settings/view",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"loyalty",
@@ -251,7 +251,7 @@
 								"view"
 							]
 						},
-						"description": "Чтобы получить настройки лояльности, вам необходимо выполнить запрос к\n`{{base_uri}}/loyalty/settings/view` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа"
+						"description": "Чтобы получить настройки лояльности, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/loyalty/settings/view` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа"
 					},
 					"response": [
 						{
@@ -266,11 +266,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -278,9 +278,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}/loyalty/settings/view",
+									"raw": "https://google.api.dooglys.com/loyalty/settings/view",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"loyalty",
@@ -371,11 +371,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -383,9 +383,9 @@
 							"raw": "{\n  \"transaction_id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\",\n  \"auth_type\": \"track2\",\n  \"balance_down\": 25\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/loyalty/transaction/buy-commit",
+							"raw": "https://google.api.dooglys.com/loyalty/transaction/buy-commit",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"loyalty",
@@ -393,7 +393,7 @@
 								"buy-commit"
 							]
 						},
-						"description": "Чтобы подтвердить транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}/loyalty/transaction/buy-commit` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nauth_type     |   body          |      Да        | string       | Способ идентификации покупателя\nbalance_down  |   body          |      Нет       | float        | Кол-во денег или бонусов для списания"
+						"description": "Чтобы подтвердить транзакцию по карте, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/loyalty/transaction/buy-commit` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nauth_type     |   body          |      Да        | string       | Способ идентификации покупателя\nbalance_down  |   body          |      Нет       | float        | Кол-во денег или бонусов для списания"
 					},
 					"response": [
 						{
@@ -408,11 +408,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -420,9 +420,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}/loyalty/transaction/buy-commit",
+									"raw": "https://google.api.dooglys.com/loyalty/transaction/buy-commit",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"loyalty",
@@ -513,11 +513,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -525,9 +525,9 @@
 							"raw": "{\n  \"track2\": \"2010020020005389016=20251210148423111\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/loyalty/card/info",
+							"raw": "https://google.api.dooglys.com/loyalty/card/info",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"loyalty",
@@ -535,7 +535,7 @@
 								"info"
 							]
 						},
-						"description": "Чтобы получить информацию о карте, вам необходимо выполнить запрос к\n`{{base_uri}}/loyalty/card/info` с помощью метода `POST`\n\n\nПараметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\ntrack2       |   body          |      Нет       | string       | 35-символьное значение Track2\nnum          |   body          |      Нет       | string       | Номер карты (с ведущими нулями)\ndate         |   body          |      Нет       | int32        | Дата совершения запроса"
+						"description": "Чтобы получить информацию о карте, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/loyalty/card/info` с помощью метода `POST`\n\n\nПараметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\ntrack2       |   body          |      Нет       | string       | 35-символьное значение Track2\nnum          |   body          |      Нет       | string       | Номер карты (с ведущими нулями)\ndate         |   body          |      Нет       | int32        | Дата совершения запроса"
 					},
 					"response": [
 						{
@@ -550,11 +550,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -562,9 +562,9 @@
 									"raw": "{\n  \"track2\": \"2010020020005389016=20251210148423111\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/loyalty/card/info",
+									"raw": "https://google.api.dooglys.com/loyalty/card/info",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"loyalty",
@@ -655,11 +655,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -667,9 +667,9 @@
 							"raw": "{\n  \"card_id\": \"92ca09a2-a51f-4e51-adce-08c76ef73a4f\",\n  \"date\": 1512476269,\n  \"total_cost\": 1000,\n  \"loyalty_cost\": 1000,\n  \"order_type\": \"sale_point\",\n  \"auth_type\": \"track2\",\n  \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"order_items\": [\n        {\n            \"product_id\": \"fef36b6d-5ba3-452c-8f39-22a75912b674\",\n            \"quantity\": 10,\n            \"cost\": 100,\n            \"total_cost\": 1000,\n            \"price\": 100\n        }\n  ]\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/loyalty/transaction/buy-new",
+							"raw": "https://google.api.dooglys.com/loyalty/transaction/buy-new",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"loyalty",
@@ -677,7 +677,7 @@
 								"buy-new"
 							]
 						},
-						"description": "Чтобы провести новую транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}/loyalty/transaction/buy-new` с помощью метода `POST`\n\nПараметры запроса\n\nИмя                 |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain       |   header        |      Да        | string       | Домен предприятия\nAccess-Token        |   header        |      Да        | string       | Токен доступа\ntotal_cost          |   body          |      Да        | float        | Суммарная стоимость всех товаров в заказе\nloyalty_cost        |   body          |      Нет       | float        | Суммарная стоимость акционных товаров, по которой расчитывается скидка и бонусы\ncard_id             |   body          |      Да        | string       | ID карты\ndate                |   body          |      Да        | int32        | Дата совершения запроса\nauth_type           |   body          |      Да        | string       | Способ идентификации покупателя\norder_type          |   body          |      Да        | string       | Тип заказа\nsale_point_id       |   body          |      Нет       | string       | ID торговой точки\nuser_id             |   body          |      Нет       | string       | ID пользователя терминала\norder_items         |   body          |      Нет       | array        | Товары в заказе\norder_id            |   body          |      Нет       | string       | ID заказа в системе Dooglys\nexternal_order_id   |   body          |      Нет       | string       | ID заказа во внешней системе\nexternal_point_name |   body          |      Нет       | string       | Название торговой точки во внешней системе"
+						"description": "Чтобы провести новую транзакцию по карте, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/loyalty/transaction/buy-new` с помощью метода `POST`\n\nПараметры запроса\n\nИмя                 |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain       |   header        |      Да        | string       | Домен предприятия\nAccess-Token        |   header        |      Да        | string       | Токен доступа\ntotal_cost          |   body          |      Да        | float        | Суммарная стоимость всех товаров в заказе\nloyalty_cost        |   body          |      Нет       | float        | Суммарная стоимость акционных товаров, по которой расчитывается скидка и бонусы\ncard_id             |   body          |      Да        | string       | ID карты\ndate                |   body          |      Да        | int32        | Дата совершения запроса\nauth_type           |   body          |      Да        | string       | Способ идентификации покупателя\norder_type          |   body          |      Да        | string       | Тип заказа\nsale_point_id       |   body          |      Нет       | string       | ID торговой точки\nuser_id             |   body          |      Нет       | string       | ID пользователя терминала\norder_items         |   body          |      Нет       | array        | Товары в заказе\norder_id            |   body          |      Нет       | string       | ID заказа в системе Dooglys\nexternal_order_id   |   body          |      Нет       | string       | ID заказа во внешней системе\nexternal_point_name |   body          |      Нет       | string       | Название торговой точки во внешней системе"
 					},
 					"response": [
 						{
@@ -692,11 +692,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -704,9 +704,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}/loyalty/transaction/buy-new",
+									"raw": "https://google.api.dooglys.com/loyalty/transaction/buy-new",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"loyalty",
@@ -803,11 +803,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -815,9 +815,9 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
+							"raw": "https://google.api.dooglys.com/nomenclature/product/list?per-page=999&include_deleted=1",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"nomenclature",
@@ -835,7 +835,7 @@
 								}
 							]
 						},
-						"description": "Чтобы получить список товаро, вам необходимо выполнить запрос к\n`{{base_uri}}/nomenclature/product/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа\nper-page       |   query         |      Нет       | int32        | Количество записей на страницу\npage           |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ninclude_deleted|   query         |      Нет       | int32        | Флаг показывать ли удаленные товары"
+						"description": "Чтобы получить список товаро, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/nomenclature/product/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа\nper-page       |   query         |      Нет       | int32        | Количество записей на страницу\npage           |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ninclude_deleted|   query         |      Нет       | int32        | Флаг показывать ли удаленные товары"
 					},
 					"response": [
 						{
@@ -850,11 +850,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -862,9 +862,9 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
+									"raw": "https://google.api.dooglys.com/nomenclature/product/list?per-page=999&include_deleted=1",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"nomenclature",
@@ -995,11 +995,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -1007,9 +1007,9 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
+							"raw": "https://google.api.dooglys.com/nomenclature/category/list?per-page=999&include_deleted=1",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"nomenclature",
@@ -1027,7 +1027,7 @@
 								}
 							]
 						},
-						"description": "Чтобы получить список категорий, вам необходимо выполнить запрос к\n`{{base_uri}}/nomenclature/category/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа\nper-page       |   query         |      Нет       | int32        | Количество записей на страницу\npage           |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ninclude_deleted|   query         |      Нет       | int32        | Флаг показывать ли удаленные категории"
+						"description": "Чтобы получить список категорий, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/nomenclature/category/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа\nper-page       |   query         |      Нет       | int32        | Количество записей на страницу\npage           |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ninclude_deleted|   query         |      Нет       | int32        | Флаг показывать ли удаленные категории"
 					},
 					"response": [
 						{
@@ -1042,11 +1042,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -1054,9 +1054,9 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
+									"raw": "https://google.api.dooglys.com/nomenclature/category/list?per-page=999&include_deleted=1",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"nomenclature",
@@ -1187,11 +1187,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -1199,9 +1199,9 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/nomenclature/product/view/cbb79b36-c3e4-40ae-b7b0-f22c401b2421",
+							"raw": "https://google.api.dooglys.com/nomenclature/product/view/cbb79b36-c3e4-40ae-b7b0-f22c401b2421",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"nomenclature",
@@ -1210,7 +1210,7 @@
 								"cbb79b36-c3e4-40ae-b7b0-f22c401b2421"
 							]
 						},
-						"description": "Чтобы получить информацию о товаре, вам необходимо выполнить запрос к\n`{{base_uri}}/nomenclature/product/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
+						"description": "Чтобы получить информацию о товаре, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/nomenclature/product/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
 					},
 					"response": [
 						{
@@ -1225,11 +1225,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -1237,9 +1237,9 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
+									"raw": "https://google.api.dooglys.com/nomenclature/product/list?per-page=999&include_deleted=1",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"nomenclature",
@@ -1370,11 +1370,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -1382,9 +1382,9 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/nomenclature/category/view",
+							"raw": "https://google.api.dooglys.com/nomenclature/category/view",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"nomenclature",
@@ -1392,7 +1392,7 @@
 								"view"
 							]
 						},
-						"description": "Чтобы получить информацию о категории, вам необходимо выполнить запрос к\n`{{base_uri}}/nomenclature/category/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
+						"description": "Чтобы получить информацию о категории, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/nomenclature/category/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
 					},
 					"response": [
 						{
@@ -1407,11 +1407,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -1419,9 +1419,9 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
+									"raw": "https://google.api.dooglys.com/nomenclature/category/list?per-page=999&include_deleted=1",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"nomenclature",
@@ -1558,11 +1558,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -1570,9 +1570,9 @@
 							"raw": "{\n  \n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/structure/user/list",
+							"raw": "https://google.api.dooglys.com/structure/user/list",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"structure",
@@ -1580,7 +1580,7 @@
 								"list"
 							]
 						},
-						"description": "Чтобы получить список пользователей, вам необходимо выполнить запрос к\n`{{base_uri}}/structure/user/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа\nper-page       |   query         |      Нет       | int32        | Количество записей на страницу\npage           |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре"
+						"description": "Чтобы получить список пользователей, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/structure/user/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа\nper-page       |   query         |      Нет       | int32        | Количество записей на страницу\npage           |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре"
 					},
 					"response": [
 						{
@@ -1595,11 +1595,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -1607,9 +1607,9 @@
 									"raw": "{\n  \n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/structure/user/list",
+									"raw": "https://google.api.dooglys.com/structure/user/list",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"structure",
@@ -1730,11 +1730,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -1742,9 +1742,9 @@
 							"raw": "{\n  \n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/structure/user/view/7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5",
+							"raw": "https://google.api.dooglys.com/structure/user/view/7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"structure",
@@ -1753,7 +1753,7 @@
 								"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5"
 							]
 						},
-						"description": "Чтобы получить информацию о пользователе, вам необходимо выполнить запрос к\n`{{base_uri}}/structure/user/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
+						"description": "Чтобы получить информацию о пользователе, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/structure/user/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
 					},
 					"response": [
 						{
@@ -1768,11 +1768,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -1780,9 +1780,9 @@
 									"raw": "{\n  \n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/structure/user/list",
+									"raw": "https://google.api.dooglys.com/structure/user/list",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"structure",
@@ -1909,12 +1909,12 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}",
+								"value": "your_access_token",
 								"description": "Токен доступа"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}",
+								"value": "google",
 								"description": "Домен предприятия. Пример: `pekarni`"
 							}
 						],
@@ -1923,9 +1923,9 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+							"raw": "https://google.api.dooglys.com/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"structure",
@@ -1934,7 +1934,7 @@
 								"b828db52-dc0c-4e26-96af-c32d83a867aa"
 							]
 						},
-						"description": "Чтобы получить информацию о торговой точке, вам необходимо выполнить запрос к\n`{{base_uri}}/structure/sale-point/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
+						"description": "Чтобы получить информацию о торговой точке, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/structure/sale-point/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
 					},
 					"response": [
 						{
@@ -1950,13 +1950,13 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}",
+										"value": "your_access_token",
 										"description": "Токен доступа",
 										"warning": ""
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}",
+										"value": "google",
 										"description": "Домен предприятия. Пример: `pekarni`",
 										"warning": ""
 									}
@@ -1966,9 +1966,9 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+									"raw": "https://google.api.dooglys.com/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"structure",
@@ -2041,12 +2041,12 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}",
+								"value": "your_access_token",
 								"description": "Токен доступа"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}",
+								"value": "google",
 								"description": "Домен предприятия. Пример: `pekarni`"
 							}
 						],
@@ -2055,9 +2055,9 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/structure/sale-point/list",
+							"raw": "https://google.api.dooglys.com/structure/sale-point/list",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"structure",
@@ -2065,7 +2065,7 @@
 								"list"
 							]
 						},
-						"description": "Чтобы получить информацию о торговых точках, вам необходимо выполнить запрос к\n`{{base_uri}}/structure/sale-point/list` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа"
+						"description": "Чтобы получить информацию о торговых точках, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/structure/sale-point/list` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа"
 					},
 					"response": [
 						{
@@ -2081,13 +2081,13 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}",
+										"value": "your_access_token",
 										"description": "Токен доступа",
 										"warning": ""
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}",
+										"value": "google",
 										"description": "Домен предприятия. Пример: `pekarni`",
 										"warning": ""
 									}
@@ -2097,9 +2097,9 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+									"raw": "https://google.api.dooglys.com/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"structure",
@@ -2178,11 +2178,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -2190,9 +2190,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "https://google.api.dooglys.com/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"terminal-menu",
@@ -2201,7 +2201,7 @@
 								"647ea788-3b78-4ef3-a885-d0eb1fc18a35"
 							]
 						},
-						"description": "Чтобы получить наборы меню терминала, вам необходимо выполнить запрос к\n`{{base_uri}}/terminal-menu/menu/kit/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
+						"description": "Чтобы получить наборы меню терминала, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/terminal-menu/menu/kit/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
 					},
 					"response": [
 						{
@@ -2216,11 +2216,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -2228,9 +2228,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "https://google.api.dooglys.com/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"terminal-menu",
@@ -2322,11 +2322,11 @@
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							}
 						],
 						"body": {
@@ -2334,9 +2334,9 @@
 							"raw": "{\n  \"cipher\": \"0001\",\n  \"domain\": \"docker\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
+							"raw": "https://google.api.dooglys.com/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"terminal-menu",
@@ -2351,7 +2351,7 @@
 								}
 							]
 						},
-						"description": "Чтобы получить меню терминала, вам необходимо выполнить запрос к\n`{{base_uri}}/terminal-menu/menu/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
+						"description": "Чтобы получить меню терминала, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/terminal-menu/menu/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
 					},
 					"response": [
 						{
@@ -2366,11 +2366,11 @@
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									}
 								],
 								"body": {
@@ -2378,9 +2378,9 @@
 									"raw": "{\n  \"cipher\": \"0001\",\n  \"domain\": \"docker\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
+									"raw": "https://google.api.dooglys.com/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"terminal-menu",
@@ -2478,11 +2478,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -2490,9 +2490,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "https://google.api.dooglys.com/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"terminal-menu",
@@ -2501,7 +2501,7 @@
 								"647ea788-3b78-4ef3-a885-d0eb1fc18a35"
 							]
 						},
-						"description": "Чтобы получить модификатор меню терминала, вам необходимо выполнить запрос к\n`{{base_uri}}/terminal-menu/menu/modifier/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
+						"description": "Чтобы получить модификатор меню терминала, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/terminal-menu/menu/modifier/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
 					},
 					"response": [
 						{
@@ -2516,11 +2516,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -2528,9 +2528,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "https://google.api.dooglys.com/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"terminal-menu",
@@ -2622,11 +2622,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -2634,9 +2634,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}/terminal-menu/menu/kit-products/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "https://google.api.dooglys.com/terminal-menu/menu/kit-products/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"terminal-menu",
@@ -2645,7 +2645,7 @@
 								"647ea788-3b78-4ef3-a885-d0eb1fc18a35"
 							]
 						},
-						"description": "Чтобы получить список товаров меню, которые являются комплектующими, вам необходимо выполнить запрос к\n`{{base_uri}}/terminal-menu/menu/kit-products/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
+						"description": "Чтобы получить список товаров меню, которые являются комплектующими, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/terminal-menu/menu/kit-products/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
 					},
 					"response": [
 						{
@@ -2660,11 +2660,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -2672,9 +2672,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "https://google.api.dooglys.com/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"terminal-menu",
@@ -2772,11 +2772,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -2784,9 +2784,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+							"raw": "https://google.api.dooglys.com/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"sales",
@@ -2795,7 +2795,7 @@
 								"4ca56dbb-9cfc-46fc-90f4-41101d0d4a49"
 							]
 						},
-						"description": "Чтобы получить информацию о заказе, вам необходимо выполнить запрос к\n`{{base_uri}}/sales/order/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID заказа"
+						"description": "Чтобы получить информацию о заказе, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/sales/order/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID заказа"
 					},
 					"response": [
 						{
@@ -2810,11 +2810,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -2822,9 +2822,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+									"raw": "https://google.api.dooglys.com/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"sales",
@@ -2916,11 +2916,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -2928,9 +2928,9 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/sales/order/list?per-page=999",
+							"raw": "https://google.api.dooglys.com/sales/order/list?per-page=999",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"sales",
@@ -2944,7 +2944,7 @@
 								}
 							]
 						},
-						"description": "Чтобы получить список заказов, вам необходимо выполнить запрос к\n`{{base_uri}}/sales/order/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя                |      Тип        | Обязательный   | Тип значения |  Описание\n:----------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain      |   header        |      Да        | string       | Домен предприятия\nAccess-Token       |   header        |      Да        | string       | Токен доступа\nper-page           |   query         |      Нет       | int32        | Количество записей на страницу\npage               |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ndate_accepted_from |   query         |      Нет       | int32        | Дата оплаты заказа с\ndate_accepted_to   |   query         |      Нет       | int32        | Дата оплаты заказа по\ndate_delivery_from |   query         |      Нет       | int32        | Дата доставки заказа с\ndate_delivery_to   |   query         |      Нет       | int32        | Дата доставки заказа по\ndate_created_from  |   query         |      Нет       | int32        | Дата создания заказа с\ndate_created_to    |   query         |      Нет       | int32        | Дата создания заказа по\norder_status       |   query         |      Нет       | string       | Статус заказа\ntype               |   query         |      Нет       | string       | Тип заказа\nsale_point_id      |   query         |      Нет       | string       | ID торговой точки\n\nДля фильтрации можно использовать только один тип даты. Либо date_accepted(from, to) либо date_delivery(from, to). Одновременно использовать оба типа дат в одном запросе нельзя."
+						"description": "Чтобы получить список заказов, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/sales/order/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя                |      Тип        | Обязательный   | Тип значения |  Описание\n:----------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain      |   header        |      Да        | string       | Домен предприятия\nAccess-Token       |   header        |      Да        | string       | Токен доступа\nper-page           |   query         |      Нет       | int32        | Количество записей на страницу\npage               |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ndate_accepted_from |   query         |      Нет       | int32        | Дата оплаты заказа с\ndate_accepted_to   |   query         |      Нет       | int32        | Дата оплаты заказа по\ndate_delivery_from |   query         |      Нет       | int32        | Дата доставки заказа с\ndate_delivery_to   |   query         |      Нет       | int32        | Дата доставки заказа по\ndate_created_from  |   query         |      Нет       | int32        | Дата создания заказа с\ndate_created_to    |   query         |      Нет       | int32        | Дата создания заказа по\norder_status       |   query         |      Нет       | string       | Статус заказа\ntype               |   query         |      Нет       | string       | Тип заказа\nsale_point_id      |   query         |      Нет       | string       | ID торговой точки\n\nДля фильтрации можно использовать только один тип даты. Либо date_accepted(from, to) либо date_delivery(from, to). Одновременно использовать оба типа дат в одном запросе нельзя."
 					},
 					"response": [
 						{
@@ -2959,11 +2959,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -2971,9 +2971,9 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/sales/order/list?per-page=999",
+									"raw": "https://google.api.dooglys.com/sales/order/list?per-page=999",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"sales",
@@ -3100,11 +3100,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -3112,9 +3112,9 @@
 							"raw": "{\n\t\"id\": \"2ab6b66f-70ba-4940-8a67-b637d6edf46e\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"cashier_shift_id\": \"476011aa-37a2-49cb-985c-a337e3ad1ea1\",\n\t\"number\": \"123\",\n\t\"date_created\": 1478067593,\n\t\"date_accepted\": 1478067593,\n\t\"payment_type\": \"card\",\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/sales/order/create",
+							"raw": "https://google.api.dooglys.com/sales/order/create",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"sales",
@@ -3122,7 +3122,7 @@
 								"create"
 							]
 						},
-						"description": "Чтобы создать новый заказ, вам необходимо выполнить запрос к\n`{{base_uri}}/sales/order/create` с помощью метода `POST`\n\nОбщие параметры запроса при создании заказа\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain    |   header        |      Да        | string       | Домен предприятия\nAccess-Token     |   header        |      Да        | string       | Токен доступа\nid               |   body          |      Да        | string       | ID заказа\norder_status     |   body          |      Да        | string       | Статус заказа\ntype             |   body          |      Да        | string       | Тип заказа\norder_history    |   body          |      Да        | array        | Массив с историей действий над заказом\ntotal_cost       |   body          |      Да        | float        | Сумма заказа с учетом скидки\norder_items      |   body          |      Да        | array        | Массив с товарами заказа\nnumber           |   body          |      Да        | string       | Номер заказа\nitems_cost       |   body          |      Да        | float        | Стоимость товаров (сумма заказа без скидок)\nuser_id          |   body          |      Нет       | string       | ID сотрудника создавшего заказ\ncomment          |   body          |      Нет       | string       | Комментарий к заказу\npayment_type     |   body          |      Нет       | string       | Тип оплаты\ndate_created     |   body          |      Нет       | int32        | Дата создания заказа в формате UNIX TIMESTAMP\ndate_accepted    |   body          |      Нет       | int32        | Дата оплаты заказа в формате UNIX TIMESTAMP\ndiscount_percent |   body          |      Нет       | float        | Скидка в процентах\ndiscount_value   |   body          |      Нет       | float        | Размер скидки, руб.\ncard_id          |   body          |      Нет       | string       | ID примененной карты лояльности\nspecials         |   body          |      Нет       | array        | Массив с ID примененных акций\ncustomer_id      |   body          |      Нет       | string       | ID клиента\nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nsex              |   body          |      Нет       | int32        | Пол клиента\ncheck_printed    |   body          |      Нет       | boolean      | Напечатан чек\nbanknote         |   body          |      Нет       | string       | Банкнота которой оплачен заказ\nsource           |   body          |      Нет       | string       | Источник откуда пришел заказ\n\n\nДополнения при создании заказа на доставку (delivery)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\nphone            |   body          |      Да        | string       | Телефон клиента\nfirst_name       |   body          |      Да        | string       | Имя клиента\naddress          |   body          |      Да        | string       | Адрес доставки\ndate_delivery    |   body          |      Да        | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ndelivery_comment |   body          |      Нет       | string       | Комментарий к доставке\nentrance         |   body          |      Нет       | string       | Подъезд\nfloor            |   body          |      Нет       | string       | Этаж\napartment        |   body          |      Нет       | string       | Квартира/Офис\ncoordinates      |   body          |      Нет       | array        | Массив с координатами вида [lat:xxx,lon:yyy]\nlocation         |   body          |      Нет       | string       | Способ упаковки\ndelivery_type    |   body          |      Нет       | string       | Тип доставки\n\nДополнения при создании заказа розницы (retail)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\npayment_type     |   body          |      Да        | string       | Тип оплаты\ndate_accepted    |   body          |      Да        | int32        | Дата оплаты заказа в формате UNIX TIMESTAMP\ncashier_shift_id |   body          |      Да        | string       | ID кассовой смены\nsale_point_id    |   body          |      Да        | string       | ID торговой точки на которой сделан заказ\nlocation         |   body          |      Нет       | string       | Способ упаковки\n\nДополнения при создании заказа бронирования (hold)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\nsale_point_id    |   body          |      Да        | string       | ID торговой точки на которой сделан заказ\ndate_delivery    |   body          |      Нет       | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\ntable_number     |   body          |      Нет       | string       | Номер стола\nlocation         |   body          |      Нет       | string       | Способ упаковки\n\nДополнения при создании интернет заказа (internet)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nphone            |   body          |      Да        | string       | Телефон клиента\nfirst_name       |   body          |      Да        | string       | Имя клиента\n\n\nЭлементы массива order_items\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \nproduct_id     | string       | ID товара\nquantity       | int32        | Количество\ncost           | int32        | Себестоимость товара\nprice          | int32        | Цена продажи\ntotal_cost     | int32        | Общая стоимость товара в заказе (цена * количество)\n\nЭлементы массива order_history\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \naction_type    | string       | Тип действия\nuser_id        | string       | ID пользователя терминала\naction_date    | int32        | Дата действия в формате UNIX TIMESTAMP\ndetails        | string       | Дополнительная информация"
+						"description": "Чтобы создать новый заказ, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/sales/order/create` с помощью метода `POST`\n\nОбщие параметры запроса при создании заказа\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain    |   header        |      Да        | string       | Домен предприятия\nAccess-Token     |   header        |      Да        | string       | Токен доступа\nid               |   body          |      Да        | string       | ID заказа\norder_status     |   body          |      Да        | string       | Статус заказа\ntype             |   body          |      Да        | string       | Тип заказа\norder_history    |   body          |      Да        | array        | Массив с историей действий над заказом\ntotal_cost       |   body          |      Да        | float        | Сумма заказа с учетом скидки\norder_items      |   body          |      Да        | array        | Массив с товарами заказа\nnumber           |   body          |      Да        | string       | Номер заказа\nitems_cost       |   body          |      Да        | float        | Стоимость товаров (сумма заказа без скидок)\nuser_id          |   body          |      Нет       | string       | ID сотрудника создавшего заказ\ncomment          |   body          |      Нет       | string       | Комментарий к заказу\npayment_type     |   body          |      Нет       | string       | Тип оплаты\ndate_created     |   body          |      Нет       | int32        | Дата создания заказа в формате UNIX TIMESTAMP\ndate_accepted    |   body          |      Нет       | int32        | Дата оплаты заказа в формате UNIX TIMESTAMP\ndiscount_percent |   body          |      Нет       | float        | Скидка в процентах\ndiscount_value   |   body          |      Нет       | float        | Размер скидки, руб.\ncard_id          |   body          |      Нет       | string       | ID примененной карты лояльности\nspecials         |   body          |      Нет       | array        | Массив с ID примененных акций\ncustomer_id      |   body          |      Нет       | string       | ID клиента\nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nsex              |   body          |      Нет       | int32        | Пол клиента\ncheck_printed    |   body          |      Нет       | boolean      | Напечатан чек\nbanknote         |   body          |      Нет       | string       | Банкнота которой оплачен заказ\nsource           |   body          |      Нет       | string       | Источник откуда пришел заказ\n\n\nДополнения при создании заказа на доставку (delivery)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\nphone            |   body          |      Да        | string       | Телефон клиента\nfirst_name       |   body          |      Да        | string       | Имя клиента\naddress          |   body          |      Да        | string       | Адрес доставки\ndate_delivery    |   body          |      Да        | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ndelivery_comment |   body          |      Нет       | string       | Комментарий к доставке\nentrance         |   body          |      Нет       | string       | Подъезд\nfloor            |   body          |      Нет       | string       | Этаж\napartment        |   body          |      Нет       | string       | Квартира/Офис\ncoordinates      |   body          |      Нет       | array        | Массив с координатами вида [lat:xxx,lon:yyy]\nlocation         |   body          |      Нет       | string       | Способ упаковки\ndelivery_type    |   body          |      Нет       | string       | Тип доставки\n\nДополнения при создании заказа розницы (retail)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\npayment_type     |   body          |      Да        | string       | Тип оплаты\ndate_accepted    |   body          |      Да        | int32        | Дата оплаты заказа в формате UNIX TIMESTAMP\ncashier_shift_id |   body          |      Да        | string       | ID кассовой смены\nsale_point_id    |   body          |      Да        | string       | ID торговой точки на которой сделан заказ\nlocation         |   body          |      Нет       | string       | Способ упаковки\n\nДополнения при создании заказа бронирования (hold)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\nsale_point_id    |   body          |      Да        | string       | ID торговой точки на которой сделан заказ\ndate_delivery    |   body          |      Нет       | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\ntable_number     |   body          |      Нет       | string       | Номер стола\nlocation         |   body          |      Нет       | string       | Способ упаковки\n\nДополнения при создании интернет заказа (internet)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nphone            |   body          |      Да        | string       | Телефон клиента\nfirst_name       |   body          |      Да        | string       | Имя клиента\n\n\nЭлементы массива order_items\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \nproduct_id     | string       | ID товара\nquantity       | int32        | Количество\ncost           | int32        | Себестоимость товара\nprice          | int32        | Цена продажи\ntotal_cost     | int32        | Общая стоимость товара в заказе (цена * количество)\n\nЭлементы массива order_history\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \naction_type    | string       | Тип действия\nuser_id        | string       | ID пользователя терминала\naction_date    | int32        | Дата действия в формате UNIX TIMESTAMP\ndetails        | string       | Дополнительная информация"
 					},
 					"response": [
 						{
@@ -3137,11 +3137,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -3149,9 +3149,9 @@
 									"raw": "{\n\t\"id\": \"2ab6b66f-70ba-4940-8a67-b637d6edf46e\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"cashier_shift_id\": \"476011aa-37a2-49cb-985c-a337e3ad1ea1\",\n\t\"number\": \"123\",\n\t\"date_created\": 1478067593,\n\t\"date_accepted\": 1478067593,\n\t\"payment_type\": \"card\",\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/sales/order/create",
+									"raw": "https://google.api.dooglys.com/sales/order/create",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"sales",
@@ -3242,11 +3242,11 @@
 							},
 							{
 								"key": "Access-Token",
-								"value": "{{access_token}}"
+								"value": "your_access_token"
 							},
 							{
 								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
+								"value": "google"
 							}
 						],
 						"body": {
@@ -3254,9 +3254,9 @@
 							"raw": "{\n  \"number\": \"123\",\n  \"payment_type\": \"card\",\n  \"employee_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+							"raw": "https://google.api.dooglys.com/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 							"host": [
-								"{{base_uri}}"
+								"https://google.api.dooglys.com"
 							],
 							"path": [
 								"sales",
@@ -3265,7 +3265,7 @@
 								"4ca56dbb-9cfc-46fc-90f4-41101d0d4a49"
 							]
 						},
-						"description": "Чтобы обновить информацию в заказе, вам необходимо выполнить запрос к\n`{{base_uri}}/sales/order/update` с помощью метода `POST`\n\nПараметры запроса при отмене заказа\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain    |   header        |      Да        | string       | Домен предприятия\nAccess-Token     |   header        |      Да        | string       | Токен доступа\nid               |   query         |      Да        | string       | ID заказа\norder_status     |   body          |      Да        | string       | Статус заказа\nuser_cancelled_id|   body          |      Да        | string       | ID пользователя отменившего заказ\ndate_returned    |   body          |      Да        | int32        | Дата возврата заказа в формате UNIX TIMESTAMP\nreturn_reason    |   body          |      Нет       | string       | Причина возврата заказа\nrejection_reason |   body          |      Нет       | string       | Причина отмены заказа\n\n\nОбщие параметры запроса при обновлении заказа\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain    |   header        |      Да        | string       | Домен предприятия\nAccess-Token     |   header        |      Да        | string       | Токен доступа\nid               |   query         |      Да        | string       | ID заказа\norder_history    |   body          |      Да        | array        | Массив с историей действий над заказом\nis_edited        |   body          |      Да        | boolean      | Заказ редактировался\norder_status     |   body          |      Нет       | string       | Статус заказа\ncomment          |   body          |      Нет       | string       | Комментарий к заказу\ntotal_cost       |   body          |      Нет       | float        | Сумма заказа с учетом скидки\npayment_type     |   body          |      Нет       | string       | Тип оплаты\norder_items      |   body          |      Нет       | array        | Массив с товарами заказа\ndate_accepted    |   body          |      Нет       | int32        | Дата оплаты заказа в формате UNIX TIMESTAMP\ndiscount_percent |   body          |      Нет       | float        | Скидка в процентах\ndiscount_value   |   body          |      Нет       | float        | Размер скидки, руб.\nitems_cost       |   body          |      Нет       | float        | Стоимость товаров (сумма заказа без скидок)\ncard_id          |   body          |      Нет       | string       | ID примененной карты лояльности\nspecials         |   body          |      Нет       | array        | Массив с ID примененных акций\ncheck_printed    |   body          |      Нет       | boolean      | Напечатан чек\nedit_quantity    |   body          |      Нет       | int32        | Количество редактирований заказа\nbanknote         |   body          |      Нет       | string       | Банкнота которой оплачен заказ\nsource           |   body          |      Нет       | string       | Источник откуда пришел заказ\n\nДополнения при обновлении заказа на доставку (delivery)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента\naddress          |   body          |      Нет       | string       | Адрес доставки\ndate_delivery    |   body          |      Нет       | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ndelivery_comment |   body          |      Нет       | string       | Комментарий к доставке\nentrance         |   body          |      Нет       | string       | Подъезд\nfloor            |   body          |      Нет       | string       | Этаж\napartment        |   body          |      Нет       | string       | Квартира/Офис\ncoordinates      |   body          |      Нет       | string       | Координаты\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\n\nДополнения при обновлении заказа бронирования (hold)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\ntable_number     |   body          |      Нет       | string       | Номер стола\n\n\nДополнения при обновлении интернет заказа (internet)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента\naddress          |   body          |      Нет       | string       | Адрес доставки\ndate_delivery    |   body          |      Нет       | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ndelivery_comment |   body          |      Нет       | string       | Комментарий к доставке\nentrance         |   body          |      Нет       | string       | Подъезд\nfloor            |   body          |      Нет       | string       | Этаж\napartment        |   body          |      Нет       | string       | Квартира/Офис\ncoordinates      |   body          |      Нет       | string       | Координаты\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\nsale_point_id    |   body          |      Нет       | string       | ID торговой точки на которой сделан заказ\ntable_number     |   body          |      Нет       | string       | Номер стола\n\nЭлементы массива order_items\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \nproduct_id     | string       | ID товара\nquantity       | int32        | Количество\ncost           | int32        | Себестоимость товара\nprice          | int32        | Цена продажи\ntotal_cost     | int32        | Общая стоимость товара в заказе (цена * количество)\n\nЭлементы массива order_history\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \naction_type    | string       | Тип действия\nuser_id        | string       | ID пользователя терминала\naction_date    | int32        | Дата действия в формате UNIX TIMESTAMP\ndetails        | string       | Дополнительная информация"
+						"description": "Чтобы обновить информацию в заказе, вам необходимо выполнить запрос к\n`https://google.api.dooglys.com/sales/order/update` с помощью метода `POST`\n\nПараметры запроса при отмене заказа\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain    |   header        |      Да        | string       | Домен предприятия\nAccess-Token     |   header        |      Да        | string       | Токен доступа\nid               |   query         |      Да        | string       | ID заказа\norder_status     |   body          |      Да        | string       | Статус заказа\nuser_cancelled_id|   body          |      Да        | string       | ID пользователя отменившего заказ\ndate_returned    |   body          |      Да        | int32        | Дата возврата заказа в формате UNIX TIMESTAMP\nreturn_reason    |   body          |      Нет       | string       | Причина возврата заказа\nrejection_reason |   body          |      Нет       | string       | Причина отмены заказа\n\n\nОбщие параметры запроса при обновлении заказа\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain    |   header        |      Да        | string       | Домен предприятия\nAccess-Token     |   header        |      Да        | string       | Токен доступа\nid               |   query         |      Да        | string       | ID заказа\norder_history    |   body          |      Да        | array        | Массив с историей действий над заказом\nis_edited        |   body          |      Да        | boolean      | Заказ редактировался\norder_status     |   body          |      Нет       | string       | Статус заказа\ncomment          |   body          |      Нет       | string       | Комментарий к заказу\ntotal_cost       |   body          |      Нет       | float        | Сумма заказа с учетом скидки\npayment_type     |   body          |      Нет       | string       | Тип оплаты\norder_items      |   body          |      Нет       | array        | Массив с товарами заказа\ndate_accepted    |   body          |      Нет       | int32        | Дата оплаты заказа в формате UNIX TIMESTAMP\ndiscount_percent |   body          |      Нет       | float        | Скидка в процентах\ndiscount_value   |   body          |      Нет       | float        | Размер скидки, руб.\nitems_cost       |   body          |      Нет       | float        | Стоимость товаров (сумма заказа без скидок)\ncard_id          |   body          |      Нет       | string       | ID примененной карты лояльности\nspecials         |   body          |      Нет       | array        | Массив с ID примененных акций\ncheck_printed    |   body          |      Нет       | boolean      | Напечатан чек\nedit_quantity    |   body          |      Нет       | int32        | Количество редактирований заказа\nbanknote         |   body          |      Нет       | string       | Банкнота которой оплачен заказ\nsource           |   body          |      Нет       | string       | Источник откуда пришел заказ\n\nДополнения при обновлении заказа на доставку (delivery)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента\naddress          |   body          |      Нет       | string       | Адрес доставки\ndate_delivery    |   body          |      Нет       | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ndelivery_comment |   body          |      Нет       | string       | Комментарий к доставке\nentrance         |   body          |      Нет       | string       | Подъезд\nfloor            |   body          |      Нет       | string       | Этаж\napartment        |   body          |      Нет       | string       | Квартира/Офис\ncoordinates      |   body          |      Нет       | string       | Координаты\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\n\nДополнения при обновлении заказа бронирования (hold)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\ntable_number     |   body          |      Нет       | string       | Номер стола\n\n\nДополнения при обновлении интернет заказа (internet)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента\naddress          |   body          |      Нет       | string       | Адрес доставки\ndate_delivery    |   body          |      Нет       | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ndelivery_comment |   body          |      Нет       | string       | Комментарий к доставке\nentrance         |   body          |      Нет       | string       | Подъезд\nfloor            |   body          |      Нет       | string       | Этаж\napartment        |   body          |      Нет       | string       | Квартира/Офис\ncoordinates      |   body          |      Нет       | string       | Координаты\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\nsale_point_id    |   body          |      Нет       | string       | ID торговой точки на которой сделан заказ\ntable_number     |   body          |      Нет       | string       | Номер стола\n\nЭлементы массива order_items\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \nproduct_id     | string       | ID товара\nquantity       | int32        | Количество\ncost           | int32        | Себестоимость товара\nprice          | int32        | Цена продажи\ntotal_cost     | int32        | Общая стоимость товара в заказе (цена * количество)\n\nЭлементы массива order_history\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \naction_type    | string       | Тип действия\nuser_id        | string       | ID пользователя терминала\naction_date    | int32        | Дата действия в формате UNIX TIMESTAMP\ndetails        | string       | Дополнительная информация"
 					},
 					"response": [
 						{
@@ -3280,11 +3280,11 @@
 									},
 									{
 										"key": "Access-Token",
-										"value": "{{access_token}}"
+										"value": "your_access_token"
 									},
 									{
 										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
+										"value": "google"
 									}
 								],
 								"body": {
@@ -3292,9 +3292,9 @@
 									"raw": "{\n  \"number\": \"123\",\n  \"payment_type\": \"card\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+									"raw": "https://google.api.dooglys.com/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"host": [
-										"{{base_uri}}"
+										"https://google.api.dooglys.com"
 									],
 									"path": [
 										"sales",

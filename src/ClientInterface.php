@@ -9,14 +9,6 @@ namespace Dooglys\Api;
  * @package Dooglys\Api
  */
 interface ClientInterface {
-
-    /**
-     * @param $token
-     *
-     * @return mixed
-     */
-    public function setAccessToken ($token);
-
     /**
      * API метод /v1/structure/sale-point/view
      *

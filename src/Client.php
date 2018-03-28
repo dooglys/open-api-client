@@ -17,7 +17,7 @@ class Client implements ClientInterface {
     protected $httpClient;
 
     /** @var string */
-    protected $baseUri = 'http://google.dooglys.local:8225/api/';
+    protected $baseUri = 'api.dooglys.com';
 
     /** @var  integer */
     protected $timeout = 300;
@@ -33,7 +33,9 @@ class Client implements ClientInterface {
      *
      * @param array $httpClientConfig
      */
-    public function __construct ($httpClientConfig = []) {
+    public function __construct ($tenantDomain, $accessToken, $httpClientConfig = []) {
+        $this->tenantDomain = $tenantDomain;
+        $this->accessToken = $accessToken;
         $this->initHttpClient ($httpClientConfig);
     }
 
@@ -41,6 +43,7 @@ class Client implements ClientInterface {
      * @param $httpClientConfig
      */
     protected function initHttpClient ($httpClientConfig) {
+        $this->baseUri = 'https://' . $this->tenantDomain . $this->baseUri;
         $config = array_merge ([
             'base_uri' => $this->baseUri,
             'timeout' => $this->timeout,
@@ -48,29 +51,13 @@ class Client implements ClientInterface {
                 'User-Agent' => 'dooglys-api-client',
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
+                'Access-Token' => $this->accessToken,
+                'Tenant-Domain' => $this->tenantDomain,
             ]
         ], $httpClientConfig);
 
         $this->httpClient = new \GuzzleHttp\Client($config);
 
-    }
-
-
-    /**
-     * @param $domain
-     */
-    public function setTenantDomain ($domain) {
-        $this->tenantDomain = $domain;
-    }
-
-
-    /**
-     * @param $token
-     *
-     * @return mixed
-     */
-    public function setAccessToken ($token) {
-        $this->accessToken = $token;
     }
 
     /**
@@ -85,13 +72,6 @@ class Client implements ClientInterface {
      */
     protected function callMethod ($uri, $method = 'GET', $options = []) {
         $headers = [];
-        if ($this->accessToken) {
-            $headers['Access-Token'] = $this->accessToken;
-        }
-
-        if ($this->tenantDomain) {
-            $headers['Tenant-Domain'] = $this->tenantDomain;
-        }
 
         try {
 

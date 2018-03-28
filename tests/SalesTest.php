@@ -62,8 +62,6 @@ class SalesTest extends BaseUnit {
             'location' => 'out',
         ];
 
-        $this->setClientToken ();
-
         $data = $this->client->salesOrderCreate ($options);
 
         $this->assertInternalType ('array', $data);
@@ -76,14 +74,12 @@ class SalesTest extends BaseUnit {
     }
 
     public function testSalesOrderView () {
-        $this->setClientToken ();
         $data = $this->client->salesOrderView ('4ca56dbb-9cfc-46fc-90f4-41101d0d4a49');
 
         $this->assertInternalType ('array', $data);
     }
 
     public function testSalesOrderList () {
-        $this->setClientToken ();
         $data = $this->client->salesOrderList ();
         $this->assertInternalType ('array', $data);
     }

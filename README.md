@@ -15,14 +15,6 @@ try {
 }
 ```
 
-## base_uri для рахных окружений
-
-- dev - http://api.dev.dooglys.com/api/
-- release - http://api.release.dooglys.com/api/
-- production - http://api.dooglys.com/api/
-
-
-
 ## Тестирование
 - скопировать файл phpunit.xml.dist -> phpunit.xml
 - заполнить правильными данными
