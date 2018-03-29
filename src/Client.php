@@ -43,6 +43,10 @@ class Client implements ClientInterface {
      * @param $httpClientConfig
      */
     protected function initHttpClient ($httpClientConfig) {
+        if (!empty($httpClientConfig['base_uri'])) {
+            $this->baseUri = $httpClientConfig['base_uri'];
+            unset($httpClientConfig['base_uri']);
+        }
         $this->baseUri = 'https://' . $this->tenantDomain . $this->baseUri;
         $config = array_merge ([
             'base_uri' => $this->baseUri,
