@@ -17,7 +17,7 @@ class Client implements ClientInterface {
     protected $httpClient;
 
     /** @var string */
-    protected $baseUri = 'http://google.dooglys.local:8225/api/';
+    protected $baseUri = '.dooglys.com/api/';
 
     /** @var  integer */
     protected $timeout = 300;
@@ -33,7 +33,9 @@ class Client implements ClientInterface {
      *
      * @param array $httpClientConfig
      */
-    public function __construct ($httpClientConfig = []) {
+    public function __construct ($tenantDomain, $accessToken, $httpClientConfig = []) {
+        $this->tenantDomain = $tenantDomain;
+        $this->accessToken = $accessToken;
         $this->initHttpClient ($httpClientConfig);
     }
 
@@ -41,6 +43,11 @@ class Client implements ClientInterface {
      * @param $httpClientConfig
      */
     protected function initHttpClient ($httpClientConfig) {
+        if (!empty($httpClientConfig['base_uri'])) {
+            $this->baseUri = $httpClientConfig['base_uri'];
+            unset($httpClientConfig['base_uri']);
+        }
+        $this->baseUri = 'https://' . $this->tenantDomain . $this->baseUri;
         $config = array_merge ([
             'base_uri' => $this->baseUri,
             'timeout' => $this->timeout,
@@ -48,29 +55,13 @@ class Client implements ClientInterface {
                 'User-Agent' => 'dooglys-api-client',
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
+                'Access-Token' => $this->accessToken,
+                'Tenant-Domain' => $this->tenantDomain,
             ]
         ], $httpClientConfig);
 
         $this->httpClient = new \GuzzleHttp\Client($config);
 
-    }
-
-
-    /**
-     * @param $domain
-     */
-    public function setTenantDomain ($domain) {
-        $this->tenantDomain = $domain;
-    }
-
-
-    /**
-     * @param $token
-     *
-     * @return mixed
-     */
-    public function setAccessToken ($token) {
-        $this->accessToken = $token;
     }
 
     /**
@@ -85,13 +76,6 @@ class Client implements ClientInterface {
      */
     protected function callMethod ($uri, $method = 'GET', $options = []) {
         $headers = [];
-        if ($this->accessToken) {
-            $headers['Access-Token'] = $this->accessToken;
-        }
-
-        if ($this->tenantDomain) {
-            $headers['Tenant-Domain'] = $this->tenantDomain;
-        }
 
         try {
 
@@ -316,5 +300,46 @@ class Client implements ClientInterface {
      */
     public function terminalMenuMenuModifier ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/modifier/' . $id);
+    }
+
+    /**
+     * API метод /v1/sales/order/view
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function salesOrderView ($id) {
+        return $this->callMethod ('v1/sales/order/view/' . $id);
+    }
+
+    /**
+     * API метод /v1/sales/order/create
+     * @param array $options
+     *
+     * @return mixed
+     */
+    public function salesOrderCreate (array $options = []) {
+        return $this->callMethod ('v1/sales/order/create/', 'POST', $options);
+    }
+
+    /**
+     * API метод /v1/sales/order/update
+     * @param $id
+     * @param array $options
+     *
+     * @return mixed
+     */
+    public function salelOrderUpdate ($id, array $options = []) {
+        return $this->callMethod ('v1/sales/order/view/' . $id, 'POST', $options);
+    }
+
+    /**
+     * API метод /v1/sales/order/list
+     * @param array $options
+     *
+     * @return mixed
+     */
+    public function salesOrderList (array $options = []) {
+        return $this->callMethod ('v1/sales/order/list', 'GET', $options);
     }
 }

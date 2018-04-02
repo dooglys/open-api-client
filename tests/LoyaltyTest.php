@@ -28,8 +28,6 @@ class LoyaltyTest extends BaseUnit {
             ],
         ];
 
-        $this->setClientToken ();
-
         $data = $this->client->loyaltyTransactionBuyNew ($options);
 
         $this->assertInternalType ('array', $data);
@@ -57,7 +55,6 @@ class LoyaltyTest extends BaseUnit {
     }
 
     public function testLoyaltySettingsView () {
-        $this->setClientToken ();
         $data = $this->client->loyaltySettingsView ();
 
         $this->assertInternalType ('array', $data);

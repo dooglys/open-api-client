@@ -1,6 +1,6 @@
 {
-  "name": "dooglys/api-client",
-  "description": "Dooglys API",
+  "name": "dooglys/open-api-client",
+  "description": "Dooglys Opent API Client",
   "autoload": {
     "psr-4": {
       "Dooglys\\Api\\": "src"
