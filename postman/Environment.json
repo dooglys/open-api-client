@@ -5,7 +5,19 @@
     {
       "enabled": true,
       "key": "base_uri",
-      "value": "http://test_tenant.dooglys.com/api/v1",
+      "value": "https://{{tenant_domain}}.dooglys.com/api/v1",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "tenant_domain",
+      "value": "your_tenant_domain",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "access_token",
+      "value": "your_access_token",
       "type": "text"
     }
   ],
