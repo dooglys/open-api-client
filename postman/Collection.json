@@ -56,7 +56,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/structure/tenant/settings",
+							"raw": "{{base_uri}}/structure/tenant/settings",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -104,7 +104,7 @@
 							"raw": "{\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"transaction_id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-return",
+							"raw": "{{base_uri}}/loyalty/transaction/buy-return",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -146,7 +146,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-return",
+									"raw": "{{base_uri}}/loyalty/transaction/buy-return",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -256,7 +256,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/loyalty/settings/view",
+							"raw": "{{base_uri}}/loyalty/settings/view",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -298,7 +298,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/settings/view",
+									"raw": "{{base_uri}}/loyalty/settings/view",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -408,7 +408,7 @@
 							"raw": "{\n  \"transaction_id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\",\n  \"auth_type\": \"track2\",\n  \"balance_down\": 25\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-commit",
+							"raw": "{{base_uri}}/loyalty/transaction/buy-commit",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -450,7 +450,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-commit",
+									"raw": "{{base_uri}}/loyalty/transaction/buy-commit",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -560,7 +560,7 @@
 							"raw": "{\n  \"track2\": \"2010020020005389016=20251210148423111\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/loyalty/card/info",
+							"raw": "{{base_uri}}/loyalty/card/info",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -602,7 +602,7 @@
 									"raw": "{\n  \"track2\": \"2010020020005389016=20251210148423111\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/card/info",
+									"raw": "{{base_uri}}/loyalty/card/info",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -712,7 +712,7 @@
 							"raw": "{\n  \"card_id\": \"92ca09a2-a51f-4e51-adce-08c76ef73a4f\",\n  \"date\": 1512476269,\n  \"total_cost\": 1000,\n  \"loyalty_cost\": 1000,\n  \"order_type\": \"sale_point\",\n  \"auth_type\": \"track2\",\n  \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"order_items\": [\n        {\n            \"product_id\": \"fef36b6d-5ba3-452c-8f39-22a75912b674\",\n            \"quantity\": 10,\n            \"cost\": 100,\n            \"total_cost\": 1000,\n            \"price\": 100\n        }\n  ]\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-new",
+							"raw": "{{base_uri}}/loyalty/transaction/buy-new",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -754,7 +754,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-new",
+									"raw": "{{base_uri}}/loyalty/transaction/buy-new",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -870,7 +870,7 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/nomenclature/product/list?per-page=999&include_deleted=1",
+							"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -922,7 +922,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/nomenclature/product/list?per-page=999&include_deleted=1",
+									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -1072,7 +1072,7 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/nomenclature/category/list?per-page=999&include_deleted=1",
+							"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -1124,7 +1124,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/nomenclature/category/list?per-page=999&include_deleted=1",
+									"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -1274,7 +1274,7 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/nomenclature/product/view/cbb79b36-c3e4-40ae-b7b0-f22c401b2421",
+							"raw": "{{base_uri}}/nomenclature/product/view/cbb79b36-c3e4-40ae-b7b0-f22c401b2421",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -1317,7 +1317,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/nomenclature/product/list?per-page=999&include_deleted=1",
+									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -1467,7 +1467,7 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/nomenclature/category/view",
+							"raw": "{{base_uri}}/nomenclature/category/view",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -1509,7 +1509,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/nomenclature/category/list?per-page=999&include_deleted=1",
+									"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -1665,7 +1665,7 @@
 							"raw": "{\n  \n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/structure/user/list",
+							"raw": "{{base_uri}}/structure/user/list",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -1707,7 +1707,7 @@
 									"raw": "{\n  \n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/structure/user/list",
+									"raw": "{{base_uri}}/structure/user/list",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -1847,7 +1847,7 @@
 							"raw": "{\n  \n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/structure/user/view/7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5",
+							"raw": "{{base_uri}}/structure/user/view/7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -1890,7 +1890,7 @@
 									"raw": "{\n  \n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/structure/user/list",
+									"raw": "{{base_uri}}/structure/user/list",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -2038,7 +2038,7 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+							"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -2086,7 +2086,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+									"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -2180,7 +2180,7 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/structure/sale-point/list",
+							"raw": "{{base_uri}}/structure/sale-point/list",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -2227,7 +2227,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+									"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -2325,7 +2325,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -2368,7 +2368,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -2479,7 +2479,7 @@
 							"raw": "{\n  \"cipher\": \"0001\",\n  \"domain\": \"docker\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
+							"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -2528,7 +2528,7 @@
 									"raw": "{\n  \"cipher\": \"0001\",\n  \"domain\": \"docker\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
+									"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -2645,7 +2645,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -2688,7 +2688,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -2799,7 +2799,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/kit-products/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "{{base_uri}}/terminal-menu/menu/kit-products/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -2842,7 +2842,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -2959,7 +2959,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+							"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -3002,7 +3002,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+									"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -3113,7 +3113,7 @@
 							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/sales/order/list?per-page=999",
+							"raw": "{{base_uri}}/sales/order/list?per-page=999",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -3161,7 +3161,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/sales/order/list?per-page=999",
+									"raw": "{{base_uri}}/sales/order/list?per-page=999",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -3307,7 +3307,7 @@
 							"raw": "{\n\t\"id\": \"2ab6b66f-70ba-4940-8a67-b637d6edf46e\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"cashier_shift_id\": \"476011aa-37a2-49cb-985c-a337e3ad1ea1\",\n\t\"number\": \"123\",\n\t\"date_created\": 1478067593,\n\t\"date_accepted\": 1478067593,\n\t\"payment_type\": \"card\",\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/sales/order/create",
+							"raw": "{{base_uri}}/sales/order/create",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -3349,7 +3349,7 @@
 									"raw": "{\n\t\"id\": \"2ab6b66f-70ba-4940-8a67-b637d6edf46e\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"cashier_shift_id\": \"476011aa-37a2-49cb-985c-a337e3ad1ea1\",\n\t\"number\": \"123\",\n\t\"date_created\": 1478067593,\n\t\"date_accepted\": 1478067593,\n\t\"payment_type\": \"card\",\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/sales/order/create",
+									"raw": "{{base_uri}}/sales/order/create",
 									"protocol": "https",
 									"host": [
 										"google",
@@ -3459,7 +3459,7 @@
 							"raw": "{\n  \"number\": \"123\",\n  \"payment_type\": \"card\",\n  \"employee_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
 						},
 						"url": {
-							"raw": "https://google.dooglys.com/api/v1/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+							"raw": "{{base_uri}}/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 							"protocol": "https",
 							"host": [
 								"google",
@@ -3502,7 +3502,7 @@
 									"raw": "{\n  \"number\": \"123\",\n  \"payment_type\": \"card\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+									"raw": "{{base_uri}}/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"protocol": "https",
 									"host": [
 										"google",
