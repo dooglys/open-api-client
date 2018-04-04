@@ -2,7 +2,6 @@
 
 namespace Dooglys\Api;
 
-
 /**
  * Interface ClientInterface
  *
