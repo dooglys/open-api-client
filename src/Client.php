@@ -73,6 +73,7 @@ class Client implements ClientInterface {
      *
      * @return mixed
      * @throws BadResponseException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     protected function callMethod ($uri, $method = 'GET', $options = []) {
         $headers = [];
@@ -117,7 +118,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
-     *
+     * @throws BadResponseException
      */
     public function structureSalePointView ($id) {
         return $this->callMethod ('v1/structure/sale-point/view/' . $id);
@@ -126,10 +127,10 @@ class Client implements ClientInterface {
     /**
      * API метод /v1/structure/sale-point/list
      *
-     * @param $options
+     * @param array $options
      *
      * @return mixed
-     *
+     * @throws BadResponseException
      */
     public function structureSalePointList (array $options = []) {
         return $this->callMethod ('v1/structure/sale-point/list', 'GET', $options);
@@ -141,7 +142,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
-     *
+     * @throws BadResponseException
      */
     public function nomenclatureProductView ($id) {
         return $this->callMethod ('v1/nomenclature/product/view/' . $id);
@@ -150,10 +151,10 @@ class Client implements ClientInterface {
     /**
      * API метод /v1/nomenclature/product/list
      *
-     * @param $options
+     * @param array $options
      *
      * @return mixed
-     *
+     * @throws BadResponseException
      */
     public function nomenclatureProductList (array $options = []) {
         return $this->callMethod ('v1/nomenclature/product/list', 'GET', $options);
@@ -165,7 +166,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
-     *
+     * @throws BadResponseException
      */
     public function nomenclatureCategoryView ($id) {
         return $this->callMethod ('v1/nomenclature/category/view/' . $id);
@@ -174,10 +175,10 @@ class Client implements ClientInterface {
     /**
      * API метод /v1/nomenclature/category/list
      *
-     * @param $options
+     * @param array $options
      *
      * @return mixed
-     *
+     * @throws BadResponseException
      */
     public function nomenclatureCategoryList (array $options = []) {
         return $this->callMethod ('v1/nomenclature/category/list', 'GET', $options);
@@ -188,6 +189,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function structureUserView ($id) {
         return $this->callMethod ('v1/structure/user/view/' . $id);
@@ -198,6 +200,7 @@ class Client implements ClientInterface {
      * @param array $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function structureUserList (array $options = []) {
         return $this->callMethod ('v1/structure/user/list', 'GET', $options);
@@ -208,6 +211,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function terminalMenuMenuView ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/view/' . $id);
@@ -218,6 +222,7 @@ class Client implements ClientInterface {
      * @param array $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function loyaltyTransactionBuyCommit (array $options = []) {
         return $this->callMethod ('v1/loyalty/transaction/buy-commit', 'POST', $options);
@@ -228,6 +233,7 @@ class Client implements ClientInterface {
      * @param array $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function loyaltyTransactionBuyNew (array $options = []) {
         return $this->callMethod ('v1/loyalty/transaction/buy-new', 'POST', $options);
@@ -238,6 +244,7 @@ class Client implements ClientInterface {
      * @param array $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function loyaltyTransactionBuyReturn (array $options = []) {
         return $this->callMethod ('v1/loyalty/transaction/buy-return', 'POST', $options);
@@ -248,6 +255,7 @@ class Client implements ClientInterface {
      * @param $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function loyaltyCardInfo ($options) {
         return $this->callMethod ('v1/loyalty/card/info', 'POST', $options);
@@ -257,6 +265,7 @@ class Client implements ClientInterface {
      * API метод /v1/loyalty/settings/view
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function loyaltySettingsView () {
         return $this->callMethod ('v1/loyalty/settings/view');
@@ -267,6 +276,7 @@ class Client implements ClientInterface {
      * @param array $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function structureTenantSettings (array $options = []) {
         return $this->callMethod ('v1/structure/tenant/settings', 'GET', $options);
@@ -277,6 +287,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function terminalMenuMenuKit ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/kit/' . $id);
@@ -287,6 +298,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function terminalMenuMenuKitProducts ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/kit-products/' . $id);
@@ -297,6 +309,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function terminalMenuMenuModifier ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/modifier/' . $id);
@@ -307,6 +320,7 @@ class Client implements ClientInterface {
      * @param $id
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function salesOrderView ($id) {
         return $this->callMethod ('v1/sales/order/view/' . $id);
@@ -317,6 +331,7 @@ class Client implements ClientInterface {
      * @param array $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function salesOrderCreate (array $options = []) {
         return $this->callMethod ('v1/sales/order/create/', 'POST', $options);
@@ -328,6 +343,7 @@ class Client implements ClientInterface {
      * @param array $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function salelOrderUpdate ($id, array $options = []) {
         return $this->callMethod ('v1/sales/order/view/' . $id, 'POST', $options);
@@ -338,6 +354,7 @@ class Client implements ClientInterface {
      * @param array $options
      *
      * @return mixed
+     * @throws BadResponseException
      */
     public function salesOrderList (array $options = []) {
         return $this->callMethod ('v1/sales/order/list', 'GET', $options);
