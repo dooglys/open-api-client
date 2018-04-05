@@ -1031,7 +1031,7 @@
 								},
 								{
 									"key": "Link",
-									"value": "<http://google.dooglys.local:8222/api/v1/nomenclature/product/list?include_deleted=1&page=1>; rel=self",
+									"value": "<{{base_uri}}/nomenclature/product/list?include_deleted=1&page=1>; rel=self",
 									"name": "Link",
 									"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
 								},
@@ -1228,7 +1228,7 @@
 								},
 								{
 									"key": "Link",
-									"value": "<http://google.dooglys.local:8222/api/v1/nomenclature/category/list?include_deleted=1&page=1>; rel=self",
+									"value": "<{{base_uri}}/nomenclature/category/list?include_deleted=1&page=1>; rel=self",
 									"name": "Link",
 									"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
 								},
@@ -1414,7 +1414,7 @@
 								},
 								{
 									"key": "Link",
-									"value": "<http://google.dooglys.local:8222/api/v1/nomenclature/product/list?include_deleted=1&page=1>; rel=self",
+									"value": "<{{base_uri}}/nomenclature/product/list?include_deleted=1&page=1>; rel=self",
 									"name": "Link",
 									"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
 								},
@@ -1599,7 +1599,7 @@
 								},
 								{
 									"key": "Link",
-									"value": "<http://google.dooglys.local:8222/api/v1/nomenclature/category/list?include_deleted=1&page=1>; rel=self",
+									"value": "<{{base_uri}}/nomenclature/category/list?include_deleted=1&page=1>; rel=self",
 									"name": "Link",
 									"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
 								},
@@ -1777,7 +1777,7 @@
 								},
 								{
 									"key": "Link",
-									"value": "<http://google.dooglys.local:8222/api/v1/structure/user/list?page=1>; rel=self",
+									"value": "<{{base_uri}}/structure/user/list?page=1>; rel=self",
 									"name": "Link",
 									"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
 								},
@@ -1951,7 +1951,7 @@
 								},
 								{
 									"key": "Link",
-									"value": "<http://google.dooglys.local:8222/api/v1/structure/user/list?page=1>; rel=self",
+									"value": "<{{base_uri}}/structure/user/list?page=1>; rel=self",
 									"name": "Link",
 									"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
 								},
@@ -3151,7 +3151,7 @@
 								},
 								{
 									"key": "Link",
-									"value": "<http://google.dooglys.local:8222/api/v1/sales/order/list?per-page=999&include_deleted=1&page=1>; rel=self",
+									"value": "<{{base_uri}}/sales/order/list?per-page=999&include_deleted=1&page=1>; rel=self",
 									"name": "Link",
 									"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
 								},
