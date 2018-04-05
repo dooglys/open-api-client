@@ -113,248 +113,154 @@ class Client implements ClientInterface {
     }
 
     /**
-     * API метод /v1/structure/sale-point/view
-     *
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function structureSalePointView ($id) {
         return $this->callMethod ('v1/structure/sale-point/view/' . $id);
     }
 
     /**
-     * API метод /v1/structure/sale-point/list
-     *
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function structureSalePointList (array $options = []) {
         return $this->callMethod ('v1/structure/sale-point/list', 'GET', $options);
     }
 
     /**
-     * API метод /v1/nomenclature/product/view
-     *
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function nomenclatureProductView ($id) {
         return $this->callMethod ('v1/nomenclature/product/view/' . $id);
     }
 
     /**
-     * API метод /v1/nomenclature/product/list
-     *
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function nomenclatureProductList (array $options = []) {
         return $this->callMethod ('v1/nomenclature/product/list', 'GET', $options);
     }
 
     /**
-     * API метод /v1/nomenclature/category/view
-     *
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function nomenclatureCategoryView ($id) {
         return $this->callMethod ('v1/nomenclature/category/view/' . $id);
     }
 
     /**
-     * API метод /v1/nomenclature/category/list
-     *
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function nomenclatureCategoryList (array $options = []) {
         return $this->callMethod ('v1/nomenclature/category/list', 'GET', $options);
     }
 
     /**
-     * API метод /v1/structure/user/view
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function structureUserView ($id) {
         return $this->callMethod ('v1/structure/user/view/' . $id);
     }
 
     /**
-     * API метод /v1/structure/user/list
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function structureUserList (array $options = []) {
         return $this->callMethod ('v1/structure/user/list', 'GET', $options);
     }
 
     /**
-     * API метод /v1/terminal-menu/menu/view
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function terminalMenuMenuView ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/view/' . $id);
     }
 
     /**
-     * API метод /v1/loyalty/transaction/buy-commit
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function loyaltyTransactionBuyCommit (array $options = []) {
         return $this->callMethod ('v1/loyalty/transaction/buy-commit', 'POST', $options);
     }
 
     /**
-     * API метод /v1/loyalty/transaction/buy-new
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function loyaltyTransactionBuyNew (array $options = []) {
         return $this->callMethod ('v1/loyalty/transaction/buy-new', 'POST', $options);
     }
 
     /**
-     * API метод /v1/loyalty/transaction/buy-return
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function loyaltyTransactionBuyReturn (array $options = []) {
         return $this->callMethod ('v1/loyalty/transaction/buy-return', 'POST', $options);
     }
 
     /**
-     * API метод /v1/loyalty/card/info
-     * @param $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function loyaltyCardInfo ($options) {
         return $this->callMethod ('v1/loyalty/card/info', 'POST', $options);
     }
 
     /**
-     * API метод /v1/loyalty/settings/view
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function loyaltySettingsView () {
         return $this->callMethod ('v1/loyalty/settings/view');
     }
 
     /**
-     * API метод /v1/structure/tenant/settings
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function structureTenantSettings (array $options = []) {
         return $this->callMethod ('v1/structure/tenant/settings', 'GET', $options);
     }
 
     /**
-     * API метод /v1/terminal-menu/menu/kit
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function terminalMenuMenuKit ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/kit/' . $id);
     }
 
     /**
-     * API метод /v1/terminal-menu/menu/kit-products
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function terminalMenuMenuKitProducts ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/kit-products/' . $id);
     }
 
     /**
-     * API метод /v1/terminal-menu/menu/modifier
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function terminalMenuMenuModifier ($id) {
         return $this->callMethod ('v1/terminal-menu/menu/modifier/' . $id);
     }
 
     /**
-     * API метод /v1/sales/order/view
-     * @param $id
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function salesOrderView ($id) {
         return $this->callMethod ('v1/sales/order/view/' . $id);
     }
 
     /**
-     * API метод /v1/sales/order/create
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function salesOrderCreate (array $options = []) {
         return $this->callMethod ('v1/sales/order/create/', 'POST', $options);
     }
 
     /**
-     * API метод /v1/sales/order/update
-     * @param $id
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function salesOrderUpdate ($id, array $options = []) {
         return $this->callMethod ('v1/sales/order/view/' . $id, 'POST', $options);
     }
 
     /**
-     * API метод /v1/sales/order/list
-     * @param array $options
-     *
-     * @return mixed
-     * @throws BadResponseException
+     * @inheritdoc
      */
     public function salesOrderList (array $options = []) {
         return $this->callMethod ('v1/sales/order/list', 'GET', $options);
