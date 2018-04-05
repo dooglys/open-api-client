@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Dooglys Open API V1",
-		"_postman_id": "dc4f2b63-e8c7-167d-16c0-d988b80392c0",
+		"_postman_id": "d63e9261-37c9-e864-c28e-d82efe5ea619",
 		"description": "# Описание методов Dooglys API v1\n\nПри отправке любого запроса к API необходимо передавать два обязательных параметра, это\nдомен предприятия и access token.\n\nЕсли данные передаются в заголовках, то это:\n\n* `Tenant-Domain`\n* `Access-Token`\n\nЕсли данные передаются в адресе, то это:\n\n* `tenant_domain`\n* `access-token`\n\n`tenant-domain` это имя домена, на котором зарегистрировано предприятие (см. метод `/structure/tenant/register`)\n`access-token` токен устройства или пользователя.\n\nКроме этого, желательно в заголовках так же передавать ID терминала (или пользователя), с которого\nосуществляется доступ. Данные передаются в поле `Terminal-Id`.\n\n# Получение Access-Token\n\nДля того чтобы получить токен необходимо отправить запрос на `/structure/auth/get-token`\nОписание этого метода приводится ниже.\n\n# Формат даты\n\nФормат даты возвращаемый некоторыми методами соответствует `Unix/Timestamp`.\n\n# Пагинация\n\nЗапросы списка объектов вида `/xxx/yyy/list` поддерживают возможность постраничного вывода данных. Так же в подобных\nзапросах возможно указание количества элементов на странице при постраничном выводе.\n\nЭто следует учитывать при проектировании приложения, которое будет взаимодействовать с API, т.к. в ближайшее\nвремя будет вводиться лимит на количество передаваемых за раз данных.\nИнформация о количестве страниц, текущей странице и общем количестве объектов передается в заголовках ответа.\nДля примера можно посмотреть работу метода `structure/user/list`\n\n# Описание залоговков постраничного вывода\n\nПри использовании запроса вида `/xxx/yyy/list` в ответ возвращают заголовки с информацией о постраничной навигации.\n\n* `X-Pagination-Total-Count` - количество всех записей.\n* `X-Pagination-Page-Count` - количество страниц.\n* `X-Pagination-Current-Page` - номер текущей страницы.\n* `X-Pagination-Per-Page` - количество элементов выводимых на странице.\n\n# Работа с постраничным выводом через API\n\nВ качестве примера взят метод получения списка акций `/special/item/list`. По умолчанию этот запрос выведет список из\nпервых 20 акций.\n\nДля управления постраничным выводом достаточно передать необходимые параметры. Например `/special/item/list?per-page=2`\nвыведет первые 2 записи из списка.\n\nЧтобы получить следующую страницу `/special/item/list?per-page=2&page=2` достаточно добавить параметр `page` в запрос.\n\nДля ряда методов существует поддержка просмотра удаленных записей. Для этого в запросе достаточно передать параметр `include_deleted`.\n\nНапример `/nomenclature/category/list?per-page=10&include_deleted=1` в список категорий добавит еще удаленные.\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -111,7 +111,7 @@
 					},
 					"response": [
 						{
-							"id": "b66f6caa-b18e-41b7-a5c9-2a10ab549c0e",
+							"id": "37e3ea65-2f5b-4dc0-bcb2-b581c9c8aee3",
 							"name": "loyalty/transaction/buy-return",
 							"originalRequest": {
 								"method": "POST",
@@ -216,7 +216,7 @@
 							"body": "{\n    \"id\": \"6a56cbd9-702c-45b3-959b-4e8950bc7d7b\",\n    \"total_cost\": -900,\n    \"discount_value\": 0,\n    \"items_cost\": -1000,\n    \"balance_increment\": 0,\n    \"discount_percent\": 0,\n    \"date\": 1506956689,\n    \"type\": \"return\",\n    \"completed\": 1,\n    \"status\": \"enabled\",\n    \"customer\": null\n}"
 						},
 						{
-							"id": "0aa0ad2e-809b-484a-90fe-526928dd1240",
+							"id": "4adc9a1c-c78a-4bf2-aada-71f3902c12a9",
 							"name": "loyalty/transaction/buy-new",
 							"originalRequest": {
 								"method": "POST",
@@ -359,7 +359,7 @@
 					},
 					"response": [
 						{
-							"id": "672e4568-825f-4ad4-a5f1-518aa8387191",
+							"id": "0269aa6d-d5f4-4874-8dd0-8fe00d850ffd",
 							"name": "loyalty/settings/view",
 							"originalRequest": {
 								"method": "GET",
@@ -502,7 +502,7 @@
 					},
 					"response": [
 						{
-							"id": "ac393a8b-e82e-4159-bb49-edfec9c5e2f6",
+							"id": "359c6da0-c625-423b-a1e5-2d55b37468d2",
 							"name": "loyalty/transaction/buy-commit",
 							"originalRequest": {
 								"method": "POST",
@@ -645,7 +645,7 @@
 					},
 					"response": [
 						{
-							"id": "280f2380-be88-4021-89e1-fb7e18a54a98",
+							"id": "63e23859-e4b9-4f3b-bb89-1ae20d7bc5ed",
 							"name": "loyalty/card/info",
 							"originalRequest": {
 								"method": "POST",
@@ -788,7 +788,7 @@
 					},
 					"response": [
 						{
-							"id": "e122c53d-2a48-436d-b65a-645eb8d10d22",
+							"id": "ad8a28f4-ee7a-4fde-9486-b69506b91b33",
 							"name": "loyalty/transaction/buy-new",
 							"originalRequest": {
 								"method": "POST",
@@ -811,16 +811,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-new",
-									"protocol": "https",
+									"raw": "{{base_uri}}/loyalty/transaction/buy-new",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"loyalty",
 										"transaction",
 										"buy-new"
@@ -953,7 +948,7 @@
 					},
 					"response": [
 						{
-							"id": "507e3b0d-2087-412d-8ee9-b7b5ff2586aa",
+							"id": "da85327a-30b4-4baa-a565-09c4eff630e8",
 							"name": "nomenclature/product/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1150,7 +1145,7 @@
 					},
 					"response": [
 						{
-							"id": "741bfce5-2199-402d-ada6-55bc4156e1ed",
+							"id": "33a76888-3545-4d2f-b33a-a7ced7ad4bd2",
 							"name": "nomenclature/category/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1336,7 +1331,7 @@
 					},
 					"response": [
 						{
-							"id": "f7293a91-7795-4340-8cc8-3488005bcd19",
+							"id": "7da7c857-2e80-45ab-b973-23e4855fd39d",
 							"name": "nomenclature/product/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1521,7 +1516,7 @@
 					},
 					"response": [
 						{
-							"id": "7bb91dc3-61bc-4c7d-89ee-e8abea40eda9",
+							"id": "4f37865b-5a15-4b87-9e22-82f4625fa39a",
 							"name": "nomenclature/category/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1711,7 +1706,7 @@
 					},
 					"response": [
 						{
-							"id": "29cd029f-96a7-4420-8acd-ad70795f0c3d",
+							"id": "c440080e-7681-4d5b-9d39-067d98aee85a",
 							"name": "Получить коллекцию пользователей",
 							"originalRequest": {
 								"method": "GET",
@@ -1885,7 +1880,7 @@
 					},
 					"response": [
 						{
-							"id": "806af858-461e-4bb6-a7fe-9294a9a38717",
+							"id": "f4e3db6b-7769-407e-b4f1-0a71049ec78d",
 							"name": "Получить коллекцию пользователей",
 							"originalRequest": {
 								"method": "GET",
@@ -2066,7 +2061,7 @@
 					},
 					"response": [
 						{
-							"id": "67d091a7-4310-4bb3-9d58-faaaef575754",
+							"id": "d7e787e4-2766-4a80-8a6a-d66a7dfa6de1",
 							"name": "200",
 							"originalRequest": {
 								"method": "GET",
@@ -2195,7 +2190,7 @@
 					},
 					"response": [
 						{
-							"id": "59ee80f0-b574-4862-a403-f01a8b30715d",
+							"id": "b4e8f4d8-432d-4895-89a8-a4f25f31ef13",
 							"name": "200",
 							"originalRequest": {
 								"method": "GET",
@@ -2328,7 +2323,7 @@
 					},
 					"response": [
 						{
-							"id": "80aa3205-ebbd-4ea2-b746-9722037a4751",
+							"id": "23a15cd3-4432-4048-b3f6-6bc4ced5b264",
 							"name": "terminal-menu/menu/kit",
 							"originalRequest": {
 								"method": "GET",
@@ -2480,7 +2475,7 @@
 					},
 					"response": [
 						{
-							"id": "db9d655c-5a56-4c45-9ed9-a8ff0fdec380",
+							"id": "8f053f42-f7c5-4fa6-b9dc-181a74cc3975",
 							"name": "terminal-menu/menu/view",
 							"originalRequest": {
 								"method": "GET",
@@ -2632,7 +2627,7 @@
 					},
 					"response": [
 						{
-							"id": "0367dc7e-fa1c-420b-8d23-23661970d6ed",
+							"id": "e62e30d6-910d-41d7-9a4d-90cfc81bc174",
 							"name": "terminal-menu/menu/modifier",
 							"originalRequest": {
 								"method": "GET",
@@ -2777,7 +2772,7 @@
 					},
 					"response": [
 						{
-							"id": "d8a0e536-3c86-4333-9949-01faab343761",
+							"id": "f1441aca-a7de-4993-8e11-646db4f744ce",
 							"name": "terminal-menu/menu/kit",
 							"originalRequest": {
 								"method": "GET",
@@ -2927,7 +2922,7 @@
 					},
 					"response": [
 						{
-							"id": "d3da7677-2fe4-4fac-9cd5-9bc9079b9e8e",
+							"id": "f987c92f-009f-4374-8b69-7c394a9cdc4c",
 							"name": "Получить заказ",
 							"originalRequest": {
 								"method": "GET",
@@ -3078,7 +3073,7 @@
 					},
 					"response": [
 						{
-							"id": "8ea9ac30-0d68-479e-ba58-da03973f070e",
+							"id": "0c3f73fa-4514-456c-ad01-3691d5a244c4",
 							"name": "Получить коллекцию заказов",
 							"originalRequest": {
 								"method": "GET",
@@ -3258,7 +3253,7 @@
 					},
 					"response": [
 						{
-							"id": "a12c6f05-0b09-457e-ad1d-9d4689ebea50",
+							"id": "d23a0725-c354-4e1a-894f-b5f55bada1a7",
 							"name": "Создать заказ",
 							"originalRequest": {
 								"method": "POST",
@@ -3402,7 +3397,7 @@
 					},
 					"response": [
 						{
-							"id": "d8bf58b6-7196-477a-8519-4e06148bf903",
+							"id": "7051952a-94ac-4993-9622-b7f8ebac3fb7",
 							"name": "Обновить заказ",
 							"originalRequest": {
 								"method": "POST",
