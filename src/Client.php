@@ -345,7 +345,7 @@ class Client implements ClientInterface {
      * @return mixed
      * @throws BadResponseException
      */
-    public function salelOrderUpdate ($id, array $options = []) {
+    public function salesOrderUpdate ($id, array $options = []) {
         return $this->callMethod ('v1/sales/order/view/' . $id, 'POST', $options);
     }
 
