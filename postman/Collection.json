@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Dooglys Open API V1",
-		"_postman_id": "dca608e5-efb7-de1f-76c3-af34921feda1",
+		"_postman_id": "dc4f2b63-e8c7-167d-16c0-d988b80392c0",
 		"description": "# Описание методов Dooglys API v1\n\nПри отправке любого запроса к API необходимо передавать два обязательных параметра, это\nдомен предприятия и access token.\n\nЕсли данные передаются в заголовках, то это:\n\n* `Tenant-Domain`\n* `Access-Token`\n\nЕсли данные передаются в адресе, то это:\n\n* `tenant_domain`\n* `access-token`\n\n`tenant-domain` это имя домена, на котором зарегистрировано предприятие (см. метод `/structure/tenant/register`)\n`access-token` токен устройства или пользователя.\n\nКроме этого, желательно в заголовках так же передавать ID терминала (или пользователя), с которого\nосуществляется доступ. Данные передаются в поле `Terminal-Id`.\n\n# Получение Access-Token\n\nДля того чтобы получить токен необходимо отправить запрос на `/structure/auth/get-token`\nОписание этого метода приводится ниже.\n\n# Формат даты\n\nФормат даты возвращаемый некоторыми методами соответствует `Unix/Timestamp`.\n\n# Пагинация\n\nЗапросы списка объектов вида `/xxx/yyy/list` поддерживают возможность постраничного вывода данных. Так же в подобных\nзапросах возможно указание количества элементов на странице при постраничном выводе.\n\nЭто следует учитывать при проектировании приложения, которое будет взаимодействовать с API, т.к. в ближайшее\nвремя будет вводиться лимит на количество передаваемых за раз данных.\nИнформация о количестве страниц, текущей странице и общем количестве объектов передается в заголовках ответа.\nДля примера можно посмотреть работу метода `structure/user/list`\n\n# Описание залоговков постраничного вывода\n\nПри использовании запроса вида `/xxx/yyy/list` в ответ возвращают заголовки с информацией о постраничной навигации.\n\n* `X-Pagination-Total-Count` - количество всех записей.\n* `X-Pagination-Page-Count` - количество страниц.\n* `X-Pagination-Current-Page` - номер текущей страницы.\n* `X-Pagination-Per-Page` - количество элементов выводимых на странице.\n\n# Работа с постраничным выводом через API\n\nВ качестве примера взят метод получения списка акций `/special/item/list`. По умолчанию этот запрос выведет список из\nпервых 20 акций.\n\nДля управления постраничным выводом достаточно передать необходимые параметры. Например `/special/item/list?per-page=2`\nвыведет первые 2 записи из списка.\n\nЧтобы получить следующую страницу `/special/item/list?per-page=2&page=2` достаточно добавить параметр `page` в запрос.\n\nДля ряда методов существует поддержка просмотра удаленных записей. Для этого в запросе достаточно передать параметр `include_deleted`.\n\nНапример `/nomenclature/category/list?per-page=10&include_deleted=1` в список категорий добавит еще удаленные.\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -65,7 +65,7 @@
 								"settings"
 							]
 						},
-						"description": "Чтобы получить настройки предприятия, вам необходимо выполнить запрос к\n`https://tenantDomain.dooglys.com/api/v1/structure/tenant/settings` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа"
+						"description": "Чтобы получить настройки предприятия, вам необходимо выполнить запрос к\n`{{base_uri}}/structure/tenant/settings` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа"
 					},
 					"response": []
 				}
@@ -107,11 +107,11 @@
 								"buy-return"
 							]
 						},
-						"description": "Чтобы вернуть транзакцию по карте, вам необходимо выполнить запрос к\n`https://tenantDomain.dooglys.com/api/v1/loyalty/transaction/buy-return` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nuser_id       |   body          |      Нет       | string       | ID пользователя терминала\nsale_point_id |   body          |      Нет       | string       | ID торговой точки"
+						"description": "Чтобы вернуть транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}/loyalty/transaction/buy-return` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nuser_id       |   body          |      Нет       | string       | ID пользователя терминала\nsale_point_id |   body          |      Нет       | string       | ID торговой точки"
 					},
 					"response": [
 						{
-							"id": "b4181b6f-9ac8-43f6-a309-17d61606506c",
+							"id": "b66f6caa-b18e-41b7-a5c9-2a10ab549c0e",
 							"name": "loyalty/transaction/buy-return",
 							"originalRequest": {
 								"method": "POST",
@@ -134,16 +134,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-return",
-									"protocol": "https",
+									"raw": "{{base_uri}}/loyalty/transaction/buy-return",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"loyalty",
 										"transaction",
 										"buy-return"
@@ -219,6 +214,111 @@
 								}
 							],
 							"body": "{\n    \"id\": \"6a56cbd9-702c-45b3-959b-4e8950bc7d7b\",\n    \"total_cost\": -900,\n    \"discount_value\": 0,\n    \"items_cost\": -1000,\n    \"balance_increment\": 0,\n    \"discount_percent\": 0,\n    \"date\": 1506956689,\n    \"type\": \"return\",\n    \"completed\": 1,\n    \"status\": \"enabled\",\n    \"customer\": null\n}"
+						},
+						{
+							"id": "0aa0ad2e-809b-484a-90fe-526928dd1240",
+							"name": "loyalty/transaction/buy-new",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Access-Token",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "Tenant-Domain",
+										"value": "{{tenant_domain}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_uri}}/loyalty/transaction/buy-new",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"loyalty",
+										"transaction",
+										"buy-new"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page",
+									"name": "Access-Control-Expose-Headers",
+									"description": "Lets a server whitelist headers that browsers are allowed to access."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Oct 2017 15:04:01 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.11.9",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "google.dooglys.local",
+									"path": "/",
+									"secure": false,
+									"value": "01d312dbf5d902b10342711248933610",
+									"key": "advanced-backend"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "google.dooglys.local",
+									"path": "/",
+									"secure": false,
+									"value": "d9471909bc81211e5e4bfcfd6a3014d3817c25e547dc8c1b77373c51066c4a72a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22KC7yNlqXdmt6eZC7vZ8ejrKim_vpaFtz%22%3B%7D",
+									"key": "_csrf-backend"
+								}
+							],
+							"body": "{\n    \"id\": \"30413b48-56c4-485b-b060-44a0a12ed6e2\",\n    \"total_cost\": 900,\n    \"discount_value\": 100,\n    \"discount_percent\": 10,\n    \"items_cost\": 1000,\n    \"balance_increment\": 0,\n    \"balance_up\": 0,\n    \"balance_down\": 0,\n    \"date\": 1512476269,\n    \"type\": \"purchase\",\n    \"status\": \"enabled\",\n    \"completed\": 0,\n    \"rule_id\": \"c142b832-658e-43de-b8ba-575c5163f7e0\",\n    \"customer\": {\n        \"id\": \"c7de2d9a-a4ff-4bfb-ad14-62d64d1fa4a1\",\n        \"tenant_id\": \"797314dd-913b-47ee-ae2e-b7ec5e433279\",\n        \"last_name\": \"Гуглина\",\n        \"first_name\": \"Анна\",\n        \"middle_name\": \"С\",\n        \"sex\": 1,\n        \"birth_date\": 1506952173,\n        \"email\": \"anna@local.com\",\n        \"phone\": \"79308994713\",\n        \"phone_alt\": null,\n        \"registration_date\": 1506952173,\n        \"last_auth_date\": 1506952173,\n        \"status\": \"enabled\",\n        \"addresses\": [],\n        \"friends\": []\n    }\n}"
 						}
 					]
 				},
@@ -255,11 +355,11 @@
 								"view"
 							]
 						},
-						"description": "Чтобы получить настройки лояльности, вам необходимо выполнить запрос к\n`https://tenantDomain.dooglys.com/api/v1/loyalty/settings/view` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа"
+						"description": "Чтобы получить настройки лояльности, вам необходимо выполнить запрос к\n`{{base_uri}}/loyalty/settings/view` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя            |      Тип        | Обязательный   | Тип значения |  Описание\n:------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain  |   header        |      Да        | string       | Домен предприятия\nAccess-Token   |   header        |      Да        | string       | Токен доступа"
 					},
 					"response": [
 						{
-							"id": "6c35e4c8-3cf0-4d61-9e7c-40a8f2da409e",
+							"id": "672e4568-825f-4ad4-a5f1-518aa8387191",
 							"name": "loyalty/settings/view",
 							"originalRequest": {
 								"method": "GET",
@@ -282,16 +382,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/settings/view",
-									"protocol": "https",
+									"raw": "{{base_uri}}/loyalty/settings/view",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"loyalty",
 										"settings",
 										"view"
@@ -403,11 +498,11 @@
 								"buy-commit"
 							]
 						},
-						"description": "Чтобы подтвердить транзакцию по карте, вам необходимо выполнить запрос к\n`https://tenantDomain.dooglys.com/api/v1/loyalty/transaction/buy-commit` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nauth_type     |   body          |      Да        | string       | Способ идентификации покупателя\nbalance_down  |   body          |      Нет       | float        | Кол-во денег или бонусов для списания"
+						"description": "Чтобы подтвердить транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}/loyalty/transaction/buy-commit` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nauth_type     |   body          |      Да        | string       | Способ идентификации покупателя\nbalance_down  |   body          |      Нет       | float        | Кол-во денег или бонусов для списания"
 					},
 					"response": [
 						{
-							"id": "76cbdb7a-2daa-4bf6-b212-26be9e6ef11e",
+							"id": "ac393a8b-e82e-4159-bb49-edfec9c5e2f6",
 							"name": "loyalty/transaction/buy-commit",
 							"originalRequest": {
 								"method": "POST",
@@ -430,16 +525,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/transaction/buy-commit",
-									"protocol": "https",
+									"raw": "{{base_uri}}/loyalty/transaction/buy-commit",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"loyalty",
 										"transaction",
 										"buy-commit"
@@ -555,7 +645,7 @@
 					},
 					"response": [
 						{
-							"id": "3c1690ff-a025-4cee-87ad-70807e35b001",
+							"id": "280f2380-be88-4021-89e1-fb7e18a54a98",
 							"name": "loyalty/card/info",
 							"originalRequest": {
 								"method": "POST",
@@ -575,19 +665,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"track2\": \"2010020020005389016=20251210148423111\"\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/loyalty/card/info",
-									"protocol": "https",
+									"raw": "{{base_uri}}/loyalty/card/info",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"loyalty",
 										"card",
 										"info"
@@ -703,7 +788,7 @@
 					},
 					"response": [
 						{
-							"id": "72b178fa-1bf8-4e4b-ae44-45250911b14b",
+							"id": "e122c53d-2a48-436d-b65a-645eb8d10d22",
 							"name": "loyalty/transaction/buy-new",
 							"originalRequest": {
 								"method": "POST",
@@ -868,7 +953,7 @@
 					},
 					"response": [
 						{
-							"id": "103a5ac1-5c3a-4063-852c-e14551a6ac22",
+							"id": "507e3b0d-2087-412d-8ee9-b7b5ff2586aa",
 							"name": "nomenclature/product/list",
 							"originalRequest": {
 								"method": "GET",
@@ -891,16 +976,11 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/nomenclature/product/list?per-page=999&include_deleted=1",
-									"protocol": "https",
+									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"nomenclature",
 										"product",
 										"list"
@@ -908,11 +988,13 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999"
+											"value": "999",
+											"equals": true
 										},
 										{
 											"key": "include_deleted",
-											"value": "1"
+											"value": "1",
+											"equals": true
 										}
 									]
 								}
@@ -1068,7 +1150,7 @@
 					},
 					"response": [
 						{
-							"id": "4753aed1-0a10-40d0-a763-95998f255ebb",
+							"id": "741bfce5-2199-402d-ada6-55bc4156e1ed",
 							"name": "nomenclature/category/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1091,16 +1173,11 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/nomenclature/category/list?per-page=999&include_deleted=1",
-									"protocol": "https",
+									"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"nomenclature",
 										"category",
 										"list"
@@ -1108,11 +1185,13 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999"
+											"value": "999",
+											"equals": true
 										},
 										{
 											"key": "include_deleted",
-											"value": "1"
+											"value": "1",
+											"equals": true
 										}
 									]
 								}
@@ -1257,7 +1336,7 @@
 					},
 					"response": [
 						{
-							"id": "8f47c949-b492-4d74-a125-48f920b6b019",
+							"id": "f7293a91-7795-4340-8cc8-3488005bcd19",
 							"name": "nomenclature/product/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1280,16 +1359,11 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/nomenclature/product/list?per-page=999&include_deleted=1",
-									"protocol": "https",
+									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"nomenclature",
 										"product",
 										"list"
@@ -1297,11 +1371,13 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999"
+											"value": "999",
+											"equals": true
 										},
 										{
 											"key": "include_deleted",
-											"value": "1"
+											"value": "1",
+											"equals": true
 										}
 									]
 								}
@@ -1445,7 +1521,7 @@
 					},
 					"response": [
 						{
-							"id": "2e47086b-e6b6-443a-b0a7-03b608626cbd",
+							"id": "7bb91dc3-61bc-4c7d-89ee-e8abea40eda9",
 							"name": "nomenclature/category/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1468,16 +1544,11 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/nomenclature/category/list?per-page=999&include_deleted=1",
-									"protocol": "https",
+									"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"nomenclature",
 										"category",
 										"list"
@@ -1485,11 +1556,13 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999"
+											"value": "999",
+											"equals": true
 										},
 										{
 											"key": "include_deleted",
-											"value": "1"
+											"value": "1",
+											"equals": true
 										}
 									]
 								}
@@ -1638,7 +1711,7 @@
 					},
 					"response": [
 						{
-							"id": "984c7b4e-656b-40b1-8621-17dac26c0e9e",
+							"id": "29cd029f-96a7-4420-8acd-ad70795f0c3d",
 							"name": "Получить коллекцию пользователей",
 							"originalRequest": {
 								"method": "GET",
@@ -1661,16 +1734,11 @@
 									"raw": "{\n  \n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/structure/user/list",
-									"protocol": "https",
+									"raw": "{{base_uri}}/structure/user/list",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"structure",
 										"user",
 										"list"
@@ -1817,7 +1885,7 @@
 					},
 					"response": [
 						{
-							"id": "36ee315e-0e32-4519-91c5-ba5f551a9421",
+							"id": "806af858-461e-4bb6-a7fe-9294a9a38717",
 							"name": "Получить коллекцию пользователей",
 							"originalRequest": {
 								"method": "GET",
@@ -1840,16 +1908,11 @@
 									"raw": "{\n  \n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/structure/user/list",
-									"protocol": "https",
+									"raw": "{{base_uri}}/structure/user/list",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"structure",
 										"user",
 										"list"
@@ -2003,27 +2066,24 @@
 					},
 					"response": [
 						{
-							"id": "223b2131-60e6-4c97-8915-ebd6ae9855e1",
+							"id": "67d091a7-4310-4bb3-9d58-faaaef575754",
 							"name": "200",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"warning": ""
+										"value": "application/json"
 									},
 									{
 										"key": "Access-Token",
 										"value": "{{access_token}}",
-										"description": "Токен доступа",
-										"warning": ""
+										"description": "Токен доступа"
 									},
 									{
 										"key": "Tenant-Domain",
 										"value": "{{tenant_domain}}",
-										"description": "Домен предприятия. Пример: `pekarni`",
-										"warning": ""
+										"description": "Домен предприятия. Пример: `pekarni`"
 									}
 								],
 								"body": {
@@ -2031,16 +2091,11 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
-									"protocol": "https",
+									"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"structure",
 										"sale-point",
 										"view",
@@ -2140,27 +2195,24 @@
 					},
 					"response": [
 						{
-							"id": "64925e84-4672-4967-8d77-30095252a1bd",
+							"id": "59ee80f0-b574-4862-a403-f01a8b30715d",
 							"name": "200",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"warning": ""
+										"value": "application/json"
 									},
 									{
 										"key": "Access-Token",
 										"value": "{{access_token}}",
-										"description": "Токен доступа",
-										"warning": ""
+										"description": "Токен доступа"
 									},
 									{
 										"key": "Tenant-Domain",
 										"value": "{{tenant_domain}}",
-										"description": "Домен предприятия. Пример: `pekarni`",
-										"warning": ""
+										"description": "Домен предприятия. Пример: `pekarni`"
 									}
 								],
 								"body": {
@@ -2168,16 +2220,11 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
-									"protocol": "https",
+									"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"structure",
 										"sale-point",
 										"view",
@@ -2281,7 +2328,7 @@
 					},
 					"response": [
 						{
-							"id": "a3c87376-dd7f-4433-8e75-8d9ca7de720a",
+							"id": "80aa3205-ebbd-4ea2-b746-9722037a4751",
 							"name": "terminal-menu/menu/kit",
 							"originalRequest": {
 								"method": "GET",
@@ -2304,16 +2351,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
-									"protocol": "https",
+									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"terminal-menu",
 										"menu",
 										"kit",
@@ -2438,7 +2480,7 @@
 					},
 					"response": [
 						{
-							"id": "28b8e47b-3f32-48aa-9fcf-28e32d1aea7b",
+							"id": "db9d655c-5a56-4c45-9ed9-a8ff0fdec380",
 							"name": "terminal-menu/menu/view",
 							"originalRequest": {
 								"method": "GET",
@@ -2461,16 +2503,11 @@
 									"raw": "{\n  \"cipher\": \"0001\",\n  \"domain\": \"docker\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
-									"protocol": "https",
+									"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"terminal-menu",
 										"menu",
 										"view",
@@ -2479,7 +2516,8 @@
 									"query": [
 										{
 											"key": "scenario",
-											"value": "full"
+											"value": "full",
+											"equals": true
 										}
 									]
 								}
@@ -2594,7 +2632,7 @@
 					},
 					"response": [
 						{
-							"id": "0d452176-e839-4e3c-8883-a26703a68e28",
+							"id": "0367dc7e-fa1c-420b-8d23-23661970d6ed",
 							"name": "terminal-menu/menu/modifier",
 							"originalRequest": {
 								"method": "GET",
@@ -2617,16 +2655,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
-									"protocol": "https",
+									"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"terminal-menu",
 										"menu",
 										"modifier",
@@ -2744,7 +2777,7 @@
 					},
 					"response": [
 						{
-							"id": "b139c7b8-a2a0-44ac-a493-785af36d8b2b",
+							"id": "d8a0e536-3c86-4333-9949-01faab343761",
 							"name": "terminal-menu/menu/kit",
 							"originalRequest": {
 								"method": "GET",
@@ -2767,16 +2800,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
-									"protocol": "https",
+									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"terminal-menu",
 										"menu",
 										"kit",
@@ -2899,7 +2927,7 @@
 					},
 					"response": [
 						{
-							"id": "215bfa30-19a5-43a5-aaa8-b765d64becbd",
+							"id": "d3da7677-2fe4-4fac-9cd5-9bc9079b9e8e",
 							"name": "Получить заказ",
 							"originalRequest": {
 								"method": "GET",
@@ -2922,16 +2950,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
-									"protocol": "https",
+									"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"sales",
 										"order",
 										"view",
@@ -3055,7 +3078,7 @@
 					},
 					"response": [
 						{
-							"id": "fa37661d-e33b-4403-9887-29984c2e54b0",
+							"id": "8ea9ac30-0d68-479e-ba58-da03973f070e",
 							"name": "Получить коллекцию заказов",
 							"originalRequest": {
 								"method": "GET",
@@ -3078,16 +3101,11 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/sales/order/list?per-page=999",
-									"protocol": "https",
+									"raw": "{{base_uri}}/sales/order/list?per-page=999",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"sales",
 										"order",
 										"list"
@@ -3095,7 +3113,8 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999"
+											"value": "999",
+											"equals": true
 										}
 									]
 								}
@@ -3239,7 +3258,7 @@
 					},
 					"response": [
 						{
-							"id": "08e4b008-63e6-4f2a-9ddd-a7119e98dabe",
+							"id": "a12c6f05-0b09-457e-ad1d-9d4689ebea50",
 							"name": "Создать заказ",
 							"originalRequest": {
 								"method": "POST",
@@ -3259,19 +3278,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"id\": \"2ab6b66f-70ba-4940-8a67-b637d6edf46e\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"cashier_shift_id\": \"476011aa-37a2-49cb-985c-a337e3ad1ea1\",\n\t\"number\": \"123\",\n\t\"date_created\": 1478067593,\n\t\"date_accepted\": 1478067593,\n\t\"payment_type\": \"card\",\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/sales/order/create",
-									"protocol": "https",
+									"raw": "{{base_uri}}/sales/order/create",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"sales",
 										"order",
 										"create"
@@ -3388,7 +3402,7 @@
 					},
 					"response": [
 						{
-							"id": "b2655bcc-5bae-4895-8f73-09955910c3d2",
+							"id": "d8bf58b6-7196-477a-8519-4e06148bf903",
 							"name": "Обновить заказ",
 							"originalRequest": {
 								"method": "POST",
@@ -3408,19 +3422,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"number\": \"123\",\n  \"payment_type\": \"card\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\"\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "https://google.dooglys.com/api/v1/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
-									"protocol": "https",
+									"raw": "{{base_uri}}/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"host": [
-										"google",
-										"dooglys",
-										"com"
+										"{{base_uri}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"sales",
 										"order",
 										"update",
