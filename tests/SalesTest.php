@@ -21,6 +21,7 @@ class SalesTest extends BaseUnit {
             'payment_type' => 'cash',
             'order_items' => [
                 [
+                    'id' => 'd045b30d-3a13-40a1-8004-8c3fb1efc27d',
                     'product_id' => 'fef36b6d-5ba3-450c-8f39-22a75912b574',
                     'quantity' => 2.0,
                     'price' => 1500,
@@ -66,7 +67,7 @@ class SalesTest extends BaseUnit {
 
         $this->assertInternalType ('array', $data);
 
-        $data = $this->client->salelOrderUpdate ($orderId, [
+        $data = $this->client->salesOrderUpdate ($orderId, [
             'address' => 'Нижний Новгород Ленина 10',
         ]);
 
