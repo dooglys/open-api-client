@@ -6,7 +6,8 @@ namespace Dooglys\Api\Module;
  * Interface StructureClientInterface
  * @package Dooglys\Api\Module
  */
-interface StructureClientInterface {
+interface StructureClientInterface
+{
     /**
      * API метод /v1/structure/sale-point/list
      *
@@ -15,7 +16,7 @@ interface StructureClientInterface {
      * @return mixed
      *
      */
-    public function structureSalePointList (array $options = []);
+    public function structureSalePointList(array $options = []);
 
     /**
      * API метод /v1/structure/user/view
@@ -23,7 +24,7 @@ interface StructureClientInterface {
      *
      * @return mixed
      */
-    public function structureUserView ($id);
+    public function structureUserView($id);
 
     /**
      * API метод /v1/structure/user/list
@@ -31,7 +32,7 @@ interface StructureClientInterface {
      *
      * @return mixed
      */
-    public function structureUserList (array $options = []);
+    public function structureUserList(array $options = []);
 
     /**
      * API метод /v1/structure/tenant/settings
@@ -39,7 +40,7 @@ interface StructureClientInterface {
      *
      * @return mixed
      */
-    public function structureTenantSettings (array $options = []);
+    public function structureTenantSettings(array $options = []);
 
     /**
      * API метод /v1/structure/sale-point/view
@@ -49,5 +50,5 @@ interface StructureClientInterface {
      * @return mixed
      *
      */
-    public function structureSalePointView ($id);
+    public function structureSalePointView($id);
 }

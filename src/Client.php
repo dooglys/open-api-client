@@ -11,7 +11,8 @@ use GuzzleHttp\Psr7\Response;
  *
  * @package Dooglys\Api
  */
-class Client implements ClientInterface {
+class Client implements ClientInterface
+{
 
     /** @var  \GuzzleHttp\Client */
     protected $httpClient;
@@ -31,24 +32,28 @@ class Client implements ClientInterface {
     /**
      * Client constructor.
      *
+     * @param $tenantDomain
+     * @param $accessToken
      * @param array $httpClientConfig
      */
-    public function __construct ($tenantDomain, $accessToken, $httpClientConfig = []) {
+    public function __construct($tenantDomain, $accessToken, $httpClientConfig = [])
+    {
         $this->tenantDomain = $tenantDomain;
         $this->accessToken = $accessToken;
-        $this->initHttpClient ($httpClientConfig);
+        $this->initHttpClient($httpClientConfig);
     }
 
     /**
      * @param $httpClientConfig
      */
-    protected function initHttpClient ($httpClientConfig) {
+    protected function initHttpClient($httpClientConfig)
+    {
         if (!empty($httpClientConfig['base_uri'])) {
             $this->baseUri = $httpClientConfig['base_uri'];
             unset($httpClientConfig['base_uri']);
         }
         $this->baseUri = 'https://' . $this->tenantDomain . $this->baseUri;
-        $config = array_merge ([
+        $config = array_merge([
             'base_uri' => $this->baseUri,
             'timeout' => $this->timeout,
             'headers' => [
@@ -65,6 +70,14 @@ class Client implements ClientInterface {
     }
 
     /**
+     * @inheritdoc
+     */
+    public function structureSalePointView($id)
+    {
+        return $this->callMethod('v1/structure/sale-point/view/' . $id);
+    }
+
+    /**
      * Basic method for all api calls
      *
      * @param        $method
@@ -75,7 +88,8 @@ class Client implements ClientInterface {
      * @throws BadResponseException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    protected function callMethod ($uri, $method = 'GET', $options = []) {
+    protected function callMethod($uri, $method = 'GET', $options = [])
+    {
         $headers = [];
 
         try {
@@ -86,16 +100,16 @@ class Client implements ClientInterface {
                 'PUT' => 'json',
             ];
 
-            $response = $this->httpClient->request ($method, $uri,
+            $response = $this->httpClient->request($method, $uri,
                 [
                     'headers' => $headers,
                     $requestKeyOptions[$method] => $options
                 ]);
 
-            return $this->parseResponse ($response);
+            return $this->parseResponse($response);
 
         } catch (\Exception $e) {
-            throw new BadResponseException($e->getMessage ());
+            throw new BadResponseException($e->getMessage());
         }
     }
 
@@ -106,163 +120,178 @@ class Client implements ClientInterface {
      *
      * @return array
      */
-    protected function parseResponse (Response $response) {
-        $data = $response->getBody ()->getContents ();
+    protected function parseResponse(Response $response)
+    {
+        $data = $response->getBody()->getContents();
         $factory = new JsonResponseFactory();
-        return $factory->parseData ($data);
+        return $factory->parseData($data);
     }
 
     /**
      * @inheritdoc
      */
-    public function structureSalePointView ($id) {
-        return $this->callMethod ('v1/structure/sale-point/view/' . $id);
+    public function structureSalePointList(array $options = [])
+    {
+        return $this->callMethod('v1/structure/sale-point/list', 'GET', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function structureSalePointList (array $options = []) {
-        return $this->callMethod ('v1/structure/sale-point/list', 'GET', $options);
+    public function nomenclatureProductView($id)
+    {
+        return $this->callMethod('v1/nomenclature/product/view/' . $id);
     }
 
     /**
      * @inheritdoc
      */
-    public function nomenclatureProductView ($id) {
-        return $this->callMethod ('v1/nomenclature/product/view/' . $id);
+    public function nomenclatureProductList(array $options = [])
+    {
+        return $this->callMethod('v1/nomenclature/product/list', 'GET', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function nomenclatureProductList (array $options = []) {
-        return $this->callMethod ('v1/nomenclature/product/list', 'GET', $options);
+    public function nomenclatureCategoryView($id)
+    {
+        return $this->callMethod('v1/nomenclature/category/view/' . $id);
     }
 
     /**
      * @inheritdoc
      */
-    public function nomenclatureCategoryView ($id) {
-        return $this->callMethod ('v1/nomenclature/category/view/' . $id);
+    public function nomenclatureCategoryList(array $options = [])
+    {
+        return $this->callMethod('v1/nomenclature/category/list', 'GET', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function nomenclatureCategoryList (array $options = []) {
-        return $this->callMethod ('v1/nomenclature/category/list', 'GET', $options);
+    public function structureUserView($id)
+    {
+        return $this->callMethod('v1/structure/user/view/' . $id);
     }
 
     /**
      * @inheritdoc
      */
-    public function structureUserView ($id) {
-        return $this->callMethod ('v1/structure/user/view/' . $id);
+    public function structureUserList(array $options = [])
+    {
+        return $this->callMethod('v1/structure/user/list', 'GET', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function structureUserList (array $options = []) {
-        return $this->callMethod ('v1/structure/user/list', 'GET', $options);
+    public function terminalMenuMenuView($id)
+    {
+        return $this->callMethod('v1/terminal-menu/menu/view/' . $id);
     }
 
     /**
      * @inheritdoc
      */
-    public function terminalMenuMenuView ($id) {
-        return $this->callMethod ('v1/terminal-menu/menu/view/' . $id);
+    public function loyaltyTransactionBuyCommit(array $options = [])
+    {
+        return $this->callMethod('v1/loyalty/transaction/buy-commit', 'POST', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function loyaltyTransactionBuyCommit (array $options = []) {
-        return $this->callMethod ('v1/loyalty/transaction/buy-commit', 'POST', $options);
+    public function loyaltyTransactionBuyNew(array $options = [])
+    {
+        return $this->callMethod('v1/loyalty/transaction/buy-new', 'POST', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function loyaltyTransactionBuyNew (array $options = []) {
-        return $this->callMethod ('v1/loyalty/transaction/buy-new', 'POST', $options);
+    public function loyaltyTransactionBuyReturn(array $options = [])
+    {
+        return $this->callMethod('v1/loyalty/transaction/buy-return', 'POST', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function loyaltyTransactionBuyReturn (array $options = []) {
-        return $this->callMethod ('v1/loyalty/transaction/buy-return', 'POST', $options);
+    public function loyaltyCardInfo($options)
+    {
+        return $this->callMethod('v1/loyalty/card/info', 'POST', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function loyaltyCardInfo ($options) {
-        return $this->callMethod ('v1/loyalty/card/info', 'POST', $options);
+    public function loyaltySettingsView()
+    {
+        return $this->callMethod('v1/loyalty/settings/view');
     }
 
     /**
      * @inheritdoc
      */
-    public function loyaltySettingsView () {
-        return $this->callMethod ('v1/loyalty/settings/view');
+    public function structureTenantSettings(array $options = [])
+    {
+        return $this->callMethod('v1/structure/tenant/settings', 'GET', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function structureTenantSettings (array $options = []) {
-        return $this->callMethod ('v1/structure/tenant/settings', 'GET', $options);
+    public function terminalMenuMenuKit($id)
+    {
+        return $this->callMethod('v1/terminal-menu/menu/kit/' . $id);
     }
 
     /**
      * @inheritdoc
      */
-    public function terminalMenuMenuKit ($id) {
-        return $this->callMethod ('v1/terminal-menu/menu/kit/' . $id);
+    public function terminalMenuMenuKitProducts($id)
+    {
+        return $this->callMethod('v1/terminal-menu/menu/kit-products/' . $id);
     }
 
     /**
      * @inheritdoc
      */
-    public function terminalMenuMenuKitProducts ($id) {
-        return $this->callMethod ('v1/terminal-menu/menu/kit-products/' . $id);
+    public function terminalMenuMenuModifier($id)
+    {
+        return $this->callMethod('v1/terminal-menu/menu/modifier/' . $id);
     }
 
     /**
      * @inheritdoc
      */
-    public function terminalMenuMenuModifier ($id) {
-        return $this->callMethod ('v1/terminal-menu/menu/modifier/' . $id);
+    public function salesOrderView($id)
+    {
+        return $this->callMethod('v1/sales/order/view/' . $id);
     }
 
     /**
      * @inheritdoc
      */
-    public function salesOrderView ($id) {
-        return $this->callMethod ('v1/sales/order/view/' . $id);
+    public function salesOrderCreate(array $options = [])
+    {
+        return $this->callMethod('v1/sales/order/create/', 'POST', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function salesOrderCreate (array $options = []) {
-        return $this->callMethod ('v1/sales/order/create/', 'POST', $options);
+    public function salesOrderUpdate($id, array $options = [])
+    {
+        return $this->callMethod('v1/sales/order/view/' . $id, 'POST', $options);
     }
 
     /**
      * @inheritdoc
      */
-    public function salesOrderUpdate ($id, array $options = []) {
-        return $this->callMethod ('v1/sales/order/view/' . $id, 'POST', $options);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function salesOrderList (array $options = []) {
-        return $this->callMethod ('v1/sales/order/list', 'GET', $options);
+    public function salesOrderList(array $options = [])
+    {
+        return $this->callMethod('v1/sales/order/list', 'GET', $options);
     }
 }

@@ -6,14 +6,15 @@ namespace Dooglys\Api\Module;
  * Interface LoyaltyClientInterface
  * @package Dooglys\Api\Module
  */
-interface LoyaltyClientInterface {
+interface LoyaltyClientInterface
+{
     /**
      * API метод /v1/loyalty/transaction/buy-commit
      * @param array $options
      *
      * @return mixed
      */
-    public function loyaltyTransactionBuyCommit (array $options = []);
+    public function loyaltyTransactionBuyCommit(array $options = []);
 
     /**
      * API метод /v1/loyalty/transaction/buy-new
@@ -21,7 +22,7 @@ interface LoyaltyClientInterface {
      *
      * @return mixed
      */
-    public function loyaltyTransactionBuyNew (array $options = []);
+    public function loyaltyTransactionBuyNew(array $options = []);
 
     /**
      * API метод /v1/loyalty/transaction/buy-return
@@ -29,7 +30,7 @@ interface LoyaltyClientInterface {
      *
      * @return mixed
      */
-    public function loyaltyTransactionBuyReturn (array $options = []);
+    public function loyaltyTransactionBuyReturn(array $options = []);
 
     /**
      * API метод /v1/loyalty/card/info
@@ -37,12 +38,12 @@ interface LoyaltyClientInterface {
      *
      * @return mixed
      */
-    public function loyaltyCardInfo ($options);
+    public function loyaltyCardInfo($options);
 
     /**
      * API метод /v1/loyalty/settings/view
      *
      * @return mixed
      */
-    public function loyaltySettingsView ();
+    public function loyaltySettingsView();
 }

@@ -6,14 +6,15 @@ namespace Dooglys\Api\Module;
  * Interface SalesClientInterface
  * @package Dooglys\Api\Module
  */
-interface SalesClientInterface {
+interface SalesClientInterface
+{
     /**
      * API метод /v1/sales/order/view
      * @param $id
      *
      * @return mixed
      */
-    public function salesOrderView ($id);
+    public function salesOrderView($id);
 
     /**
      * API метод /v1/sales/order/create
@@ -21,7 +22,7 @@ interface SalesClientInterface {
      *
      * @return mixed
      */
-    public function salesOrderCreate (array $options = []);
+    public function salesOrderCreate(array $options = []);
 
     /**
      * API метод /v1/sales/order/update
@@ -30,7 +31,7 @@ interface SalesClientInterface {
      *
      * @return mixed
      */
-    public function salesOrderUpdate ($id, array $options = []);
+    public function salesOrderUpdate($id, array $options = []);
 
     /**
      * API метод /v1/sales/order/list
@@ -38,5 +39,5 @@ interface SalesClientInterface {
      *
      * @return mixed
      */
-    public function salesOrderList (array $options = []);
+    public function salesOrderList(array $options = []);
 }
