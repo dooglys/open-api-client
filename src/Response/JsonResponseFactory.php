@@ -9,7 +9,6 @@ namespace Dooglys\Api\Response;
  */
 class JsonResponseFactory extends AbstractResponseFactory
 {
-
     /**
      * @param $data
      *
@@ -18,6 +17,7 @@ class JsonResponseFactory extends AbstractResponseFactory
     public function parseData($data)
     {
         $data = json_decode($data, true);
+
         return $data;
     }
 }

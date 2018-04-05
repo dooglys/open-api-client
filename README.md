@@ -1,20 +1,26 @@
-# Open Api Client
+# Dooglys Open Api Client
 
-Пример использования
+# Установка
+
+```bash
+composer require dooglys/open-api-client
+```
+
+# Пример использования
 ```php
-$client = new Client('companydomain', 'YOUR_TOKEN');
+$client = new Client('your_domain', 'your_token');
 
 try {
-    $data = $client->nomenclatureProductView ('fef36b6d-5ba3-452c-8f39-22a75912b674');
+    $data = $client->nomenclatureProductView ('product_uuid');
 } catch (BadResponseException $exc) {
 
 }
 ```
 
 ## Тестирование
-- скопировать файл phpunit.xml.dist -> phpunit.xml
-- заполнить правильными данными
-- запустить ` vendor/bin/phpunit`
+- Скопировать файл phpunit.xml.dist -> phpunit.xml
+- Указать правильные значения констант для доступа к api серверу 
+- Запустить `vendor/bin/phpunit`
 
 
 ## Использование Postman для тестирования API

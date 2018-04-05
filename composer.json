@@ -1,5 +1,6 @@
 {
   "name": "dooglys/open-api-client",
+  "license": "MIT",
   "description": "Dooglys Opent API Client",
   "autoload": {
     "psr-4": {
