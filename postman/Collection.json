@@ -1,13 +1,14 @@
 {
 	"info": {
+		"_postman_id": "c2b72dc5-7401-471d-b8f0-e19a1fdc5474",
 		"name": "Dooglys Open API V1",
-		"_postman_id": "d63e9261-37c9-e864-c28e-d82efe5ea619",
-		"description": "# Описание методов Dooglys API v1\n\nПри отправке любого запроса к API необходимо передавать два обязательных параметра, это\nдомен предприятия и access token.\n\nЕсли данные передаются в заголовках, то это:\n\n* `Tenant-Domain`\n* `Access-Token`\n\nЕсли данные передаются в адресе, то это:\n\n* `tenant_domain`\n* `access-token`\n\n`tenant-domain` это имя домена, на котором зарегистрировано предприятие (см. метод `/structure/tenant/register`)\n`access-token` токен устройства или пользователя.\n\nКроме этого, желательно в заголовках так же передавать ID терминала (или пользователя), с которого\nосуществляется доступ. Данные передаются в поле `Terminal-Id`.\n\n# Получение Access-Token\n\nДля того чтобы получить токен необходимо отправить запрос на `/structure/auth/get-token`\nОписание этого метода приводится ниже.\n\n# Формат даты\n\nФормат даты возвращаемый некоторыми методами соответствует `Unix/Timestamp`.\n\n# Пагинация\n\nЗапросы списка объектов вида `/xxx/yyy/list` поддерживают возможность постраничного вывода данных. Так же в подобных\nзапросах возможно указание количества элементов на странице при постраничном выводе.\n\nЭто следует учитывать при проектировании приложения, которое будет взаимодействовать с API, т.к. в ближайшее\nвремя будет вводиться лимит на количество передаваемых за раз данных.\nИнформация о количестве страниц, текущей странице и общем количестве объектов передается в заголовках ответа.\nДля примера можно посмотреть работу метода `structure/user/list`\n\n# Описание залоговков постраничного вывода\n\nПри использовании запроса вида `/xxx/yyy/list` в ответ возвращают заголовки с информацией о постраничной навигации.\n\n* `X-Pagination-Total-Count` - количество всех записей.\n* `X-Pagination-Page-Count` - количество страниц.\n* `X-Pagination-Current-Page` - номер текущей страницы.\n* `X-Pagination-Per-Page` - количество элементов выводимых на странице.\n\n# Работа с постраничным выводом через API\n\nВ качестве примера взят метод получения списка акций `/special/item/list`. По умолчанию этот запрос выведет список из\nпервых 20 акций.\n\nДля управления постраничным выводом достаточно передать необходимые параметры. Например `/special/item/list?per-page=2`\nвыведет первые 2 записи из списка.\n\nЧтобы получить следующую страницу `/special/item/list?per-page=2&page=2` достаточно добавить параметр `page` в запрос.\n\nДля ряда методов существует поддержка просмотра удаленных записей. Для этого в запросе достаточно передать параметр `include_deleted`.\n\nНапример `/nomenclature/category/list?per-page=10&include_deleted=1` в список категорий добавит еще удаленные.\n",
+		"description": "# Описание методов Dooglys API v1\n\nПри отправке любого запроса к API необходимо передавать два обязательных параметра, это\nдомен предприятия и access token.\n\nЕсли данные передаются в заголовках, то это:\n\n* `Tenant-Domain`\n* `Access-Token`\n\nЕсли данные передаются в адресе, то это:\n\n* `tenant_domain`\n* `access-token`\n\n`tenant-domain` это имя домена, на котором зарегистрировано предприятие (см. метод `/structure/tenant/register`)\n`access-token` токен устройства или пользователя.\n\nКроме этого, желательно в заголовках так же передавать ID терминала (или пользователя), с которого\nосуществляется доступ. Данные передаются в поле `Terminal-Id`.\n\n# Получение Access-Token\n\nДля того чтобы получить токен необходимо в админ панели перейти на страницу управления настройками предприятия `http://YOUR_DOMAIN.dooglys.com/structure/tenant-settings/edit` и скопировать в блоке `Токены доступа` токен `Внешняя интеграция`.\n\n# Формат даты\n\nФормат даты возвращаемый некоторыми методами соответствует `Unix/Timestamp`.\n\n# Пагинация\n\nЗапросы списка объектов вида `/xxx/yyy/list` поддерживают возможность постраничного вывода данных. Так же в подобных\nзапросах возможно указание количества элементов на странице при постраничном выводе.\n\nЭто следует учитывать при проектировании приложения, которое будет взаимодействовать с API, т.к. в ближайшее\nвремя будет вводиться лимит на количество передаваемых за раз данных.\nИнформация о количестве страниц, текущей странице и общем количестве объектов передается в заголовках ответа.\nДля примера можно посмотреть работу метода `structure/user/list`\n\n# Описание залоговков постраничного вывода\n\nПри использовании запроса вида `/xxx/yyy/list` в ответ возвращают заголовки с информацией о постраничной навигации.\n\n* `X-Pagination-Total-Count` - количество всех записей.\n* `X-Pagination-Page-Count` - количество страниц.\n* `X-Pagination-Current-Page` - номер текущей страницы.\n* `X-Pagination-Per-Page` - количество элементов выводимых на странице.\n\n# Работа с постраничным выводом через API\n\nВ качестве примера взят метод получения списка акций `/special/item/list`. По умолчанию этот запрос выведет список из\nпервых 20 акций.\n\nДля управления постраничным выводом достаточно передать необходимые параметры. Например `/special/item/list?per-page=2`\nвыведет первые 2 записи из списка.\n\nЧтобы получить следующую страницу `/special/item/list?per-page=2&page=2` достаточно добавить параметр `page` в запрос.\n\nДля ряда методов существует поддержка просмотра удаленных записей. Для этого в запросе достаточно передать параметр `include_deleted`.\n\nНапример `/nomenclature/category/list?per-page=10&include_deleted=1` в список категорий добавит еще удаленные.\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Предприятие (structure)",
+			"description": null,
 			"item": [
 				{
 					"name": "structure/tenant/settings",
@@ -55,7 +56,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}structure/tenant/settings",
+							"raw": "{{base_uri}}/structure/tenant/settings",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -73,7 +74,292 @@
 		},
 		{
 			"name": "Лояльность (loyalty)",
+			"description": null,
 			"item": [
+				{
+					"name": "loyalty/transaction/buy-new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Access-Token",
+								"value": "{{access_token}}"
+							},
+							{
+								"key": "Tenant-Domain",
+								"value": "{{tenant_domain}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_id\": \"92ca09a2-a51f-4e51-adce-08c76ef73a4f\",\n  \"date\": 1512476269,\n  \"total_cost\": 1000,\n  \"loyalty_cost\": 1000,\n  \"order_type\": \"sale_point\",\n  \"auth_type\": \"track2\",\n  \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"order_items\": [\n        {\n            \"product_id\": \"fef36b6d-5ba3-452c-8f39-22a75912b674\",\n            \"quantity\": 10,\n            \"cost\": 100,\n            \"total_cost\": 1000,\n            \"price\": 100\n        }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_uri}}/loyalty/transaction/buy-new",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"loyalty",
+								"transaction",
+								"buy-new"
+							]
+						},
+						"description": "Чтобы провести новую транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}loyalty/transaction/buy-new` с помощью метода `POST`\n\nПараметры запроса\n\nИмя                 |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain       |   header        |      Да        | string       | Домен предприятия\nAccess-Token        |   header        |      Да        | string       | Токен доступа\ntotal_cost          |   body          |      Да        | float        | Суммарная стоимость всех товаров в заказе\nloyalty_cost        |   body          |      Нет       | float        | Суммарная стоимость акционных товаров, по которой расчитывается скидка и бонусы\ncard_id             |   body          |      Да        | string       | ID карты\ndate                |   body          |      Да        | int32        | Дата совершения запроса\nauth_type           |   body          |      Да        | string       | Способ идентификации покупателя\norder_type          |   body          |      Да        | string       | Тип заказа\nsale_point_id       |   body          |      Нет       | string       | ID торговой точки\nuser_id             |   body          |      Нет       | string       | ID пользователя терминала\norder_items         |   body          |      Нет       | array        | Товары в заказе\norder_id            |   body          |      Нет       | string       | ID заказа в системе Dooglys\nexternal_order_id   |   body          |      Нет       | string       | ID заказа во внешней системе\nexternal_point_name |   body          |      Нет       | string       | Название торговой точки во внешней системе"
+					},
+					"response": [
+						{
+							"id": "a1cbbbfd-0f6f-4faf-bf01-e6647a734a97",
+							"name": "loyalty/transaction/buy-new",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Access-Token",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "Tenant-Domain",
+										"value": "{{tenant_domain}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_uri}}/loyalty/transaction/buy-new",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"loyalty",
+										"transaction",
+										"buy-new"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page",
+									"name": "Access-Control-Expose-Headers",
+									"description": "Lets a server whitelist headers that browsers are allowed to access."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Oct 2017 15:04:01 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.11.9",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "{{api_domain}}",
+									"path": "/",
+									"secure": false,
+									"value": "01d312dbf5d902b10342711248933610",
+									"key": "advanced-backend"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "{{api_domain}}",
+									"path": "/",
+									"secure": false,
+									"value": "d9471909bc81211e5e4bfcfd6a3014d3817c25e547dc8c1b77373c51066c4a72a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22KC7yNlqXdmt6eZC7vZ8ejrKim_vpaFtz%22%3B%7D",
+									"key": "_csrf-backend"
+								}
+							],
+							"body": "{\n    \"id\": \"30413b48-56c4-485b-b060-44a0a12ed6e2\",\n    \"total_cost\": 900,\n    \"discount_value\": 100,\n    \"discount_percent\": 10,\n    \"items_cost\": 1000,\n    \"balance_increment\": 0,\n    \"balance_up\": 0,\n    \"balance_down\": 0,\n    \"date\": 1512476269,\n    \"type\": \"purchase\",\n    \"status\": \"enabled\",\n    \"completed\": 0,\n    \"rule_id\": \"c142b832-658e-43de-b8ba-575c5163f7e0\",\n    \"customer\": {\n        \"id\": \"c7de2d9a-a4ff-4bfb-ad14-62d64d1fa4a1\",\n        \"tenant_id\": \"797314dd-913b-47ee-ae2e-b7ec5e433279\",\n        \"last_name\": \"Гуглина\",\n        \"first_name\": \"Анна\",\n        \"middle_name\": \"С\",\n        \"sex\": 1,\n        \"birth_date\": 1506952173,\n        \"email\": \"anna@local.com\",\n        \"phone\": \"79308994713\",\n        \"phone_alt\": null,\n        \"registration_date\": 1506952173,\n        \"last_auth_date\": 1506952173,\n        \"status\": \"enabled\",\n        \"addresses\": [],\n        \"friends\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "loyalty/transaction/buy-commit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Access-Token",
+								"value": "{{access_token}}"
+							},
+							{
+								"key": "Tenant-Domain",
+								"value": "{{tenant_domain}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"transaction_id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\",\n  \"auth_type\": \"track2\",\n  \"balance_down\": 25\n}"
+						},
+						"url": {
+							"raw": "{{base_uri}}/loyalty/transaction/buy-commit",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"loyalty",
+								"transaction",
+								"buy-commit"
+							]
+						},
+						"description": "Чтобы подтвердить транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}loyalty/transaction/buy-commit` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nauth_type     |   body          |      Да        | string       | Способ идентификации покупателя\nbalance_down  |   body          |      Нет       | float        | Кол-во денег или бонусов для списания"
+					},
+					"response": [
+						{
+							"id": "18b126ad-9b22-4375-8977-e0dbdad0e82e",
+							"name": "loyalty/transaction/buy-commit",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Access-Token",
+										"value": "{{access_token}}"
+									},
+									{
+										"key": "Tenant-Domain",
+										"value": "{{tenant_domain}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_uri}}/loyalty/transaction/buy-commit",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"loyalty",
+										"transaction",
+										"buy-commit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page",
+									"name": "Access-Control-Expose-Headers",
+									"description": "Lets a server whitelist headers that browsers are allowed to access."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Oct 2017 15:04:26 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.11.9",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "{{api_domain}}",
+									"path": "/",
+									"secure": false,
+									"value": "01d312dbf5d902b10342711248933610",
+									"key": "advanced-backend"
+								},
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "{{api_domain}}",
+									"path": "/",
+									"secure": false,
+									"value": "d9471909bc81211e5e4bfcfd6a3014d3817c25e547dc8c1b77373c51066c4a72a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22KC7yNlqXdmt6eZC7vZ8ejrKim_vpaFtz%22%3B%7D",
+									"key": "_csrf-backend"
+								}
+							],
+							"body": "{\n    \"id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\",\n    \"total_cost\": 900,\n    \"discount_value\": 10,\n    \"items_cost\": 1000,\n    \"balance_increment\": 0,\n    \"balance_up\": 0,\n    \"balance_down\": 0,\n    \"discount_percent\": 10,\n    \"date\": 1506952174,\n    \"type\": \"purchase\",\n    \"completed\": 1,\n    \"status\": \"enabled\",\n    \"rule_id\": null,\n    \"customer\": {\n        \"id\": \"c7de2d9a-a4ff-4bfb-ad14-62d64d1fa4a1\",\n        \"tenant_id\": \"797314dd-913b-47ee-ae2e-b7ec5e433279\",\n        \"last_name\": \"Гуглина\",\n        \"first_name\": \"Анна\",\n        \"middle_name\": \"С\",\n        \"sex\": 1,\n        \"birth_date\": 1506952173,\n        \"email\": \"anna@local.com\",\n        \"phone\": \"79308994713\",\n        \"phone_alt\": null,\n        \"registration_date\": 1506952173,\n        \"last_auth_date\": 1506952173,\n        \"status\": \"enabled\",\n        \"addresses\": []\n    }\n}"
+						}
+					]
+				},
 				{
 					"name": "loyalty/transaction/buy-return",
 					"request": {
@@ -97,7 +383,7 @@
 							"raw": "{\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"transaction_id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}loyalty/transaction/buy-return",
+							"raw": "{{base_uri}}/loyalty/transaction/buy-return",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -111,7 +397,7 @@
 					},
 					"response": [
 						{
-							"id": "37e3ea65-2f5b-4dc0-bcb2-b581c9c8aee3",
+							"id": "305a8651-eb8a-475e-a348-014ad968ae0c",
 							"name": "loyalty/transaction/buy-return",
 							"originalRequest": {
 								"method": "POST",
@@ -134,7 +420,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}loyalty/transaction/buy-return",
+									"raw": "{{base_uri}}/loyalty/transaction/buy-return",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -148,7 +434,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -216,7 +501,7 @@
 							"body": "{\n    \"id\": \"6a56cbd9-702c-45b3-959b-4e8950bc7d7b\",\n    \"total_cost\": -900,\n    \"discount_value\": 0,\n    \"items_cost\": -1000,\n    \"balance_increment\": 0,\n    \"discount_percent\": 0,\n    \"date\": 1506956689,\n    \"type\": \"return\",\n    \"completed\": 1,\n    \"status\": \"enabled\",\n    \"customer\": null\n}"
 						},
 						{
-							"id": "4adc9a1c-c78a-4bf2-aada-71f3902c12a9",
+							"id": "caa73b01-1ff4-42c0-ae8b-f6b2aac9f39c",
 							"name": "loyalty/transaction/buy-new",
 							"originalRequest": {
 								"method": "POST",
@@ -239,7 +524,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}loyalty/transaction/buy-new",
+									"raw": "{{base_uri}}/loyalty/transaction/buy-new",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -253,7 +538,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -345,7 +629,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}loyalty/settings/view",
+							"raw": "{{base_uri}}/loyalty/settings/view",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -359,7 +643,7 @@
 					},
 					"response": [
 						{
-							"id": "0269aa6d-d5f4-4874-8dd0-8fe00d850ffd",
+							"id": "7e3f8a70-d20d-45a0-8144-53c86aa37a0a",
 							"name": "loyalty/settings/view",
 							"originalRequest": {
 								"method": "GET",
@@ -382,7 +666,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}loyalty/settings/view",
+									"raw": "{{base_uri}}/loyalty/settings/view",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -396,7 +680,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -466,149 +749,6 @@
 					]
 				},
 				{
-					"name": "loyalty/transaction/buy-commit",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Access-Token",
-								"value": "{{access_token}}"
-							},
-							{
-								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"transaction_id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\",\n  \"auth_type\": \"track2\",\n  \"balance_down\": 25\n}"
-						},
-						"url": {
-							"raw": "{{base_uri}}loyalty/transaction/buy-commit",
-							"host": [
-								"{{base_uri}}"
-							],
-							"path": [
-								"loyalty",
-								"transaction",
-								"buy-commit"
-							]
-						},
-						"description": "Чтобы подтвердить транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}loyalty/transaction/buy-commit` с помощью метода `POST`\n\nПараметры запроса\n\nИмя           |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain |   header        |      Да        | string       | Домен предприятия\nAccess-Token  |   header        |      Да        | string       | Токен доступа\ntransaction_id|   body          |      Да        | string       | ID транзакции\nauth_type     |   body          |      Да        | string       | Способ идентификации покупателя\nbalance_down  |   body          |      Нет       | float        | Кол-во денег или бонусов для списания"
-					},
-					"response": [
-						{
-							"id": "359c6da0-c625-423b-a1e5-2d55b37468d2",
-							"name": "loyalty/transaction/buy-commit",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Access-Token",
-										"value": "{{access_token}}"
-									},
-									{
-										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "{{base_uri}}loyalty/transaction/buy-commit",
-									"host": [
-										"{{base_uri}}"
-									],
-									"path": [
-										"loyalty",
-										"transaction",
-										"buy-commit"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
-							"header": [
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*",
-									"name": "Access-Control-Allow-Origin",
-									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
-								},
-								{
-									"key": "Access-Control-Expose-Headers",
-									"value": "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page",
-									"name": "Access-Control-Expose-Headers",
-									"description": "Lets a server whitelist headers that browsers are allowed to access."
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive",
-									"name": "Connection",
-									"description": "Options that are desired for the connection"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=UTF-8",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 02 Oct 2017 15:04:26 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Server",
-									"value": "nginx/1.11.9",
-									"name": "Server",
-									"description": "A name for the server"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked",
-									"name": "Transfer-Encoding",
-									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-								}
-							],
-							"cookie": [
-								{
-									"expires": "Invalid Date",
-									"httpOnly": true,
-									"domain": "{{api_domain}}",
-									"path": "/",
-									"secure": false,
-									"value": "01d312dbf5d902b10342711248933610",
-									"key": "advanced-backend"
-								},
-								{
-									"expires": "Invalid Date",
-									"httpOnly": true,
-									"domain": "{{api_domain}}",
-									"path": "/",
-									"secure": false,
-									"value": "d9471909bc81211e5e4bfcfd6a3014d3817c25e547dc8c1b77373c51066c4a72a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22KC7yNlqXdmt6eZC7vZ8ejrKim_vpaFtz%22%3B%7D",
-									"key": "_csrf-backend"
-								}
-							],
-							"body": "{\n    \"id\": \"6229bbc0-961c-4ea5-83a9-8e5a656af270\",\n    \"total_cost\": 900,\n    \"discount_value\": 10,\n    \"items_cost\": 1000,\n    \"balance_increment\": 0,\n    \"balance_up\": 0,\n    \"balance_down\": 0,\n    \"discount_percent\": 10,\n    \"date\": 1506952174,\n    \"type\": \"purchase\",\n    \"completed\": 1,\n    \"status\": \"enabled\",\n    \"rule_id\": null,\n    \"customer\": {\n        \"id\": \"c7de2d9a-a4ff-4bfb-ad14-62d64d1fa4a1\",\n        \"tenant_id\": \"797314dd-913b-47ee-ae2e-b7ec5e433279\",\n        \"last_name\": \"Гуглина\",\n        \"first_name\": \"Анна\",\n        \"middle_name\": \"С\",\n        \"sex\": 1,\n        \"birth_date\": 1506952173,\n        \"email\": \"anna@local.com\",\n        \"phone\": \"79308994713\",\n        \"phone_alt\": null,\n        \"registration_date\": 1506952173,\n        \"last_auth_date\": 1506952173,\n        \"status\": \"enabled\",\n        \"addresses\": []\n    }\n}"
-						}
-					]
-				},
-				{
 					"name": "loyalty/card/info",
 					"request": {
 						"method": "POST",
@@ -631,7 +771,7 @@
 							"raw": "{\n  \"track2\": \"2010020020005389016=20251210148423111\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}loyalty/card/info",
+							"raw": "{{base_uri}}/loyalty/card/info",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -645,7 +785,7 @@
 					},
 					"response": [
 						{
-							"id": "63e23859-e4b9-4f3b-bb89-1ae20d7bc5ed",
+							"id": "98db2789-ffb3-4167-8e48-ebf6cb27531c",
 							"name": "loyalty/card/info",
 							"originalRequest": {
 								"method": "POST",
@@ -668,7 +808,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}loyalty/card/info",
+									"raw": "{{base_uri}}/loyalty/card/info",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -682,7 +822,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -750,154 +889,12 @@
 							"body": "{\n    \"id\": \"b5ff34f5-65fb-467b-8434-388ac0a408c7\",\n    \"num\": \"006593979\",\n    \"mode\": \"bonus\",\n    \"state\": \"registered\",\n    \"date_issued\": null,\n    \"date_expired\": 2051222400,\n    \"date_activated\": null,\n    \"date_registered\": 1492693510,\n    \"status\": \"enabled\",\n    \"customer\": {\n        \"id\": \"a04282b8-761b-45e6-9caf-92dcc5c176ff\",\n        \"tenant_id\": \"0f07c4b2-ea9d-42ba-92cc-1c61c6280311\",\n        \"last_name\": \"Иванов\",\n        \"first_name\": \"Иван\",\n        \"middle_name\": \"Иванович\",\n        \"sex\": 1,\n        \"birth_date\": 592952400,\n        \"email\": \"ivanov@rambler.ru\",\n        \"phone\": \"79509600011\",\n        \"phone_alt\": null,\n        \"registration_date\": 1456829288,\n        \"last_auth_date\": 1506263380,\n        \"status\": \"enabled\",\n        \"addresses\": [],\n        \"friends\": [],\n        \"level\": {\n            \"id\": \"de8ab78c-c8dc-4a06-85c8-d4c1613370ed\",\n            \"title\": \"Серебряный статус\",\n            \"is_default\": true,\n            \"ordering\": 1,\n            \"activation_cost\": 0,\n            \"renewal_cost\": 0,\n            \"min_duration\": 180,\n            \"max_sum_percent_bonus\": {\n                \"delivery\": 0,\n                \"hold\": 0,\n                \"internet\": 0,\n                \"sale_point\": 50,\n                \"retail\": 0\n            }\n        },\n        \"level_expiration_date\": 1528974500\n    },\n    \"balance\": 100,\n    \"inactive_balance\": 0,\n    \"amount_per_month\": 0\n}"
 						}
 					]
-				},
-				{
-					"name": "loyalty/transaction/buy-new",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Access-Token",
-								"value": "{{access_token}}"
-							},
-							{
-								"key": "Tenant-Domain",
-								"value": "{{tenant_domain}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"card_id\": \"92ca09a2-a51f-4e51-adce-08c76ef73a4f\",\n  \"date\": 1512476269,\n  \"total_cost\": 1000,\n  \"loyalty_cost\": 1000,\n  \"order_type\": \"sale_point\",\n  \"auth_type\": \"track2\",\n  \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"order_items\": [\n        {\n            \"product_id\": \"fef36b6d-5ba3-452c-8f39-22a75912b674\",\n            \"quantity\": 10,\n            \"cost\": 100,\n            \"total_cost\": 1000,\n            \"price\": 100\n        }\n  ]\n}"
-						},
-						"url": {
-							"raw": "{{base_uri}}loyalty/transaction/buy-new",
-							"host": [
-								"{{base_uri}}"
-							],
-							"path": [
-								"loyalty",
-								"transaction",
-								"buy-new"
-							]
-						},
-						"description": "Чтобы провести новую транзакцию по карте, вам необходимо выполнить запрос к\n`{{base_uri}}loyalty/transaction/buy-new` с помощью метода `POST`\n\nПараметры запроса\n\nИмя                 |      Тип        | Обязательный   | Тип значения |  Описание\n:-----------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain       |   header        |      Да        | string       | Домен предприятия\nAccess-Token        |   header        |      Да        | string       | Токен доступа\ntotal_cost          |   body          |      Да        | float        | Суммарная стоимость всех товаров в заказе\nloyalty_cost        |   body          |      Нет       | float        | Суммарная стоимость акционных товаров, по которой расчитывается скидка и бонусы\ncard_id             |   body          |      Да        | string       | ID карты\ndate                |   body          |      Да        | int32        | Дата совершения запроса\nauth_type           |   body          |      Да        | string       | Способ идентификации покупателя\norder_type          |   body          |      Да        | string       | Тип заказа\nsale_point_id       |   body          |      Нет       | string       | ID торговой точки\nuser_id             |   body          |      Нет       | string       | ID пользователя терминала\norder_items         |   body          |      Нет       | array        | Товары в заказе\norder_id            |   body          |      Нет       | string       | ID заказа в системе Dooglys\nexternal_order_id   |   body          |      Нет       | string       | ID заказа во внешней системе\nexternal_point_name |   body          |      Нет       | string       | Название торговой точки во внешней системе"
-					},
-					"response": [
-						{
-							"id": "ad8a28f4-ee7a-4fde-9486-b69506b91b33",
-							"name": "loyalty/transaction/buy-new",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Access-Token",
-										"value": "{{access_token}}"
-									},
-									{
-										"key": "Tenant-Domain",
-										"value": "{{tenant_domain}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "{{base_uri}}loyalty/transaction/buy-new",
-									"host": [
-										"{{base_uri}}"
-									],
-									"path": [
-										"loyalty",
-										"transaction",
-										"buy-new"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
-							"header": [
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*",
-									"name": "Access-Control-Allow-Origin",
-									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
-								},
-								{
-									"key": "Access-Control-Expose-Headers",
-									"value": "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page",
-									"name": "Access-Control-Expose-Headers",
-									"description": "Lets a server whitelist headers that browsers are allowed to access."
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive",
-									"name": "Connection",
-									"description": "Options that are desired for the connection"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=UTF-8",
-									"name": "Content-Type",
-									"description": "The mime type of this content"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 02 Oct 2017 15:04:01 GMT",
-									"name": "Date",
-									"description": "The date and time that the message was sent"
-								},
-								{
-									"key": "Server",
-									"value": "nginx/1.11.9",
-									"name": "Server",
-									"description": "A name for the server"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked",
-									"name": "Transfer-Encoding",
-									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-								}
-							],
-							"cookie": [
-								{
-									"expires": "Invalid Date",
-									"httpOnly": true,
-									"domain": "{{api_domain}}",
-									"path": "/",
-									"secure": false,
-									"value": "01d312dbf5d902b10342711248933610",
-									"key": "advanced-backend"
-								},
-								{
-									"expires": "Invalid Date",
-									"httpOnly": true,
-									"domain": "{{api_domain}}",
-									"path": "/",
-									"secure": false,
-									"value": "d9471909bc81211e5e4bfcfd6a3014d3817c25e547dc8c1b77373c51066c4a72a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22KC7yNlqXdmt6eZC7vZ8ejrKim_vpaFtz%22%3B%7D",
-									"key": "_csrf-backend"
-								}
-							],
-							"body": "{\n    \"id\": \"30413b48-56c4-485b-b060-44a0a12ed6e2\",\n    \"total_cost\": 900,\n    \"discount_value\": 100,\n    \"discount_percent\": 10,\n    \"items_cost\": 1000,\n    \"balance_increment\": 0,\n    \"balance_up\": 0,\n    \"balance_down\": 0,\n    \"date\": 1512476269,\n    \"type\": \"purchase\",\n    \"status\": \"enabled\",\n    \"completed\": 0,\n    \"rule_id\": \"c142b832-658e-43de-b8ba-575c5163f7e0\",\n    \"customer\": {\n        \"id\": \"c7de2d9a-a4ff-4bfb-ad14-62d64d1fa4a1\",\n        \"tenant_id\": \"797314dd-913b-47ee-ae2e-b7ec5e433279\",\n        \"last_name\": \"Гуглина\",\n        \"first_name\": \"Анна\",\n        \"middle_name\": \"С\",\n        \"sex\": 1,\n        \"birth_date\": 1506952173,\n        \"email\": \"anna@local.com\",\n        \"phone\": \"79308994713\",\n        \"phone_alt\": null,\n        \"registration_date\": 1506952173,\n        \"last_auth_date\": 1506952173,\n        \"status\": \"enabled\",\n        \"addresses\": [],\n        \"friends\": []\n    }\n}"
-						}
-					]
 				}
 			]
 		},
 		{
 			"name": "Номенклатура (nomenclature)",
+			"description": null,
 			"item": [
 				{
 					"name": "nomenclature/product/list",
@@ -919,10 +916,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}nomenclature/product/list?per-page=999&include_deleted=1",
+							"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -934,13 +931,11 @@
 							"query": [
 								{
 									"key": "per-page",
-									"value": "999",
-									"equals": true
+									"value": "999"
 								},
 								{
 									"key": "include_deleted",
-									"value": "1",
-									"equals": true
+									"value": "1"
 								}
 							]
 						},
@@ -948,7 +943,7 @@
 					},
 					"response": [
 						{
-							"id": "da85327a-30b4-4baa-a565-09c4eff630e8",
+							"id": "02eec49a-c24e-4c09-9ff7-89efd1fa609e",
 							"name": "nomenclature/product/list",
 							"originalRequest": {
 								"method": "GET",
@@ -971,7 +966,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}nomenclature/product/list?per-page=999&include_deleted=1",
+									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -983,13 +978,11 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999",
-											"equals": true
+											"value": "999"
 										},
 										{
 											"key": "include_deleted",
-											"value": "1",
-											"equals": true
+											"value": "1"
 										}
 									]
 								}
@@ -997,7 +990,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -1116,10 +1108,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}nomenclature/category/list?per-page=999&include_deleted=1",
+							"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -1131,13 +1123,11 @@
 							"query": [
 								{
 									"key": "per-page",
-									"value": "999",
-									"equals": true
+									"value": "999"
 								},
 								{
 									"key": "include_deleted",
-									"value": "1",
-									"equals": true
+									"value": "1"
 								}
 							]
 						},
@@ -1145,7 +1135,7 @@
 					},
 					"response": [
 						{
-							"id": "33a76888-3545-4d2f-b33a-a7ced7ad4bd2",
+							"id": "0a0972b2-a81d-45b8-892f-68c4274de598",
 							"name": "nomenclature/category/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1168,7 +1158,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}nomenclature/category/list?per-page=999&include_deleted=1",
+									"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -1180,13 +1170,11 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999",
-											"equals": true
+											"value": "999"
 										},
 										{
 											"key": "include_deleted",
-											"value": "1",
-											"equals": true
+											"value": "1"
 										}
 									]
 								}
@@ -1194,7 +1182,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -1313,10 +1300,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}nomenclature/product/view/cbb79b36-c3e4-40ae-b7b0-f22c401b2421",
+							"raw": "{{base_uri}}/nomenclature/product/view/cbb79b36-c3e4-40ae-b7b0-f22c401b2421",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -1331,7 +1318,7 @@
 					},
 					"response": [
 						{
-							"id": "7da7c857-2e80-45ab-b973-23e4855fd39d",
+							"id": "32295c32-7e53-42ac-a0a3-6457fcd9d3bb",
 							"name": "nomenclature/product/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1354,7 +1341,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}nomenclature/product/list?per-page=999&include_deleted=1",
+									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -1366,13 +1353,11 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999",
-											"equals": true
+											"value": "999"
 										},
 										{
 											"key": "include_deleted",
-											"value": "1",
-											"equals": true
+											"value": "1"
 										}
 									]
 								}
@@ -1380,7 +1365,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -1499,10 +1483,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}nomenclature/category/view",
+							"raw": "{{base_uri}}/nomenclature/category/view",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -1516,7 +1500,7 @@
 					},
 					"response": [
 						{
-							"id": "4f37865b-5a15-4b87-9e22-82f4625fa39a",
+							"id": "65e92030-b4f9-463f-80bc-a4c85b77cf31",
 							"name": "nomenclature/category/list",
 							"originalRequest": {
 								"method": "GET",
@@ -1539,7 +1523,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}nomenclature/category/list?per-page=999&include_deleted=1",
+									"raw": "{{base_uri}}/nomenclature/category/list?per-page=999&include_deleted=1",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -1551,13 +1535,11 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999",
-											"equals": true
+											"value": "999"
 										},
 										{
 											"key": "include_deleted",
-											"value": "1",
-											"equals": true
+											"value": "1"
 										}
 									]
 								}
@@ -1565,7 +1547,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -1668,6 +1649,7 @@
 		},
 		{
 			"name": "Пользователи (structure/user)",
+			"description": null,
 			"item": [
 				{
 					"name": "structure/user/list",
@@ -1689,10 +1671,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}structure/user/list",
+							"raw": "{{base_uri}}/structure/user/list",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -1706,7 +1688,7 @@
 					},
 					"response": [
 						{
-							"id": "c440080e-7681-4d5b-9d39-067d98aee85a",
+							"id": "89b0e63f-08d3-4af9-9514-61b4bfa68c89",
 							"name": "Получить коллекцию пользователей",
 							"originalRequest": {
 								"method": "GET",
@@ -1729,7 +1711,7 @@
 									"raw": "{\n  \n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}structure/user/list",
+									"raw": "{{base_uri}}/structure/user/list",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -1743,7 +1725,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -1862,10 +1843,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}structure/user/view/7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5",
+							"raw": "{{base_uri}}/structure/user/view/7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -1880,7 +1861,7 @@
 					},
 					"response": [
 						{
-							"id": "f4e3db6b-7769-407e-b4f1-0a71049ec78d",
+							"id": "1fc9b167-7cd5-453b-a17f-7fd138abd3f7",
 							"name": "Получить коллекцию пользователей",
 							"originalRequest": {
 								"method": "GET",
@@ -1903,7 +1884,7 @@
 									"raw": "{\n  \n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}structure/user/list",
+									"raw": "{{base_uri}}/structure/user/list",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -1917,7 +1898,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -2020,6 +2000,7 @@
 		},
 		{
 			"name": "Торговая точка (structure/sale-point)",
+			"description": null,
 			"item": [
 				{
 					"name": "structure/sale-point/view",
@@ -2043,10 +2024,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+							"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -2061,7 +2042,7 @@
 					},
 					"response": [
 						{
-							"id": "d7e787e4-2766-4a80-8a6a-d66a7dfa6de1",
+							"id": "3e52583b-0bf3-445e-8895-c4b1c9eebe7a",
 							"name": "200",
 							"originalRequest": {
 								"method": "GET",
@@ -2086,7 +2067,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+									"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -2101,7 +2082,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"name": "Access-Control-Allow-Origin",
@@ -2173,10 +2153,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}structure/sale-point/list",
+							"raw": "{{base_uri}}/structure/sale-point/list",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -2190,7 +2170,7 @@
 					},
 					"response": [
 						{
-							"id": "b4e8f4d8-432d-4895-89a8-a4f25f31ef13",
+							"id": "d5b7816c-fbb4-490f-a182-1752303b3394",
 							"name": "200",
 							"originalRequest": {
 								"method": "GET",
@@ -2215,7 +2195,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+									"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -2230,7 +2210,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"name": "Access-Control-Allow-Origin",
@@ -2284,6 +2263,7 @@
 		},
 		{
 			"name": "Меню терминала (terminal-menu)",
+			"description": null,
 			"item": [
 				{
 					"name": "terminal-menu/menu/kit",
@@ -2308,7 +2288,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -2319,11 +2299,11 @@
 								"647ea788-3b78-4ef3-a885-d0eb1fc18a35"
 							]
 						},
-						"description": "Чтобы получить наборы меню терминала, вам необходимо выполнить запрос к\n`{{base_uri}}terminal-menu/menu/kit/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
+						"description": "Чтобы получить комплектующие меню терминала, вам необходимо выполнить запрос к\n`{{base_uri}}terminal-menu/menu/kit/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
 					},
 					"response": [
 						{
-							"id": "23a15cd3-4432-4048-b3f6-6bc4ced5b264",
+							"id": "09d60df9-b9ab-4ff9-8281-73816629a840",
 							"name": "terminal-menu/menu/kit",
 							"originalRequest": {
 								"method": "GET",
@@ -2346,7 +2326,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -2361,7 +2341,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -2453,7 +2432,7 @@
 							"raw": "{\n  \"cipher\": \"0001\",\n  \"domain\": \"docker\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
+							"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -2466,8 +2445,7 @@
 							"query": [
 								{
 									"key": "scenario",
-									"value": "full",
-									"equals": true
+									"value": "full"
 								}
 							]
 						},
@@ -2475,7 +2453,7 @@
 					},
 					"response": [
 						{
-							"id": "8f053f42-f7c5-4fa6-b9dc-181a74cc3975",
+							"id": "8596eee3-c3ea-44fe-96dc-a964fec9988a",
 							"name": "terminal-menu/menu/view",
 							"originalRequest": {
 								"method": "GET",
@@ -2498,7 +2476,7 @@
 									"raw": "{\n  \"cipher\": \"0001\",\n  \"domain\": \"docker\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
+									"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -2511,8 +2489,7 @@
 									"query": [
 										{
 											"key": "scenario",
-											"value": "full",
-											"equals": true
+											"value": "full"
 										}
 									]
 								}
@@ -2520,7 +2497,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -2612,7 +2588,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -2623,11 +2599,11 @@
 								"647ea788-3b78-4ef3-a885-d0eb1fc18a35"
 							]
 						},
-						"description": "Чтобы получить модификатор меню терминала, вам необходимо выполнить запрос к\n`{{base_uri}}terminal-menu/menu/modifier/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
+						"description": "Чтобы получить модификаторы для меню терминала, вам необходимо выполнить запрос к\n`{{base_uri}}terminal-menu/menu/modifier/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID меню"
 					},
 					"response": [
 						{
-							"id": "e62e30d6-910d-41d7-9a4d-90cfc81bc174",
+							"id": "6b93ec45-e530-45c8-af12-d59d34311def",
 							"name": "terminal-menu/menu/modifier",
 							"originalRequest": {
 								"method": "GET",
@@ -2650,7 +2626,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -2665,7 +2641,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -2757,7 +2732,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}terminal-menu/menu/kit-products/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+							"raw": "{{base_uri}}/terminal-menu/menu/kit-products/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -2772,7 +2747,7 @@
 					},
 					"response": [
 						{
-							"id": "f1441aca-a7de-4993-8e11-646db4f744ce",
+							"id": "e31eca59-15a3-46f6-b458-ae65b411d05a",
 							"name": "terminal-menu/menu/kit",
 							"originalRequest": {
 								"method": "GET",
@@ -2795,7 +2770,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
+									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -2810,7 +2785,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -2883,6 +2857,7 @@
 		},
 		{
 			"name": "Продажи (sales)",
+			"description": null,
 			"item": [
 				{
 					"name": "sales/order/view",
@@ -2907,7 +2882,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+							"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -2922,7 +2897,7 @@
 					},
 					"response": [
 						{
-							"id": "f987c92f-009f-4374-8b69-7c394a9cdc4c",
+							"id": "c4b1d4fc-985b-4e4f-a9ab-73c94bc3e638",
 							"name": "Получить заказ",
 							"originalRequest": {
 								"method": "GET",
@@ -2945,7 +2920,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+									"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -2960,7 +2935,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -3049,10 +3023,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}sales/order/list?per-page=999",
+							"raw": "{{base_uri}}/sales/order/list?per-page=999",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -3064,8 +3038,7 @@
 							"query": [
 								{
 									"key": "per-page",
-									"value": "999",
-									"equals": true
+									"value": "999"
 								}
 							]
 						},
@@ -3073,7 +3046,7 @@
 					},
 					"response": [
 						{
-							"id": "0c3f73fa-4514-456c-ad01-3691d5a244c4",
+							"id": "eaa18924-b298-42ee-b723-268f8090d4de",
 							"name": "Получить коллекцию заказов",
 							"originalRequest": {
 								"method": "GET",
@@ -3096,7 +3069,7 @@
 									"raw": "{\n  \"date_returned\": 1478067593,\n  \"return_reason\": \"aslkdjaskld\"\n}"
 								},
 								"url": {
-									"raw": "{{base_uri}}sales/order/list?per-page=999",
+									"raw": "{{base_uri}}/sales/order/list?per-page=999",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -3108,8 +3081,7 @@
 									"query": [
 										{
 											"key": "per-page",
-											"value": "999",
-											"equals": true
+											"value": "999"
 										}
 									]
 								}
@@ -3117,7 +3089,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -3239,7 +3210,7 @@
 							"raw": "{\n\t\"id\": \"2ab6b66f-70ba-4940-8a67-b637d6edf46e\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"cashier_shift_id\": \"476011aa-37a2-49cb-985c-a337e3ad1ea1\",\n\t\"number\": \"123\",\n\t\"date_created\": 1478067593,\n\t\"date_accepted\": 1478067593,\n\t\"payment_type\": \"card\",\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}sales/order/create",
+							"raw": "{{base_uri}}/sales/order/create",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -3253,7 +3224,7 @@
 					},
 					"response": [
 						{
-							"id": "d23a0725-c354-4e1a-894f-b5f55bada1a7",
+							"id": "362c62e4-c233-4141-b63e-ee4ea57a64d9",
 							"name": "Создать заказ",
 							"originalRequest": {
 								"method": "POST",
@@ -3276,7 +3247,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}sales/order/create",
+									"raw": "{{base_uri}}/sales/order/create",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -3290,7 +3261,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -3382,7 +3352,7 @@
 							"raw": "{\n  \"number\": \"123\",\n  \"payment_type\": \"card\",\n  \"employee_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n  \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
 						},
 						"url": {
-							"raw": "{{base_uri}}sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+							"raw": "{{base_uri}}/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -3397,7 +3367,7 @@
 					},
 					"response": [
 						{
-							"id": "7051952a-94ac-4993-9622-b7f8ebac3fb7",
+							"id": "2a49276c-2e2f-4333-bfbd-26d52903b26b",
 							"name": "Обновить заказ",
 							"originalRequest": {
 								"method": "POST",
@@ -3420,7 +3390,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_uri}}sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
+									"raw": "{{base_uri}}/sales/order/update/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"host": [
 										"{{base_uri}}"
 									],
@@ -3435,7 +3405,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -3505,6 +3474,28 @@
 					]
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "59e8028f-669f-45d0-bc82-9fbd16922160",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9f5361c1-54bc-4b93-9da2-25375466dc39",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
