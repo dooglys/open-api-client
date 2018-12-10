@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c3331d8a-06aa-4837-815c-a682410b609a",
+		"_postman_id": "3a54ad8c-bb21-401d-91a9-ab68f06fe779",
 		"name": "Dooglys Open API V1",
 		"description": "# Описание методов Dooglys API v1\n\nПри отправке любого запроса к API необходимо передавать два обязательных параметра, это\nдомен предприятия и access token.\n\nЕсли данные передаются в заголовках, то это:\n\n* `Tenant-Domain`\n* `Access-Token`\n\nЕсли данные передаются в адресе, то это:\n\n* `tenant_domain`\n* `access-token`\n\n`tenant-domain` это имя домена, на котором зарегистрировано предприятие (см. метод `/structure/tenant/register`)\n`access-token` токен устройства или пользователя.\n\nКроме этого, желательно в заголовках так же передавать ID терминала (или пользователя), с которого\nосуществляется доступ. Данные передаются в поле `Terminal-Id`.\n\n# Получение Access-Token\n\nДля того чтобы получить токен необходимо в админ панели перейти на страницу управления настройками предприятия `http://YOUR_DOMAIN.dooglys.com/structure/tenant-settings/edit` и скопировать в блоке `Токены доступа` токен `Внешняя интеграция`.\n\n# Формат даты\n\nФормат даты возвращаемый некоторыми методами соответствует `Unix/Timestamp`.\n\n# Пагинация\n\nЗапросы списка объектов вида `/xxx/yyy/list` поддерживают возможность постраничного вывода данных. Так же в подобных\nзапросах возможно указание количества элементов на странице при постраничном выводе.\n\nЭто следует учитывать при проектировании приложения, которое будет взаимодействовать с API, т.к. в ближайшее\nвремя будет вводиться лимит на количество передаваемых за раз данных.\nИнформация о количестве страниц, текущей странице и общем количестве объектов передается в заголовках ответа.\nДля примера можно посмотреть работу метода `structure/user/list`\n\n# Описание залоговков постраничного вывода\n\nПри использовании запроса вида `/xxx/yyy/list` в ответ возвращают заголовки с информацией о постраничной навигации.\n\n* `X-Pagination-Total-Count` - количество всех записей.\n* `X-Pagination-Page-Count` - количество страниц.\n* `X-Pagination-Current-Page` - номер текущей страницы.\n* `X-Pagination-Per-Page` - количество элементов выводимых на странице.\n\n# Работа с постраничным выводом через API\n\nВ качестве примера взят метод получения списка акций `/special/item/list`. По умолчанию этот запрос выведет список из\nпервых 20 акций.\n\nДля управления постраничным выводом достаточно передать необходимые параметры. Например `/special/item/list?per-page=2`\nвыведет первые 2 записи из списка.\n\nЧтобы получить следующую страницу `/special/item/list?per-page=2&page=2` достаточно добавить параметр `page` в запрос.\n\nДля ряда методов существует поддержка просмотра удаленных записей. Для этого в запросе достаточно передать параметр `include_deleted`.\n\nНапример `/nomenclature/category/list?per-page=10&include_deleted=1` в список категорий добавит еще удаленные.\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -8,7 +8,6 @@
 	"item": [
 		{
 			"name": "Предприятие (structure)",
-			"description": null,
 			"item": [
 				{
 					"name": "structure/tenant/settings",
@@ -74,7 +73,6 @@
 		},
 		{
 			"name": "Лояльность (loyalty)",
-			"description": null,
 			"item": [
 				{
 					"name": "loyalty/transaction/buy-new",
@@ -265,7 +263,6 @@
 		},
 		{
 			"name": "Номенклатура (nomenclature)",
-			"description": null,
 			"item": [
 				{
 					"name": "nomenclature/product/view",
@@ -375,14 +372,15 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}/nomenclature/category/view",
+							"raw": "{{base_uri}}/nomenclature/category/view/13887c77-ac2e-4d09-a308-7a5bd9baa548",
 							"host": [
 								"{{base_uri}}"
 							],
 							"path": [
 								"nomenclature",
 								"category",
-								"view"
+								"view",
+								"13887c77-ac2e-4d09-a308-7a5bd9baa548"
 							]
 						},
 						"description": "Чтобы получить информацию о категории, вам необходимо выполнить запрос к\n`{{base_uri}}nomenclature/category/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID категории"
@@ -440,7 +438,6 @@
 		},
 		{
 			"name": "Пользователи (structure/user)",
-			"description": null,
 			"item": [
 				{
 					"name": "structure/user/view",
@@ -521,7 +518,6 @@
 		},
 		{
 			"name": "Торговая точка (structure/sale-point)",
-			"description": null,
 			"item": [
 				{
 					"name": "structure/sale-point/view",
@@ -548,7 +544,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_uri}}/structure/sale-point/view/b828db52-dc0c-4e26-96af-c32d83a867aa",
+							"raw": "{{base_uri}}/structure/sale-point/view/94bdb66f-70ba-4940-8a67-b637d6edf46f",
 							"host": [
 								"{{base_uri}}"
 							],
@@ -556,7 +552,7 @@
 								"structure",
 								"sale-point",
 								"view",
-								"b828db52-dc0c-4e26-96af-c32d83a867aa"
+								"94bdb66f-70ba-4940-8a67-b637d6edf46f"
 							]
 						},
 						"description": "Чтобы получить информацию о торговой точке, вам необходимо выполнить запрос к\n`{{base_uri}}structure/sale-point/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID торговой точки"
@@ -606,7 +602,6 @@
 		},
 		{
 			"name": "Меню терминала (terminal-menu)",
-			"description": null,
 			"item": [
 				{
 					"name": "terminal-menu/menu/kit",
@@ -666,7 +661,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"cipher\": \"0001\",\n  \"domain\": \"docker\"\n}"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
@@ -770,7 +765,6 @@
 		},
 		{
 			"name": "Продажи (sales)",
-			"description": null,
 			"item": [
 				{
 					"name": "sales/order/view",
@@ -873,7 +867,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": \"2ab6b66f-70ba-4940-8a67-b637d6edf46e\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"cashier_shift_id\": \"476011aa-37a2-49cb-985c-a337e3ad1ea1\",\n\t\"number\": \"123\",\n\t\"date_created\": 1478067593,\n\t\"date_accepted\": 1478067593,\n\t\"payment_type\": \"card\",\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n}"
+							"raw": "{\n\t\"id\": \"2ab6b66f-70ba-4940-8a67-b637d6edf46e\",\n\t\"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n\t\"cashier_shift_id\": \"476011aa-37a2-49cb-985c-a337e3ad1ea1\",\n\t\"number\": \"123\",\n\t\"date_created\": 1478067593,\n\t\"date_accepted\": 1478067593,\n\t\"payment_type\": \"card\",\n\t\"order_items\" : [\n                        {\n                            \"product_id\" : \"7c3ec585-aa52-428d-a73a-bc13c329bd31\",\n                            \"quantity\" : 1.0,\n                            \"price\" : 1500,\n                            \"cost\" : 1500,\n                            \"total_cost\" : 1500,\n                            \"discount_value\" : 0,\n                            \"discount_percent\" : 0\n                        }\n                    ],\n    \"order_history\":[\n                        {\n                            \"id\" : \"c3ccc1e1-9772-4141-b01d-4e5334293cd4\",\n                            \"user_id\" : \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n                            \"action_type\" : \"add_item\",\n                            \"action_date\" : 1478067593,\n                            \"details\" : {\n                                \"product_id\" : \"7c3ec585-aa52-428d-a73a-bc13c329bd31\"\n                            }\n                        }\n                    ],\n    \"total_cost\":1500,\n    \"items_cost\":1500,\n\t\"type\":\"retail\",\n\t\"order_status\":\"completed\",\n\t\"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\"\n\t\n}"
 						},
 						"url": {
 							"raw": "{{base_uri}}/sales/order/create",
