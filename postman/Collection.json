@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3a54ad8c-bb21-401d-91a9-ab68f06fe779",
+		"_postman_id": "9b8da120-bb7d-4de6-8d27-b2bc85d72f99",
 		"name": "Dooglys Open API V1",
 		"description": "# Описание методов Dooglys API v1\n\nПри отправке любого запроса к API необходимо передавать два обязательных параметра, это\nдомен предприятия и access token.\n\nЕсли данные передаются в заголовках, то это:\n\n* `Tenant-Domain`\n* `Access-Token`\n\nЕсли данные передаются в адресе, то это:\n\n* `tenant_domain`\n* `access-token`\n\n`tenant-domain` это имя домена, на котором зарегистрировано предприятие (см. метод `/structure/tenant/register`)\n`access-token` токен устройства или пользователя.\n\nКроме этого, желательно в заголовках так же передавать ID терминала (или пользователя), с которого\nосуществляется доступ. Данные передаются в поле `Terminal-Id`.\n\n# Получение Access-Token\n\nДля того чтобы получить токен необходимо в админ панели перейти на страницу управления настройками предприятия `http://YOUR_DOMAIN.dooglys.com/structure/tenant-settings/edit` и скопировать в блоке `Токены доступа` токен `Внешняя интеграция`.\n\n# Формат даты\n\nФормат даты возвращаемый некоторыми методами соответствует `Unix/Timestamp`.\n\n# Пагинация\n\nЗапросы списка объектов вида `/xxx/yyy/list` поддерживают возможность постраничного вывода данных. Так же в подобных\nзапросах возможно указание количества элементов на странице при постраничном выводе.\n\nЭто следует учитывать при проектировании приложения, которое будет взаимодействовать с API, т.к. в ближайшее\nвремя будет вводиться лимит на количество передаваемых за раз данных.\nИнформация о количестве страниц, текущей странице и общем количестве объектов передается в заголовках ответа.\nДля примера можно посмотреть работу метода `structure/user/list`\n\n# Описание залоговков постраничного вывода\n\nПри использовании запроса вида `/xxx/yyy/list` в ответ возвращают заголовки с информацией о постраничной навигации.\n\n* `X-Pagination-Total-Count` - количество всех записей.\n* `X-Pagination-Page-Count` - количество страниц.\n* `X-Pagination-Current-Page` - номер текущей страницы.\n* `X-Pagination-Per-Page` - количество элементов выводимых на странице.\n\n# Работа с постраничным выводом через API\n\nВ качестве примера взят метод получения списка акций `/special/item/list`. По умолчанию этот запрос выведет список из\nпервых 20 акций.\n\nДля управления постраничным выводом достаточно передать необходимые параметры. Например `/special/item/list?per-page=2`\nвыведет первые 2 записи из списка.\n\nЧтобы получить следующую страницу `/special/item/list?per-page=2&page=2` достаточно добавить параметр `page` в запрос.\n\nДля ряда методов существует поддержка просмотра удаленных записей. Для этого в запросе достаточно передать параметр `include_deleted`.\n\nНапример `/nomenclature/category/list?per-page=10&include_deleted=1` в список категорий добавит еще удаленные.\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -919,6 +919,98 @@
 							]
 						},
 						"description": "Чтобы обновить информацию в заказе, вам необходимо выполнить запрос к\n`{{base_uri}}sales/order/update` с помощью метода `POST`\n\nПараметры запроса при отмене заказа\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain    |   header        |      Да        | string       | Домен предприятия\nAccess-Token     |   header        |      Да        | string       | Токен доступа\nid               |   query         |      Да        | string       | ID заказа\norder_status     |   body          |      Да        | string       | Статус заказа (доступные значения ordered, completed, canceled, production, preparing, prepared, packed, ready, delivery, delivered, internet, internet_not_confirmed)\nuser_cancelled_id|   body          |      Да        | string       | ID пользователя отменившего заказ\ndate_returned    |   body          |      Да        | int32        | Дата возврата заказа в формате UNIX TIMESTAMP\nreturn_reason    |   body          |      Нет       | string       | Причина возврата заказа\nrejection_reason |   body          |      Нет       | string       | Причина отмены заказа\n\n\nОбщие параметры запроса при обновлении заказа\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nTenant-Domain    |   header        |      Да        | string       | Домен предприятия\nAccess-Token     |   header        |      Да        | string       | Токен доступа\nid               |   query         |      Да        | string       | ID заказа\norder_history    |   body          |      Да        | array        | Массив с историей действий над заказом\nis_edited        |   body          |      Да        | boolean      | Заказ редактировался\norder_status     |   body          |      Нет       | string       | Статус заказа (доступные значения ordered, completed, canceled, production, preparing, prepared, packed, ready, delivery, delivered, internet, internet_not_confirmed)\ncomment          |   body          |      Нет       | string       | Комментарий к заказу\ntotal_cost       |   body          |      Нет       | float        | Сумма заказа с учетом скидки\npayment_type     |   body          |      Нет       | string       | Тип оплаты (доступные значения cash, card)\norder_items      |   body          |      Нет       | array        | Массив с товарами заказа\ndate_accepted    |   body          |      Нет       | int32        | Дата оплаты заказа в формате UNIX TIMESTAMP\ndiscount_percent |   body          |      Нет       | float        | Скидка в процентах\ndiscount_value   |   body          |      Нет       | float        | Размер скидки, руб.\nitems_cost       |   body          |      Нет       | float        | Стоимость товаров (сумма заказа без скидок)\ncard_id          |   body          |      Нет       | string       | ID примененной карты лояльности\nspecials         |   body          |      Нет       | array        | Массив с ID примененных акций\ncheck_printed    |   body          |      Нет       | boolean      | Напечатан чек\nedit_quantity    |   body          |      Нет       | int32        | Количество редактирований заказа\nbanknote         |   body          |      Нет       | string       | Банкнота которой оплачен заказ\nsource           |   body          |      Нет       | string       | Источник откуда пришел заказ\n\nДополнения при обновлении заказа на доставку (delivery)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента (доступные значения 1 - муж, 2 - жен)\naddress          |   body          |      Нет       | string       | Адрес доставки\ndate_delivery    |   body          |      Нет       | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ndelivery_comment |   body          |      Нет       | string       | Комментарий к доставке\nentrance         |   body          |      Нет       | string       | Подъезд\nfloor            |   body          |      Нет       | string       | Этаж\napartment        |   body          |      Нет       | string       | Квартира/Офис\ncoordinates      |   body          |      Нет       | string       | Координаты\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\n\nДополнения при обновлении заказа бронирования (hold)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента (доступные значения 1 - муж, 2 - жен)\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\ntable_number     |   body          |      Нет       | string       | Номер стола\n\n\nДополнения при обновлении интернет заказа (internet)\n\nИмя              |      Тип        | Обязательный   | Тип значения |  Описание\n:--------------: | :-------------: | :------------: | :----------: |:--------- \nuser_id          |   body          |      Да        | string       | ID сотрудника создавшего заказ\nphone            |   body          |      Нет       | string       | Телефон клиента\nphone_alt        |   body          |      Нет       | string       | Доп. телефон\nfirst_name       |   body          |      Нет       | string       | Имя клиента\nlast_name        |   body          |      Нет       | string       | Фамилия клиента\nsex              |   body          |      Нет       | int32        | Пол клиента (доступные значения 1 - муж, 2 - жен)\naddress          |   body          |      Нет       | string       | Адрес доставки\ndate_delivery    |   body          |      Нет       | int32        | Дата доставки заказа в формате UNIX TIMESTAMP\ndelivery_comment |   body          |      Нет       | string       | Комментарий к доставке\nentrance         |   body          |      Нет       | string       | Подъезд\nfloor            |   body          |      Нет       | string       | Этаж\napartment        |   body          |      Нет       | string       | Квартира/Офис\ncoordinates      |   body          |      Нет       | string       | Координаты\ncashier_shift_id |   body          |      Нет       | string       | ID кассовой смены\nsale_point_id    |   body          |      Нет       | string       | ID торговой точки на которой сделан заказ\ntable_number     |   body          |      Нет       | string       | Номер стола\n\nЭлементы массива order_items\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \nproduct_id     | string       | ID товара\nquantity       | int32        | Количество\ncost           | int32        | Себестоимость товара\nprice          | int32        | Цена продажи\ntotal_cost     | int32        | Общая стоимость товара в заказе (цена * количество)\n\nЭлементы массива order_history\n\nИмя            | Тип значения |  Описание\n:------------: | :----------: |:--------- \naction_type    | string       | Тип действия (доступные значения add_item, delete_item, change_quantity, cancel_special, change_order_status, apply_special, apply_loyalty_card, cancel_loyalty_card, update_order_info, cancel_by_cashier, change_payment_type, change_order_processing_status, change_order_item_processing_status)\nuser_id        | string       | ID пользователя терминала\naction_date    | int32        | Дата действия в формате UNIX TIMESTAMP\ndetails        | string       | Дополнительная информация"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Зоны Обслуживания (structure/locality)",
+			"item": [
+				{
+					"name": "structure/locality/list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Access-Token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Tenant-Domain",
+								"value": "{{tenant_domain}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_uri}}/structure/locality/list",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"structure",
+								"locality",
+								"list"
+							]
+						},
+						"description": "Чтобы получить список зон обслуживания, вам необходимо выполнить запрос к {{base_uri}}structure/locality/list с помощью метода GET\nПараметры запроса\n\nИмя                |      Тип        | Обязательный   | Тип значения |  Описание\n:----------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain      |   header        |      Да        | string       | Домен предприятия\nAccess-Token       |   header        |      Да        | string       | Токен доступа\nphone              |   query         |      Нет       | string       | Номер телефона"
+					},
+					"response": []
+				},
+				{
+					"name": "structure/locality/view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Access-Token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Tenant-Domain",
+								"value": "{{tenant_domain}}",
+								"type": "text"
+							},
+							{
+								"key": "Autorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_uri}}/structure/locality/view/47004823-e8b4-4de6-a9ee-7fd2f00a92e2",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"structure",
+								"locality",
+								"view",
+								"47004823-e8b4-4de6-a9ee-7fd2f00a92e2"
+							]
+						},
+						"description": "Чтобы получить информацию о зоне обслуживания, вам необходимо выполнить запрос к\n`{{base_uri}}structure/locality/view/{id}` с помощью метода `GET`\n\n# Параметры запроса\n\nИмя          |      Тип        | Обязательный   | Тип значения |  Описание\n:----------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain|   header        |      Да        | string       | Домен предприятия\nAccess-Token |   header        |      Да        | string       | Токен доступа\nid           |   query         |      Да        | string       | ID зоны обслуживания"
 					},
 					"response": []
 				}
