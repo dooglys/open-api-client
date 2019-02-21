@@ -90,7 +90,7 @@ class Client implements ClientInterface
      * @throws BadResponseException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    protected function callMethod($uri, $method = 'GET', $options = [])
+    public function callMethod($uri, $method = 'GET', $options = [])
     {
         $headers = [];
 
