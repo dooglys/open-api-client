@@ -4,6 +4,7 @@ namespace Dooglys\Api;
 
 use Dooglys\Api\Exception\BadResponseException;
 use Dooglys\Api\Response\JsonResponseFactory;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 
 /**
@@ -62,6 +63,7 @@ class Client implements ClientInterface
                 'Accept' => 'application/json',
                 'Access-Token' => $this->accessToken,
                 'Tenant-Domain' => $this->tenantDomain,
+                'Authorization' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiI3OTczMTRkZC05MTNiLTQ3ZWUtYWUyZS1iN2VjNWU0MzMyNzkiLCJ1c2VyX2lkIjoiN2MyYWYzYTctMWRkMi00MmI4LWJiMmEtYmE2NjcxM2VkNGM1IiwidGVuYW50X2RvbWFpbiI6Imdvb2dsZSIsInJvbGVzIjpbImRpcmVjdG9yIl19.dvFE00fc4DZSUHuF3ChE9pSUMjWEDlcQvOEQ0nVDQ00',
             ]
         ], $httpClientConfig);
 
@@ -107,8 +109,12 @@ class Client implements ClientInterface
                 ]);
 
             return $this->parseResponse($response);
-
-        } catch (\Exception $e) {
+        }
+        catch (RequestException $e) {
+            $data = $this->parseResponse($e->getResponse());
+            throw new BadResponseException($e->getMessage(), 0, $e, $data);
+        }
+        catch (\Exception $e) {
             throw new BadResponseException($e->getMessage());
         }
     }
@@ -130,6 +136,14 @@ class Client implements ClientInterface
     /**
      * @inheritdoc
      */
+    public function structureSalePointSync(array $options)
+    {
+        return $this->callMethod('v1/structure/sale-point/sync', 'POST', $options);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function structureSalePointList(array $options = [])
     {
         return $this->callMethod('v1/structure/sale-point/list', 'GET', $options);
@@ -141,6 +155,15 @@ class Client implements ClientInterface
     public function nomenclatureProductView($id)
     {
         return $this->callMethod('v1/nomenclature/product/view/' . $id);
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function nomenclatureProductSync(array $options)
+    {
+        return $this->callMethod('v1/nomenclature/product/sync', 'POST', $options);
     }
 
     /**
@@ -165,6 +188,15 @@ class Client implements ClientInterface
     public function nomenclatureCategoryList(array $options = [])
     {
         return $this->callMethod('v1/nomenclature/category/list', 'GET', $options);
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function nomenclatureCategorySync(array $options)
+    {
+        return $this->callMethod('v1/nomenclature/product-category/sync', 'POST', $options);
     }
 
     /**
