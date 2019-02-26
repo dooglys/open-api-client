@@ -321,7 +321,7 @@ class Client implements ClientInterface
      */
     public function salesOrderUpdate($id, array $options = [])
     {
-        return $this->callMethod('v1/sales/order/view/' . $id, 'POST', $options);
+        return $this->callMethod('v1/sales/order/update/' . $id, 'POST', $options);
     }
 
     /**
