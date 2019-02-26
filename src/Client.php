@@ -111,7 +111,12 @@ class Client implements ClientInterface
             return $this->parseResponse($response);
         }
         catch (RequestException $e) {
-            $data = $this->parseResponse($e->getResponse());
+            $data = [];
+            $response = $e->getResponse();
+            if ($response instanceof Response) {
+                $data = $this->parseResponse($response);
+            }
+
             throw new BadResponseException($e->getMessage(), 0, $e, $data);
         }
         catch (\Exception $e) {
