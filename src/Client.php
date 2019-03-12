@@ -63,7 +63,6 @@ class Client implements ClientInterface
                 'Accept' => 'application/json',
                 'Access-Token' => $this->accessToken,
                 'Tenant-Domain' => $this->tenantDomain,
-                'Authorization' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiI3OTczMTRkZC05MTNiLTQ3ZWUtYWUyZS1iN2VjNWU0MzMyNzkiLCJ1c2VyX2lkIjoiN2MyYWYzYTctMWRkMi00MmI4LWJiMmEtYmE2NjcxM2VkNGM1IiwidGVuYW50X2RvbWFpbiI6Imdvb2dsZSIsInJvbGVzIjpbImRpcmVjdG9yIl19.dvFE00fc4DZSUHuF3ChE9pSUMjWEDlcQvOEQ0nVDQ00',
             ]
         ], $httpClientConfig);
 
