@@ -222,6 +222,14 @@ class Client implements ClientInterface
     /**
      * @inheritdoc
      */
+    public function structureUserSync(array $options)
+    {
+        return $this->callMethod('v1/structure/user/sync', 'POST', $options);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function terminalMenuMenuView($id)
     {
         return $this->callMethod('v1/terminal-menu/menu/view/' . $id);
