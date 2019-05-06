@@ -11,7 +11,7 @@ composer require dooglys/open-api-client
 $client = new Client('your_domain', 'your_token');
 
 try {
-    $data = $client->nomenclatureProductView ('product_uuid');
+    $data = $client->nomenclatureProductView('product_uuid');
 } catch (BadResponseException $exc) {
 
 }
@@ -19,7 +19,7 @@ try {
 
 ## Тестирование
 - Скопировать файл phpunit.xml.dist -> phpunit.xml
-- Указать правильные значения констант для доступа к api серверу 
+- Указать правильные значения констант для доступа к api 
 - Запустить `vendor/bin/phpunit`
 
 
