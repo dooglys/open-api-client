@@ -108,8 +108,7 @@ class Client implements ClientInterface
                 ]);
 
             return $this->parseResponse($response);
-        }
-        catch (RequestException $e) {
+        } catch (RequestException $e) {
             $data = [];
             $response = $e->getResponse();
             if ($response instanceof Response) {
@@ -117,8 +116,7 @@ class Client implements ClientInterface
             }
 
             throw new BadResponseException($e->getMessage(), 0, $e, $data);
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             throw new BadResponseException($e->getMessage());
         }
     }
@@ -337,5 +335,18 @@ class Client implements ClientInterface
     public function salesOrderList(array $options = [])
     {
         return $this->callMethod('v1/sales/order/list', 'GET', $options);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function warehouseDocumentList(array $options = [])
+    {
+        return $this->callMethod('v1/warehouse/document/list', 'GET', $options);
+    }
+
+    public function warehouseDocumentView($id, array $options = [])
+    {
+        return $this->callMethod("v1/warehouse/document/view/$id", 'GET', $options);
     }
 }
