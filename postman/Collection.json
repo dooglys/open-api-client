@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "dd43b435-c80c-46ed-825a-20f319a4b185",
+		"_postman_id": "2dabc652-ae4c-44e2-afb2-4fae15e491f4",
 		"name": "Dooglys Open API V1",
 		"description": "# Описание методов Dooglys API v1\n\nПри отправке любого запроса к API необходимо передавать два обязательных параметра, это\nдомен предприятия и access token.\n\nЕсли данные передаются в заголовках, то это:\n\n* `Tenant-Domain`\n* `Access-Token`\n\nЕсли данные передаются в адресе, то это:\n\n* `tenant_domain`\n* `access-token`\n\n`tenant-domain` это имя домена, на котором зарегистрировано предприятие (см. метод `/structure/tenant/register`)\n`access-token` токен устройства или пользователя.\n\nКроме этого, желательно в заголовках так же передавать ID терминала (или пользователя), с которого\nосуществляется доступ. Данные передаются в поле `Terminal-Id`.\n\n# Получение Access-Token\n\nДля того чтобы получить токен необходимо в админ панели перейти на страницу управления настройками предприятия `http://YOUR_DOMAIN.dooglys.com/structure/tenant-settings/edit` и скопировать в блоке `Токены доступа` токен `Внешняя интеграция`.\n\n# Формат даты\n\nФормат даты возвращаемый некоторыми методами соответствует `Unix/Timestamp`.\n\n# Формат идентификаторов\n\nВ качестве идентификации используется строковый тип в формате Uuid 4 версии.\nДля генериции Uuid рекомендуется использовать пакет https://github.com/ramsey/uuid\n\n# Пагинация\n\nЗапросы списка объектов вида `/xxx/yyy/list` поддерживают возможность постраничного вывода данных. Так же в подобных\nзапросах возможно указание количества элементов на странице при постраничном выводе.\n\nЭто следует учитывать при проектировании приложения, которое будет взаимодействовать с API, т.к. в ближайшее\nвремя будет вводиться лимит на количество передаваемых за раз данных.\nИнформация о количестве страниц, текущей странице и общем количестве объектов передается в заголовках ответа.\nДля примера можно посмотреть работу метода `structure/user/list`\n\n# Описание залоговков постраничного вывода\n\nПри использовании запроса вида `/xxx/yyy/list` в ответ возвращают заголовки с информацией о постраничной навигации.\n\n* `X-Pagination-Total-Count` - количество всех записей.\n* `X-Pagination-Page-Count` - количество страниц.\n* `X-Pagination-Current-Page` - номер текущей страницы.\n* `X-Pagination-Per-Page` - количество элементов выводимых на странице.\n\n# Работа с постраничным выводом через API\n\nВ качестве примера взят метод получения списка акций `/special/item/list`. По умолчанию этот запрос выведет список из\nпервых 20 акций.\n\nДля управления постраничным выводом достаточно передать необходимые параметры. Например `/special/item/list?per-page=2`\nвыведет первые 2 записи из списка.\n\nЧтобы получить следующую страницу `/special/item/list?per-page=2&page=2` достаточно добавить параметр `page` в запрос.\n\nДля ряда методов существует поддержка просмотра удаленных записей. Для этого в запросе достаточно передать параметр `include_deleted`.\n\nНапример `/nomenclature/category/list?per-page=10&include_deleted=1` в список категорий добавит еще удаленные.\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -50,10 +50,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/structure/tenant/settings",
 							"host": [
@@ -86,10 +82,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/structure/tenant/settings",
 									"host": [
@@ -519,10 +511,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/loyalty/settings/view",
 							"host": [
@@ -555,10 +543,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/loyalty/settings/view",
 									"host": [
@@ -756,10 +740,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/nomenclature/product/view/cbb79b36-c3e4-40ae-b7b0-f22c401b2421",
 							"host": [
@@ -793,10 +773,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/nomenclature/product/view/814484b1-d0c6-44d1-aad1-72a07ac4953f",
 									"host": [
@@ -874,10 +850,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 							"host": [
@@ -920,10 +892,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/nomenclature/product/list?per-page=999&include_deleted=1",
 									"host": [
@@ -1030,10 +998,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/nomenclature/product-category/view/dd8c59ff-bfac-45c8-8831-9dfdd9c5ec49",
 							"host": [
@@ -1067,10 +1031,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/nomenclature/product-category/view/dd8c59ff-bfac-45c8-8831-9dfdd9c5ec49",
 									"host": [
@@ -1152,10 +1112,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/nomenclature/product-category/list?per-page=999&include_deleted=1",
 							"host": [
@@ -1198,10 +1154,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/nomenclature/product-category/list?per-page=999&include_deleted=1",
 									"host": [
@@ -1313,10 +1265,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/structure/user/view/7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5",
 							"host": [
@@ -1350,10 +1298,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/structure/user/view/7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5",
 									"host": [
@@ -1431,10 +1375,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/structure/user/list",
 							"host": [
@@ -1467,10 +1407,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/structure/user/list",
 									"host": [
@@ -1574,10 +1510,6 @@
 								"description": "Домен предприятия. Пример: `pekarni`"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/structure/sale-point/view/94bdb66f-70ba-4940-8a67-b637d6edf46f",
 							"host": [
@@ -1613,10 +1545,6 @@
 										"description": "Домен предприятия. Пример: `pekarni`"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/structure/sale-point/view/94bdb66f-70ba-4940-8a67-b637d6edf46f",
 									"host": [
@@ -1696,10 +1624,6 @@
 								"description": "Домен предприятия. Пример: `pekarni`"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/structure/sale-point/list",
 							"host": [
@@ -1734,10 +1658,6 @@
 										"description": "Домен предприятия. Пример: `pekarni`"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/structure/sale-point/list",
 									"host": [
@@ -1839,10 +1759,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
@@ -1876,10 +1792,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/terminal-menu/menu/kit/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
@@ -1957,10 +1869,6 @@
 								"value": "{{access_token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 							"host": [
@@ -2000,10 +1908,6 @@
 										"value": "{{access_token}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/terminal-menu/menu/view/647ea788-3b78-4ef3-a885-d0eb1fc18a35?scenario=full",
 									"host": [
@@ -2087,10 +1991,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
@@ -2124,10 +2024,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/terminal-menu/menu/modifier/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
@@ -2205,10 +2101,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/terminal-menu/menu/kit-products/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 							"host": [
@@ -2242,10 +2134,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/terminal-menu/menu/kit-products/647ea788-3b78-4ef3-a885-d0eb1fc18a35",
 									"host": [
@@ -2328,10 +2216,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 							"host": [
@@ -2365,10 +2249,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/sales/order/view/4ca56dbb-9cfc-46fc-90f4-41101d0d4a49",
 									"host": [
@@ -2446,10 +2326,6 @@
 								"value": "{{tenant_domain}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/sales/order/list?per-page=999",
 							"host": [
@@ -2488,10 +2364,6 @@
 										"value": "{{tenant_domain}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/sales/order/list?per-page=999",
 									"host": [
@@ -2844,10 +2716,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/structure/locality/list",
 							"host": [
@@ -2883,10 +2751,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/structure/locality/list",
 									"host": [
@@ -2992,10 +2856,6 @@
 								"disabled": true
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{base_uri}}/structure/locality/view/47004823-e8b4-4de6-a9ee-7fd2f00a92e2",
 							"host": [
@@ -3038,10 +2898,6 @@
 										"disabled": true
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{base_uri}}/structure/locality/view/47004823-e8b4-4de6-a9ee-7fd2f00a92e2",
 									"host": [
@@ -3100,6 +2956,107 @@
 							"body": "{\n    \"id\": \"47004823-e8b4-4de6-a9ee-7fd2f00a92e2\",\n    \"name\": \"Россия, Нижний Новгород\",\n    \"coordinates\": {\n        \"lat\": 44.005986,\n        \"long\": 44.005986\n    },\n    \"short_name\": \"\",\n    \"menu_id\": \"b485ee06-dc00-4f89-9f3c-4fe548dc7231\",\n    \"phones\": [\n        \"78005553535\",\n        \"78005556343\"\n    ],\n    \"time_zone\": \"Africa/Accra\",\n    \"sub_localities\": [\n        {\n            \"name\": \"Марокко, город Касабланка, T1\",\n            \"coordinates\": {\n                \"lat\": \"-7.591231\",\n                \"long\": \"33.590289\"\n            }\n        },\n        {\n            \"name\": \"Мексика, Веракрус, Анхель Р. Кабада\",\n            \"coordinates\": {\n                \"lat\": \"-95.446888\",\n                \"long\": \"18.5968\"\n            }\n        }\n    ],\n    \"sale_points\": [\n        {\n            \"id\": \"babf9d2a-fea2-4702-a63a-a0f0222779ff\",\n            \"name\": \"Точка Youtube 2\",\n            \"address\": null,\n            \"service_area\": [\n                {\n                    \"name\": \"Россия, Нижний Новгород\",\n                    \"coordinates\": {\n                        \"lat\": 44.005986,\n                        \"long\": 44.005986\n                    }\n                },\n                {\n                    \"name\": \"Марокко, город Касабланка, T1\",\n                    \"coordinates\": {\n                        \"lat\": \"-7.591231\",\n                        \"long\": \"33.590289\"\n                    }\n                },\n                {\n                    \"name\": \"Мексика, Веракрус, Анхель Р. Кабада\",\n                    \"coordinates\": {\n                        \"lat\": \"-95.446888\",\n                        \"long\": \"18.5968\"\n                    }\n                }\n            ],\n            \"phone_number\": \"77831771123\",\n            \"organization\": null,\n            \"table_count\": null,\n            \"tax_system\": \"\",\n            \"tax_system_delivery\": \"\",\n            \"use_cook_app\": false,\n            \"confirm_ready_state_for_packaging\": false,\n            \"use_packer_app\": false,\n            \"confirm_packaging_for_delivery\": false,\n            \"use_master_chef_app\": false,\n            \"confirm_packaging_by_master_chef\": false,\n            \"cooking_time\": null,\n            \"marker_color\": \"#ff4646\",\n            \"telephony_settings_id\": \"17c447f9-831f-473f-8020-0d7a709977d7\",\n            \"telephony_caller_id\": \"77831771123\",\n            \"menu_id\": null,\n            \"work_state\": \"working\",\n            \"stop_description\": \"\",\n            \"extra_fields\": []\n        }\n    ]\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Склад (warehouse)",
+			"item": [
+				{
+					"name": "warehouse/document/list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Access-Token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Tenant-Domain",
+								"value": "{{tenant_domain}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_uri}}/warehouse/document/view/d08bb346-5106-4d6e-a21d-b6f9449764e9",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"warehouse",
+								"document",
+								"view",
+								"d08bb346-5106-4d6e-a21d-b6f9449764e9"
+							]
+						},
+						"description": "Чтобы получить информацию о  документе, вам необходимо выполнить запрос к\n`{{base_uri}}/warehouse/document/view/{id}` с помощью метода `GET`\n\nПараметры запроса\n\nИмя                     |      Тип        | Обязательный   | Тип значения |  Описание\n:---------------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain           |   header        |      Да        | string       | Домен предприятия\nAccess-Token            |   header        |      Да        | string       | Токен доступа\nid                      |   query         |      Да        | string       | ID документа\n\n\nТело ответа содержит набор полей документа, который зависит от типа документа:\n\nТип документа                          | Имя                        |  Тип значения  |  Описание\n:------------------------------------: | :------------------------: | :------------: | :--------\n* (Есть во всех документах)            |                            |                | \n                                       | id                         |   string       | ID документа\n                                       | type                       |   string       | Тип документа\n                                       | number                     |   string       | Номер документа\n                                       | warehouse_id               |   string       | ID склада получателя\n                                       | user_id                    |   string       | ID пользователя\n                                       | organization_id            |   string       | ID организации\n                                       | is_register                |   bool         | Документ проведен \n                                       | registration_date          |   int32        | Дата проведения документа\n                                       | deleted                    |   bool         | Удален \n                                       | is_system                  |   bool         | Системный документ\n                                       | comment                    |   string       | Комментарий\n                                       | created_at                 |   int32        | Дата создания\n                                       | document_products          |   array        | Коллекция товаров в документе\nРеализация (realization)               |                            |                |\n                                       | contractor_id              |   string       | ID контрагента\n                                       | cashier_shift_id           |   string       | ID смены\n                                       | sale_point_id              |   string       | ID торговой точки\nПоступление (supply)                   |\t\t\t\t\t\t\t  | \t\t\t   | \n                                       | incoming_document_number   |   string       | Номер входящего документа\n                                       | incoming_document_date     |   int32        | Дата входящего документа\n                                       | contractor_id              |   string       | ID контрагента\nОприходование (posting)                |                            |                |\n                                       | document_id                |   string       | Документ основание\nВозврат поставщику (refund-supplier)   |    \t\t\t\t\t\t|\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\n\t\t\t\t\t\t\t\t\t   | return_date                |   int32        | Дата возврата\n\t\t\t\t\t\t\t\t\t   | contractor_id              |   string       | ID контрагента\nВозврат от покупателя (refund-buyer)   |                            |\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | purchase_date              |   int32        | Дата покупки\n\t\t\t\t\t\t\t\t\t   | return_date                |   int32        | Дата возврата\nСписание (write-off)                   |                            |                |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\nПереоценка (revaluation)               |                            |                |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\nПеремещение (relocation)               |\n\t\t\t\t\t\t\t\t\t   | warehouse_sender_id        |   string       | Склад отправитель\nЗаявка поставщику (order-supplier)     |            \t\t\t\t|\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | contractor_id              |   string       | ID контрагента\n\nТакже элементы документа (document_products) в зависимости от типа документа имеют различный набор полей:\n\nТип документа                      |  Имя               |  Тип значения  |  Описание\n:--------------------------------: |  :---------------: | :------------: | :--------\n* (Есть во всех)                   |  id                |   string       | ID элемента документа\n                                   |  product_id        |   string       | ID товара\n                                   |  price             |   float        | Цена\nПереоценка (revaluation)           |                    |                |           \n\t\t\t                       |  new_price         |   float        | Новая цена  \n                                   |  change_price_at   |   string       | Дата изменения цены\nЗаявка поставщику (order-supplier) |                    |                |\n\t\t\t\t                   |  quantity          |   float        | Количество\n\t\t\t\t                   |  minimum_stock     |   float        | Минимальный остаток\n                                   |  stock             |   float        | Остаток\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nИнвентаризация (inventory)         |                    |                |  \n                                   |  actial_stock      |   float        | Фактический остаток\n                                   |  stock             |   float        | Остаток\n                                   |  diff              |   float        | Разница\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nОприходование (posting)            |                    |                | \n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t                       |  new_price         |   float        | Новая цена  \n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nПоступление (supply)               |                    |                |\n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t                       |  new_price         |   float        | Новая цена  \n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nОстальные (relocation, write-off, realization, refund-buyer, refund-supplier)\n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения"
+					},
+					"response": []
+				},
+				{
+					"name": "warehouse/document/view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Access-Token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Tenant-Domain",
+								"value": "{{tenant_domain}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_uri}}/warehouse/document/list",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"warehouse",
+								"document",
+								"list"
+							]
+						},
+						"description": "Чтобы получить список проведенных документов, вам необходимо выполнить запрос к\n`{{base_uri}}/warehouse/document/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя                     |      Тип        | Обязательный   | Тип значения |  Описание\n:---------------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain           |   header        |      Да        | string       | Домен предприятия\nAccess-Token            |   header        |      Да        | string       | Токен доступа\nper-page                |   query         |      Нет       | int32        | Количество записей на страницу\npage                    |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ntype                    |   query\t\t  |\t\t Нет       | string       | Тип документа\nwarehouse_id            |   query\t\t  |      Нет       | string       | ID склада\nuser_id                 |   query\t      |      Нет       | string       | ID пользователя (создатель документа)\nsale_point_id           |   query\t\t  |      Нет       | string       | ID торговой точки\ncashier_shift_id        |   query         |      Нет       | string       | ID смены (для документов реализации)\norganization_id         |   query         |      Нет       | string       | ID организации\ninclude_deleted         |   query         |      Нет       | int32        | Включая документы из архива (0-нет, 1-да)\nis_system               |   query         |      Нет       | int32        | Является системным документом (0-нет, 1-да)\nregistration_date_from  |   query         |      Нет       | int32        | Проведен с\nregistration_date_to    |   query         |      Нет       | int32        | Проведен по"
+					},
+					"response": []
+				}
+			],
+			"description": "Модуль склада",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8cf6038b-e9f6-4b00-8eeb-6c4aa469d8f5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ee2a699-0a68-4797-b257-04d1f10e8463",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		}
