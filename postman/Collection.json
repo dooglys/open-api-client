@@ -2984,20 +2984,125 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_uri}}/warehouse/document/view/d08bb346-5106-4d6e-a21d-b6f9449764e9",
+							"raw": "{{base_uri}}/warehouse/document/list",
 							"host": [
 								"{{base_uri}}"
 							],
 							"path": [
 								"warehouse",
 								"document",
-								"view",
-								"d08bb346-5106-4d6e-a21d-b6f9449764e9"
+								"list"
 							]
 						},
-						"description": "Чтобы получить информацию о  документе, вам необходимо выполнить запрос к\n`{{base_uri}}/warehouse/document/view/{id}` с помощью метода `GET`\n\nПараметры запроса\n\nИмя                     |      Тип        | Обязательный   | Тип значения |  Описание\n:---------------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain           |   header        |      Да        | string       | Домен предприятия\nAccess-Token            |   header        |      Да        | string       | Токен доступа\nid                      |   query         |      Да        | string       | ID документа\n\n\nТело ответа содержит набор полей документа, который зависит от типа документа:\n\nТип документа                          | Имя                        |  Тип значения  |  Описание\n:------------------------------------: | :------------------------: | :------------: | :--------\n* (Есть во всех документах)            |                            |                | \n                                       | id                         |   string       | ID документа\n                                       | type                       |   string       | Тип документа\n                                       | number                     |   string       | Номер документа\n                                       | warehouse_id               |   string       | ID склада получателя\n                                       | user_id                    |   string       | ID пользователя\n                                       | organization_id            |   string       | ID организации\n                                       | is_register                |   bool         | Документ проведен \n                                       | registration_date          |   int32        | Дата проведения документа\n                                       | deleted                    |   bool         | Удален \n                                       | is_system                  |   bool         | Системный документ\n                                       | comment                    |   string       | Комментарий\n                                       | created_at                 |   int32        | Дата создания\n                                       | document_products          |   array        | Коллекция товаров в документе\nРеализация (realization)               |                            |                |\n                                       | contractor_id              |   string       | ID контрагента\n                                       | cashier_shift_id           |   string       | ID смены\n                                       | sale_point_id              |   string       | ID торговой точки\nПоступление (supply)                   |\t\t\t\t\t\t\t  | \t\t\t   | \n                                       | incoming_document_number   |   string       | Номер входящего документа\n                                       | incoming_document_date     |   int32        | Дата входящего документа\n                                       | contractor_id              |   string       | ID контрагента\nОприходование (posting)                |                            |                |\n                                       | document_id                |   string       | Документ основание\nВозврат поставщику (refund-supplier)   |    \t\t\t\t\t\t|\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\n\t\t\t\t\t\t\t\t\t   | return_date                |   int32        | Дата возврата\n\t\t\t\t\t\t\t\t\t   | contractor_id              |   string       | ID контрагента\nВозврат от покупателя (refund-buyer)   |                            |\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | purchase_date              |   int32        | Дата покупки\n\t\t\t\t\t\t\t\t\t   | return_date                |   int32        | Дата возврата\nСписание (write-off)                   |                            |                |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\nПереоценка (revaluation)               |                            |                |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\nПеремещение (relocation)               |\n\t\t\t\t\t\t\t\t\t   | warehouse_sender_id        |   string       | Склад отправитель\nЗаявка поставщику (order-supplier)     |            \t\t\t\t|\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | contractor_id              |   string       | ID контрагента\n\nТакже элементы документа (document_products) в зависимости от типа документа имеют различный набор полей:\n\nТип документа                      |  Имя               |  Тип значения  |  Описание\n:--------------------------------: |  :---------------: | :------------: | :--------\n* (Есть во всех)                   |  id                |   string       | ID элемента документа\n                                   |  product_id        |   string       | ID товара\n                                   |  price             |   float        | Цена\nПереоценка (revaluation)           |                    |                |           \n\t\t\t                       |  new_price         |   float        | Новая цена  \n                                   |  change_price_at   |   string       | Дата изменения цены\nЗаявка поставщику (order-supplier) |                    |                |\n\t\t\t\t                   |  quantity          |   float        | Количество\n\t\t\t\t                   |  minimum_stock     |   float        | Минимальный остаток\n                                   |  stock             |   float        | Остаток\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nИнвентаризация (inventory)         |                    |                |  \n                                   |  actial_stock      |   float        | Фактический остаток\n                                   |  stock             |   float        | Остаток\n                                   |  diff              |   float        | Разница\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nОприходование (posting)            |                    |                | \n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t                       |  new_price         |   float        | Новая цена  \n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nПоступление (supply)               |                    |                |\n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t                       |  new_price         |   float        | Новая цена  \n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nОстальные (relocation, write-off, realization, refund-buyer, refund-supplier)\n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения"
+						"description": "Чтобы получить список проведенных документов, вам необходимо выполнить запрос к\n`{{base_uri}}/warehouse/document/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя                     |      Тип        | Обязательный   | Тип значения |  Описание\n:---------------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain           |   header        |      Да        | string       | Домен предприятия\nAccess-Token            |   header        |      Да        | string       | Токен доступа\nper-page                |   query         |      Нет       | int32        | Количество записей на страницу\npage                    |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ntype                    |   query\t\t  |\t\t Нет       | string       | Тип документа\nwarehouse_id            |   query\t\t  |      Нет       | string       | ID склада\nuser_id                 |   query\t      |      Нет       | string       | ID пользователя (создатель документа)\nsale_point_id           |   query\t\t  |      Нет       | string       | ID торговой точки\ncashier_shift_id        |   query         |      Нет       | string       | ID смены (для документов реализации)\norganization_id         |   query         |      Нет       | string       | ID организации\ninclude_deleted         |   query         |      Нет       | int32        | Включая документы из архива (0-нет, 1-да)\nis_system               |   query         |      Нет       | int32        | Является системным документом (0-нет, 1-да)\nregistration_date_from  |   query         |      Нет       | int32        | Проведен с\nregistration_date_to    |   query         |      Нет       | int32        | Проведен по"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "warehouse/document/list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Access-Token",
+										"value": "{{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Tenant-Domain",
+										"value": "{{tenant_domain}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_uri}}/warehouse/document/list",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"warehouse",
+										"document",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.12.2"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Aug 2019 10:21:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page"
+								},
+								{
+									"key": "X-Pagination-Total-Count",
+									"value": "11"
+								},
+								{
+									"key": "X-Pagination-Page-Count",
+									"value": "1"
+								},
+								{
+									"key": "X-Pagination-Current-Page",
+									"value": "1"
+								},
+								{
+									"key": "X-Pagination-Per-Page",
+									"value": "20"
+								},
+								{
+									"key": "Link",
+									"value": "<http://google.dooglys.local:8225/api/v1/warehouse/document/list?page=1>; rel=self"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "5d53e09fe486e"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "2,708"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/api/debug/default/view?tag=5d53e09fe486e"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf-api=cdb73f308028e64acbe7c9ace20bf2250c877e619c27b7e1763706f4d1c8f7eca%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_csrf-api%22%3Bi%3A1%3Bs%3A32%3A%22xHAe3YNozcpmsvIMo4t8l27Kfmg3QEKj%22%3B%7D; path=/; HttpOnly"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"7b2bd4dc-1b21-492f-83ec-f0ac520842ba\",\n        \"type\": \"supply\",\n        \"number\": \"ПОСТ-3\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565691453,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"984722cd-254d-4900-aa1f-057a1a7bcb1e\",\n        \"type\": \"inventory\",\n        \"number\": \"ИНВ-2\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"3dd2089d-c0f6-456e-84a0-bf917372ff3e\",\n        \"type\": \"relocation\",\n        \"number\": \"ПЕР-2\",\n        \"warehouse_id\": \"301c44cb-fe04-4e1a-b34d-055ed5ea69ba\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"19c86e8b-7c54-4c58-a94c-647583ce660d\",\n        \"type\": \"realization\",\n        \"number\": \"РЕАЛ-3\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"77f3ff06-32b8-4567-a62f-d036672a43e2\",\n        \"type\": \"realization\",\n        \"number\": \"РЕАЛ-10\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"baf79898-0281-41f5-b513-529b2a37b2d0\",\n        \"type\": \"posting\",\n        \"number\": \"ОПР-2\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": \"c037cc01-b5b0-437c-a841-19987cd577a4\",\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"c9d13c67-f303-4190-93cf-02910bb1c5a1\",\n        \"type\": \"refund-buyer\",\n        \"number\": \"ВПОКУП-2\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"c88ecfda-3f8a-41d1-9576-9611b34c8ec2\",\n        \"type\": \"refund-supplier\",\n        \"number\": \"ВПОСТ-2\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"7d2826bb-7268-4cae-b66b-461e2f854bc9\",\n        \"type\": \"write-off\",\n        \"number\": \"СПИС-2\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"29cf5c0d-5ace-4c04-a1d7-ae44ba57adc1\",\n        \"type\": \"revaluation\",\n        \"number\": \"ПЕРЕОЦ-2\",\n        \"warehouse_id\": null,\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": null,\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565777853,\n        \"deleted\": false,\n        \"is_system\": false\n    },\n    {\n        \"id\": \"d08bb346-5106-4d6e-a21d-b6f9449764e9\",\n        \"type\": \"realization\",\n        \"number\": \"РЕАЛ-99\",\n        \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n        \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n        \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n        \"cashier_shift_id\": null,\n        \"organization_id\": null,\n        \"is_register\": true,\n        \"registration_date\": 1565173053,\n        \"deleted\": false,\n        \"is_system\": true\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "warehouse/document/view",
@@ -3021,19 +3126,107 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_uri}}/warehouse/document/list",
+							"raw": "{{base_uri}}/warehouse/document/view/d08bb346-5106-4d6e-a21d-b6f9449764e9",
 							"host": [
 								"{{base_uri}}"
 							],
 							"path": [
 								"warehouse",
 								"document",
-								"list"
+								"view",
+								"d08bb346-5106-4d6e-a21d-b6f9449764e9"
 							]
 						},
-						"description": "Чтобы получить список проведенных документов, вам необходимо выполнить запрос к\n`{{base_uri}}/warehouse/document/list` с помощью метода `GET`\n\n\nПараметры запроса\n\nИмя                     |      Тип        | Обязательный   | Тип значения |  Описание\n:---------------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain           |   header        |      Да        | string       | Домен предприятия\nAccess-Token            |   header        |      Да        | string       | Токен доступа\nper-page                |   query         |      Нет       | int32        | Количество записей на страницу\npage                    |   query         |      Нет       | int32        | Номер страницы при постраничном просмотре\ntype                    |   query\t\t  |\t\t Нет       | string       | Тип документа\nwarehouse_id            |   query\t\t  |      Нет       | string       | ID склада\nuser_id                 |   query\t      |      Нет       | string       | ID пользователя (создатель документа)\nsale_point_id           |   query\t\t  |      Нет       | string       | ID торговой точки\ncashier_shift_id        |   query         |      Нет       | string       | ID смены (для документов реализации)\norganization_id         |   query         |      Нет       | string       | ID организации\ninclude_deleted         |   query         |      Нет       | int32        | Включая документы из архива (0-нет, 1-да)\nis_system               |   query         |      Нет       | int32        | Является системным документом (0-нет, 1-да)\nregistration_date_from  |   query         |      Нет       | int32        | Проведен с\nregistration_date_to    |   query         |      Нет       | int32        | Проведен по"
+						"description": "Чтобы получить информацию о  документе, вам необходимо выполнить запрос к\n`{{base_uri}}/warehouse/document/view/{id}` с помощью метода `GET`\n\nПараметры запроса\n\nИмя                     |      Тип        | Обязательный   | Тип значения |  Описание\n:---------------------: | :-------------: | :------------: | :----------: | :--------- \nTenant-Domain           |   header        |      Да        | string       | Домен предприятия\nAccess-Token            |   header        |      Да        | string       | Токен доступа\nid                      |   query         |      Да        | string       | ID документа\n\n\nТело ответа содержит набор полей документа, который зависит от типа документа:\n\nТип документа                          | Имя                        |  Тип значения  |  Описание\n:------------------------------------: | :------------------------: | :------------: | :--------\n* (Есть во всех документах)            |                            |                | \n                                       | id                         |   string       | ID документа\n                                       | type                       |   string       | Тип документа\n                                       | number                     |   string       | Номер документа\n                                       | warehouse_id               |   string       | ID склада получателя\n                                       | user_id                    |   string       | ID пользователя\n                                       | organization_id            |   string       | ID организации\n                                       | is_register                |   bool         | Документ проведен \n                                       | registration_date          |   int32        | Дата проведения документа\n                                       | deleted                    |   bool         | Удален \n                                       | is_system                  |   bool         | Системный документ\n                                       | comment                    |   string       | Комментарий\n                                       | created_at                 |   int32        | Дата создания\n                                       | document_products          |   array        | Коллекция товаров в документе\nРеализация (realization)               |                            |                |\n                                       | contractor_id              |   string       | ID контрагента\n                                       | cashier_shift_id           |   string       | ID смены\n                                       | sale_point_id              |   string       | ID торговой точки\nПоступление (supply)                   |\t\t\t\t\t\t\t  | \t\t\t   | \n                                       | incoming_document_number   |   string       | Номер входящего документа\n                                       | incoming_document_date     |   int32        | Дата входящего документа\n                                       | contractor_id              |   string       | ID контрагента\nОприходование (posting)                |                            |                |\n                                       | document_id                |   string       | Документ основание\nВозврат поставщику (refund-supplier)   |    \t\t\t\t\t\t|\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\n\t\t\t\t\t\t\t\t\t   | return_date                |   int32        | Дата возврата\n\t\t\t\t\t\t\t\t\t   | contractor_id              |   string       | ID контрагента\nВозврат от покупателя (refund-buyer)   |                            |\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | purchase_date              |   int32        | Дата покупки\n\t\t\t\t\t\t\t\t\t   | return_date                |   int32        | Дата возврата\nСписание (write-off)                   |                            |                |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\nПереоценка (revaluation)               |                            |                |\n\t\t\t\t\t\t\t\t\t   | document_id                |   string       | Документ основание\nПеремещение (relocation)               |\n\t\t\t\t\t\t\t\t\t   | warehouse_sender_id        |   string       | Склад отправитель\nЗаявка поставщику (order-supplier)     |            \t\t\t\t|\t\t\t\t |\n\t\t\t\t\t\t\t\t\t   | contractor_id              |   string       | ID контрагента\n\nТакже элементы документа (document_products) в зависимости от типа документа имеют различный набор полей:\n\nТип документа                      |  Имя               |  Тип значения  |  Описание\n:--------------------------------: |  :---------------: | :------------: | :--------\n* (Есть во всех)                   |  id                |   string       | ID элемента документа\n                                   |  product_id        |   string       | ID товара\n                                   |  price             |   float        | Цена\nПереоценка (revaluation)           |                    |                |           \n\t\t\t                       |  new_price         |   float        | Новая цена  \n                                   |  change_price_at   |   string       | Дата изменения цены\nЗаявка поставщику (order-supplier) |                    |                |\n\t\t\t\t                   |  quantity          |   float        | Количество\n\t\t\t\t                   |  minimum_stock     |   float        | Минимальный остаток\n                                   |  stock             |   float        | Остаток\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nИнвентаризация (inventory)         |                    |                |  \n                                   |  actial_stock      |   float        | Фактический остаток\n                                   |  stock             |   float        | Остаток\n                                   |  diff              |   float        | Разница\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nОприходование (posting)            |                    |                | \n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t                       |  new_price         |   float        | Новая цена  \n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nПоступление (supply)               |                    |                |\n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t                       |  new_price         |   float        | Новая цена  \n\t\t\t\t                   |  measure_code      |   string       | Единица измерения\nОстальные (relocation, write-off, realization, refund-buyer, refund-supplier)\n                                   |  quantity          |   float        | Количество\n                                   |  sum               |   float        | Сумма\n                                   |  stock             |   float        | Остаток\n\t\t\t\t                   |  measure_code      |   string       | Единица измерения"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "warehouse/document/view",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Access-Token",
+										"value": "{{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Tenant-Domain",
+										"value": "{{tenant_domain}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_uri}}/warehouse/document/view/d08bb346-5106-4d6e-a21d-b6f9449764e9",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"warehouse",
+										"document",
+										"view",
+										"d08bb346-5106-4d6e-a21d-b6f9449764e9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.12.2"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Aug 2019 10:22:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page"
+								},
+								{
+									"key": "X-Debug-Tag",
+									"value": "5d53e0df08e79"
+								},
+								{
+									"key": "X-Debug-Duration",
+									"value": "2,508"
+								},
+								{
+									"key": "X-Debug-Link",
+									"value": "/api/debug/default/view?tag=5d53e0df08e79"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_csrf-api=d75adb481d6a510e51c48f961f0261216fa9738b89dea5b460a92aa484fc3414a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_csrf-api%22%3Bi%3A1%3Bs%3A32%3A%22CqHANRg72fZ-HiLa_DU0gahuJvQUYoHW%22%3B%7D; path=/; HttpOnly"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d08bb346-5106-4d6e-a21d-b6f9449764e9\",\n    \"type\": \"realization\",\n    \"number\": \"РЕАЛ-99\",\n    \"warehouse_id\": \"8fc40bdf-97a0-42ed-bc87-b43f2a3430db\",\n    \"user_id\": \"7c2af3a7-1dd2-42b8-bb2a-ba66713ed4c5\",\n    \"organization_id\": null,\n    \"is_register\": true,\n    \"registration_date\": 1565173053,\n    \"deleted\": false,\n    \"is_system\": true,\n    \"comment\": null,\n    \"created_at\": 1565173053,\n    \"document_products\": [\n        {\n            \"id\": \"21cc735a-c31c-4072-ac6f-f25180f93287\",\n            \"product_id\": \"a2bfd096-c690-4ce4-a8a4-48d4ab5916db\",\n            \"price\": 410,\n            \"quantity\": 5,\n            \"measure_code\": \"796\",\n            \"stock\": 0,\n            \"sum\": 2050\n        },\n        {\n            \"id\": \"afc0748b-1ddb-4e00-9059-815e2ea7babd\",\n            \"product_id\": \"bedc64b6-3e0f-40eb-b129-3c1c5bcc3372\",\n            \"price\": 509,\n            \"quantity\": 1,\n            \"measure_code\": \"796\",\n            \"stock\": 0,\n            \"sum\": 509\n        }\n    ],\n    \"contractor_id\": \"b1ee962e-8d63-4e3e-b53d-520177ed390c\",\n    \"sale_point_id\": \"94bdb66f-70ba-4940-8a67-b637d6edf46f\",\n    \"cashier_shift_id\": null\n}"
+						}
+					]
 				}
 			],
 			"description": "Модуль склада",
